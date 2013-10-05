@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF43963217F7946A00AC7660 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43963117F7946A00AC7660 /* LoginViewController.m */; };
 		EFC077B317F776FA001B1EEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC077B217F776FA001B1EEF /* UIKit.framework */; };
 		EFC077B517F776FA001B1EEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC077B417F776FA001B1EEF /* Foundation.framework */; };
 		EFC077B717F776FA001B1EEF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC077B617F776FA001B1EEF /* CoreGraphics.framework */; };
@@ -28,6 +29,11 @@
 		EFC077E417F776FB001B1EEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC077B417F776FA001B1EEF /* Foundation.framework */; };
 		EFC077EC17F776FB001B1EEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFC077EA17F776FB001B1EEF /* InfoPlist.strings */; };
 		EFC077EF17F776FB001B1EEF /* Where_ir_my_friend_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC077EE17F776FB001B1EEF /* Where_ir_my_friend_Tests.m */; };
+		FED8241618006BEC0089C870 /* face.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FED8241518006BEC0089C870 /* face.jpg */; };
+		FEEBC7F517FCB1CC00D73176 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEEBC7F417FCB1CC00D73176 /* MapKit.framework */; };
+		FEEBC7F717FCB96400D73176 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = FEEBC7F617FCB96400D73176 /* map.png */; };
+		FEEBC7F917FCB96F00D73176 /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = FEEBC7F817FCB96F00D73176 /* friends.png */; };
+		FEEBC7FB17FCB97A00D73176 /* requests.png in Resources */ = {isa = PBXBuildFile; fileRef = FEEBC7FA17FCB97A00D73176 /* requests.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,14 +47,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EFC077AF17F776FA001B1EEF /* Where ir my friend?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Where ir my friend?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF43963017F7946A00AC7660 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		EF43963117F7946A00AC7660 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		EFC077AF17F776FA001B1EEF /* Where is my friend?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Where is my friend?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC077B217F776FA001B1EEF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EFC077B417F776FA001B1EEF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EFC077B617F776FA001B1EEF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		EFC077BA17F776FA001B1EEF /* Where ir my friend?-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Where ir my friend?-Info.plist"; sourceTree = "<group>"; };
+		EFC077BA17F776FA001B1EEF /* Where is my friend?-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Where is my friend?-Info.plist"; sourceTree = "<group>"; };
 		EFC077BC17F776FA001B1EEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EFC077BE17F776FA001B1EEF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EFC077C017F776FA001B1EEF /* Where ir my friend?-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Where ir my friend?-Prefix.pch"; sourceTree = "<group>"; };
+		EFC077C017F776FA001B1EEF /* Where is my friend?-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Where is my friend?-Prefix.pch"; sourceTree = "<group>"; };
 		EFC077C117F776FA001B1EEF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EFC077C217F776FA001B1EEF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EFC077C417F776FA001B1EEF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -63,12 +71,17 @@
 		EFC077D517F776FA001B1EEF /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		EFC077D717F776FA001B1EEF /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		EFC077D917F776FA001B1EEF /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		EFC077E017F776FB001B1EEF /* Where ir my friend?Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Where ir my friend?Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFC077E017F776FB001B1EEF /* Where is my friend?Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Where is my friend?Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC077E117F776FB001B1EEF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		EFC077E917F776FB001B1EEF /* Where ir my friend?Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Where ir my friend?Tests-Info.plist"; sourceTree = "<group>"; };
+		EFC077E917F776FB001B1EEF /* Where is my friend?Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Where is my friend?Tests-Info.plist"; sourceTree = "<group>"; };
 		EFC077EB17F776FB001B1EEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EFC077ED17F776FB001B1EEF /* Where_ir_my_friend_Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Where_ir_my_friend_Tests.h; sourceTree = "<group>"; };
 		EFC077EE17F776FB001B1EEF /* Where_ir_my_friend_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Where_ir_my_friend_Tests.m; sourceTree = "<group>"; };
+		FED8241518006BEC0089C870 /* face.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = face.jpg; sourceTree = "<group>"; };
+		FEEBC7F417FCB1CC00D73176 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FEEBC7F617FCB96400D73176 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		FEEBC7F817FCB96F00D73176 /* friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friends.png; sourceTree = "<group>"; };
+		FEEBC7FA17FCB97A00D73176 /* requests.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = requests.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEEBC7F517FCB1CC00D73176 /* MapKit.framework in Frameworks */,
 				EFC077B317F776FA001B1EEF /* UIKit.framework in Frameworks */,
 				EFC077B517F776FA001B1EEF /* Foundation.framework in Frameworks */,
 				EFC077B717F776FA001B1EEF /* CoreGraphics.framework in Frameworks */,
@@ -108,8 +122,8 @@
 		EFC077B017F776FA001B1EEF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EFC077AF17F776FA001B1EEF /* Where ir my friend?.app */,
-				EFC077E017F776FB001B1EEF /* Where ir my friend?Tests.octest */,
+				EFC077AF17F776FA001B1EEF /* Where is my friend?.app */,
+				EFC077E017F776FB001B1EEF /* Where is my friend?Tests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,6 +131,7 @@
 		EFC077B117F776FA001B1EEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FEEBC7F417FCB1CC00D73176 /* MapKit.framework */,
 				EFC077B217F776FA001B1EEF /* UIKit.framework */,
 				EFC077B417F776FA001B1EEF /* Foundation.framework */,
 				EFC077B617F776FA001B1EEF /* CoreGraphics.framework */,
@@ -140,6 +155,8 @@
 				EFC077D717F776FA001B1EEF /* second.png */,
 				EFC077D917F776FA001B1EEF /* second@2x.png */,
 				EFC077B917F776FA001B1EEF /* Supporting Files */,
+				EF43963017F7946A00AC7660 /* LoginViewController.h */,
+				EF43963117F7946A00AC7660 /* LoginViewController.m */,
 			);
 			path = "Where ir my friend?";
 			sourceTree = "<group>";
@@ -147,10 +164,14 @@
 		EFC077B917F776FA001B1EEF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EFC077BA17F776FA001B1EEF /* Where ir my friend?-Info.plist */,
+				FED8241518006BEC0089C870 /* face.jpg */,
+				FEEBC7FA17FCB97A00D73176 /* requests.png */,
+				FEEBC7F817FCB96F00D73176 /* friends.png */,
+				FEEBC7F617FCB96400D73176 /* map.png */,
+				EFC077BA17F776FA001B1EEF /* Where is my friend?-Info.plist */,
 				EFC077BB17F776FA001B1EEF /* InfoPlist.strings */,
 				EFC077BE17F776FA001B1EEF /* main.m */,
-				EFC077C017F776FA001B1EEF /* Where ir my friend?-Prefix.pch */,
+				EFC077C017F776FA001B1EEF /* Where is my friend?-Prefix.pch */,
 				EFC077C417F776FA001B1EEF /* Default.png */,
 				EFC077C617F776FA001B1EEF /* Default@2x.png */,
 				EFC077C817F776FA001B1EEF /* Default-568h@2x.png */,
@@ -171,7 +192,7 @@
 		EFC077E817F776FB001B1EEF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EFC077E917F776FB001B1EEF /* Where ir my friend?Tests-Info.plist */,
+				EFC077E917F776FB001B1EEF /* Where is my friend?Tests-Info.plist */,
 				EFC077EA17F776FB001B1EEF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -180,9 +201,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EFC077AE17F776FA001B1EEF /* Where ir my friend? */ = {
+		EFC077AE17F776FA001B1EEF /* Where is my friend? */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EFC077F217F776FB001B1EEF /* Build configuration list for PBXNativeTarget "Where ir my friend?" */;
+			buildConfigurationList = EFC077F217F776FB001B1EEF /* Build configuration list for PBXNativeTarget "Where is my friend?" */;
 			buildPhases = (
 				EFC077AB17F776FA001B1EEF /* Sources */,
 				EFC077AC17F776FA001B1EEF /* Frameworks */,
@@ -192,14 +213,14 @@
 			);
 			dependencies = (
 			);
-			name = "Where ir my friend?";
+			name = "Where is my friend?";
 			productName = "Where ir my friend?";
-			productReference = EFC077AF17F776FA001B1EEF /* Where ir my friend?.app */;
+			productReference = EFC077AF17F776FA001B1EEF /* Where is my friend?.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EFC077DF17F776FB001B1EEF /* Where ir my friend?Tests */ = {
+		EFC077DF17F776FB001B1EEF /* Where is my friend?Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EFC077F517F776FB001B1EEF /* Build configuration list for PBXNativeTarget "Where ir my friend?Tests" */;
+			buildConfigurationList = EFC077F517F776FB001B1EEF /* Build configuration list for PBXNativeTarget "Where is my friend?Tests" */;
 			buildPhases = (
 				EFC077DB17F776FB001B1EEF /* Sources */,
 				EFC077DC17F776FB001B1EEF /* Frameworks */,
@@ -211,9 +232,9 @@
 			dependencies = (
 				EFC077E617F776FB001B1EEF /* PBXTargetDependency */,
 			);
-			name = "Where ir my friend?Tests";
+			name = "Where is my friend?Tests";
 			productName = "Where ir my friend?Tests";
-			productReference = EFC077E017F776FB001B1EEF /* Where ir my friend?Tests.octest */;
+			productReference = EFC077E017F776FB001B1EEF /* Where is my friend?Tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -225,7 +246,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = MacDev;
 			};
-			buildConfigurationList = EFC077AA17F776FA001B1EEF /* Build configuration list for PBXProject "Where ir my friend?" */;
+			buildConfigurationList = EFC077AA17F776FA001B1EEF /* Build configuration list for PBXProject "Where is my friend?" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -237,8 +258,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EFC077AE17F776FA001B1EEF /* Where ir my friend? */,
-				EFC077DF17F776FB001B1EEF /* Where ir my friend?Tests */,
+				EFC077AE17F776FA001B1EEF /* Where is my friend? */,
+				EFC077DF17F776FB001B1EEF /* Where is my friend?Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -252,11 +273,15 @@
 				EFC077C517F776FA001B1EEF /* Default.png in Resources */,
 				EFC077C717F776FA001B1EEF /* Default@2x.png in Resources */,
 				EFC077C917F776FA001B1EEF /* Default-568h@2x.png in Resources */,
+				FEEBC7F717FCB96400D73176 /* map.png in Resources */,
 				EFC077CC17F776FA001B1EEF /* MainStoryboard.storyboard in Resources */,
+				FED8241618006BEC0089C870 /* face.jpg in Resources */,
 				EFC077D117F776FA001B1EEF /* first.png in Resources */,
 				EFC077D317F776FA001B1EEF /* first@2x.png in Resources */,
 				EFC077D817F776FA001B1EEF /* second.png in Resources */,
 				EFC077DA17F776FA001B1EEF /* second@2x.png in Resources */,
+				FEEBC7F917FCB96F00D73176 /* friends.png in Resources */,
+				FEEBC7FB17FCB97A00D73176 /* requests.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +320,7 @@
 				EFC077C317F776FA001B1EEF /* AppDelegate.m in Sources */,
 				EFC077CF17F776FA001B1EEF /* FirstViewController.m in Sources */,
 				EFC077D617F776FA001B1EEF /* SecondViewController.m in Sources */,
+				EF43963217F7946A00AC7660 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +337,7 @@
 /* Begin PBXTargetDependency section */
 		EFC077E617F776FB001B1EEF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EFC077AE17F776FA001B1EEF /* Where ir my friend? */;
+			target = EFC077AE17F776FA001B1EEF /* Where is my friend? */;
 			targetProxy = EFC077E517F776FB001B1EEF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -402,9 +428,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Where ir my friend?/Where ir my friend?-Prefix.pch";
-				INFOPLIST_FILE = "Where ir my friend?/Where ir my friend?-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Where ir my friend?/Where is my friend?-Prefix.pch";
+				INFOPLIST_FILE = "Where ir my friend?/Where is my friend?-Info.plist";
+				PRODUCT_NAME = "Where is my friend?";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -413,9 +439,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Where ir my friend?/Where ir my friend?-Prefix.pch";
-				INFOPLIST_FILE = "Where ir my friend?/Where ir my friend?-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Where ir my friend?/Where is my friend?-Prefix.pch";
+				INFOPLIST_FILE = "Where ir my friend?/Where is my friend?-Info.plist";
+				PRODUCT_NAME = "Where is my friend?";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -430,8 +456,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Where ir my friend?/Where ir my friend?-Prefix.pch";
-				INFOPLIST_FILE = "Where ir my friend?Tests/Where ir my friend?Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Where ir my friend?Tests/Where is my friend?Tests-Info.plist";
+				PRODUCT_NAME = "Where is my friend?Tests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -447,8 +473,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Where ir my friend?/Where ir my friend?-Prefix.pch";
-				INFOPLIST_FILE = "Where ir my friend?Tests/Where ir my friend?Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Where ir my friend?Tests/Where is my friend?Tests-Info.plist";
+				PRODUCT_NAME = "Where is my friend?Tests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -457,7 +483,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EFC077AA17F776FA001B1EEF /* Build configuration list for PBXProject "Where ir my friend?" */ = {
+		EFC077AA17F776FA001B1EEF /* Build configuration list for PBXProject "Where is my friend?" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EFC077F017F776FB001B1EEF /* Debug */,
@@ -466,21 +492,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EFC077F217F776FB001B1EEF /* Build configuration list for PBXNativeTarget "Where ir my friend?" */ = {
+		EFC077F217F776FB001B1EEF /* Build configuration list for PBXNativeTarget "Where is my friend?" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EFC077F317F776FB001B1EEF /* Debug */,
 				EFC077F417F776FB001B1EEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		EFC077F517F776FB001B1EEF /* Build configuration list for PBXNativeTarget "Where ir my friend?Tests" */ = {
+		EFC077F517F776FB001B1EEF /* Build configuration list for PBXNativeTarget "Where is my friend?Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EFC077F617F776FB001B1EEF /* Debug */,
 				EFC077F717F776FB001B1EEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
