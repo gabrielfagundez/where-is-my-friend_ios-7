@@ -14,19 +14,38 @@
 
 @implementation SecondViewController
 {
-    NSArray * tableData;
+    NSArray * jsonData;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    tableData = [NSArray arrayWithObjects:@"Felipe", @"Facundo", @"Esteban", @"Ismael", @"Diego", @"Jose Juan",nil];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
+                                                          URLWithString:@"http://developmentpis.azurewebsites.net/api/Friends/GetAllFriends/2"]];
+    
+    NSData *response = [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:nil error:nil];
+    NSError *jsonParsingError = nil;
+    jsonData = [NSJSONSerialization JSONObjectWithData:response
+                                                              options:0 error:&jsonParsingError];
+    
+  //  NSDictionary * data;
+    
+   // for(int i=0; i<[jsonData count];i++)
+    //{
+      //  data= [jsonData objectAtIndex:i];
+       // NSLog(@"Statuses:%@",[data objectForKey:@"Name"]);
+   // }
+    
+    
+    
+   // tableData = [NSArray arrayWithObjects:@"Felipe", @"Facundo", @"Esteban", @"Ismael", @"Diego", @"Jose Juan",nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tableData count];
+    return [jsonData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -39,7 +58,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+    NSDictionary * data;
+    data= [jsonData objectAtIndex:indexPath.row];
+    cell.textLabel.text = [data objectForKey:@"Name"];
+    
     cell.imageView.image = [UIImage imageNamed:@"face.jpg"];
     UISwitch *mySwitch = [[[UISwitch alloc] init] autorelease];
     cell.accessoryView = mySwitch;
