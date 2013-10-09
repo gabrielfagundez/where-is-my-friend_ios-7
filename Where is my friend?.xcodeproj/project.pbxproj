@@ -29,6 +29,8 @@
 		EFC077E417F776FB001B1EEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC077B417F776FA001B1EEF /* Foundation.framework */; };
 		EFC077EC17F776FB001B1EEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFC077EA17F776FB001B1EEF /* InfoPlist.strings */; };
 		EFC077EF17F776FB001B1EEF /* Where_ir_my_friend_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC077EE17F776FB001B1EEF /* Where_ir_my_friend_Tests.m */; };
+		FE88F5DC1804B49F0078A941 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE88F5DB1804B49F0078A941 /* CoreLocation.framework */; };
+		FE8C2B3118033AF2001595B5 /* wheres titulo2.png in Resources */ = {isa = PBXBuildFile; fileRef = FE8C2B3018033AF2001595B5 /* wheres titulo2.png */; };
 		FED8241618006BEC0089C870 /* face.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FED8241518006BEC0089C870 /* face.jpg */; };
 		FEEBC7F517FCB1CC00D73176 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEEBC7F417FCB1CC00D73176 /* MapKit.framework */; };
 		FEEBC7F717FCB96400D73176 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = FEEBC7F617FCB96400D73176 /* map.png */; };
@@ -77,6 +79,8 @@
 		EFC077EB17F776FB001B1EEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EFC077ED17F776FB001B1EEF /* Where_ir_my_friend_Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Where_ir_my_friend_Tests.h; sourceTree = "<group>"; };
 		EFC077EE17F776FB001B1EEF /* Where_ir_my_friend_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Where_ir_my_friend_Tests.m; sourceTree = "<group>"; };
+		FE88F5DB1804B49F0078A941 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FE8C2B3018033AF2001595B5 /* wheres titulo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheres titulo2.png"; sourceTree = "<group>"; };
 		FED8241518006BEC0089C870 /* face.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = face.jpg; sourceTree = "<group>"; };
 		FEEBC7F417FCB1CC00D73176 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FEEBC7F617FCB96400D73176 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE88F5DC1804B49F0078A941 /* CoreLocation.framework in Frameworks */,
 				FEEBC7F517FCB1CC00D73176 /* MapKit.framework in Frameworks */,
 				EFC077B317F776FA001B1EEF /* UIKit.framework in Frameworks */,
 				EFC077B517F776FA001B1EEF /* Foundation.framework in Frameworks */,
@@ -131,6 +136,7 @@
 		EFC077B117F776FA001B1EEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FE88F5DB1804B49F0078A941 /* CoreLocation.framework */,
 				FEEBC7F417FCB1CC00D73176 /* MapKit.framework */,
 				EFC077B217F776FA001B1EEF /* UIKit.framework */,
 				EFC077B417F776FA001B1EEF /* Foundation.framework */,
@@ -164,6 +170,7 @@
 		EFC077B917F776FA001B1EEF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FE8C2B3018033AF2001595B5 /* wheres titulo2.png */,
 				FED8241518006BEC0089C870 /* face.jpg */,
 				FEEBC7FA17FCB97A00D73176 /* requests.png */,
 				FEEBC7F817FCB96F00D73176 /* friends.png */,
@@ -271,6 +278,7 @@
 			files = (
 				EFC077BD17F776FA001B1EEF /* InfoPlist.strings in Resources */,
 				EFC077C517F776FA001B1EEF /* Default.png in Resources */,
+				FE8C2B3118033AF2001595B5 /* wheres titulo2.png in Resources */,
 				EFC077C717F776FA001B1EEF /* Default@2x.png in Resources */,
 				EFC077C917F776FA001B1EEF /* Default-568h@2x.png in Resources */,
 				FEEBC7F717FCB96400D73176 /* map.png in Resources */,

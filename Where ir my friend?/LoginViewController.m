@@ -13,7 +13,10 @@
 
 @end
 
-@implementation LoginViewController
+@implementation LoginViewController{
+    
+    CLLocationManager * locationManager;
+}
 
 @synthesize pass,em, butlog, wrongView;;
 
@@ -39,6 +42,8 @@
     //[em setDelegate:self];
     pass.delegate = self;
     em.delegate = self;
+    
+    locationManager = [[CLLocationManager alloc] init];
 
     
 }
@@ -99,9 +104,35 @@
         }
 
     }
+    //BUSCO LA UBICACION DEL CELULAR
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [locationManager startUpdatingLocation];
     
     
 }
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        NSLog(@"Response: %8F", currentLocation.coordinate.longitude);
+        NSLog(@"Response: %8F", currentLocation.coordinate.latitude);
+
+    }
+}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
