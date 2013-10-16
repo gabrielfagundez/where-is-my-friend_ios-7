@@ -20,6 +20,17 @@
 {
     [super viewDidLoad];
     mapView.showsUserLocation = YES;
+    CLLocationCoordinate2D annotationCoord;
+    
+    annotationCoord.latitude = 47.640071;
+    annotationCoord.longitude = -122.129598;
+    
+    MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
+    annotationPoint.coordinate = annotationCoord;
+    annotationPoint.title = @"Microsoft";
+    annotationPoint.subtitle = @"Microsoft's headquarters";
+    [mapView addAnnotation:annotationPoint];
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
