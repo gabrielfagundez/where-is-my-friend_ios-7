@@ -15,34 +15,22 @@
 @implementation SecondViewController
 {
     NSArray * jsonData;
+    NSString * mail;
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
-                                                          URLWithString:@"http://developmentpis.azurewebsites.net/api/Friends/GetAllFriends/2"]];
+                                                          URLWithString:@"http://serverdevelopmentpis.azurewebsites.net/api/Friends/GetAllFriends/1"]];
     
     NSData *response = [NSURLConnection sendSynchronousRequest:request
                                              returningResponse:nil error:nil];
     NSError *jsonParsingError = nil;
     jsonData = [NSJSONSerialization JSONObjectWithData:response
                                                               options:0 error:&jsonParsingError];
-    
-    
-    
-  //  NSDictionary * data;
-    
-   // for(int i=0; i<[jsonData count];i++)
-    //{
-      //  data= [jsonData objectAtIndex:i];
-       // NSLog(@"Statuses:%@",[data objectForKey:@"Name"]);
-   // }
-    
-    
-    
-   // tableData = [NSArray arrayWithObjects:@"Felipe", @"Facundo", @"Esteban", @"Ismael", @"Diego", @"Jose Juan",nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -57,17 +45,17 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
     }
     
     NSDictionary * data;
     data= [jsonData objectAtIndex:indexPath.row];
     cell.textLabel.text = [data objectForKey:@"Name"];
+    cell.detailTextLabel.text=[data objectForKey:@"Mail"];
     
     cell.imageView.image = [UIImage imageNamed:@"face.jpg"];
     UISwitch *mySwitch = [[[UISwitch alloc] init] autorelease];
     cell.accessoryView = mySwitch;
-    
     return cell;
 }
 
@@ -77,12 +65,24 @@
     
     NSString *mensNoti = [NSString stringWithFormat: @"Send a notification to %@ ?", cell.textLabel.text];
     UIAlertView *messageAlert = [[UIAlertView alloc]
-                                 initWithTitle:@"Row Selected" message:mensNoti delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel",nil];
-
+                                 initWithTitle:@"Row Selected" message:mensNoti delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel",nil];
     
+    mail=cell.detailTextLabel.text;
+
     // Display Alert Message
     [messageAlert show];
-    
+  
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"entro");
+    if (buttonIndex == 0)
+    {
+    NSLog(@"entro AL OK");
+        
+    }
+
 }
 
 - (void)didReceiveMemoryWarning

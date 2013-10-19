@@ -105,6 +105,7 @@
 
     }
     //BUSCO LA UBICACION DEL CELULAR
+    //FALTA CONDICION QUE SE FIJE SI SE PUDO LOGUEAR
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
     
@@ -145,7 +146,7 @@
         
         // POST
         NSMutableURLRequest *request2 = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://serverdevelopmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
+                                        requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
         
         NSError *error;
         NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
@@ -169,15 +170,8 @@
         //comparo segun lo que me dio el status code para ver como sigo
         if ((long)urlResponse.statusCode == 200){
             // paso la info del json obtenido
-            UIAlertView *messageAlert = [[UIAlertView alloc]
-                                         initWithTitle:@"Mensaje" message:@"La  nueva ubicacion fue enviada al servidor" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel",nil];
-                [messageAlert show];
             
         }else{
-            UIAlertView *messageAlert2 = [[UIAlertView alloc]
-                                         initWithTitle:@"Mensaje" message:@"No mando una mierda" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel",nil];
-            [messageAlert2 show];
-            
 
         }
 
