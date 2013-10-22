@@ -16,17 +16,31 @@
 {
 
     NSArray * jsonFriends;
+    NSTimer * timer,*timer2;
 
 }
 @synthesize mapView;
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:10
+                                                    target:self
+                                                    selector:@selector(targetMethod:)
+                                                    userInfo:nil
+                                                     repeats:YES];
+    [self targetMethod:(NSTimer *) timer2];
+    
+}
+
+
+-(void) targetMethod: (NSTimer *) theTimer {
+    NSLog(@"tiempooooooooooooo");
     [mapView removeAnnotations:mapView.annotations];
     mapView.showsUserLocation = YES;
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
-                                                          URLWithString:@"http://developmentpis.azurewebsites.net/api/Geolocation/GetLastFriendsLocations/1"]];
+                                                          URLWithString:@"http://developmentpis.azurewebsites.net/api/Geolocation/GetLastFriendsLocationsById/1"]];
     
     NSData *response = [NSURLConnection sendSynchronousRequest:request
                                              returningResponse:nil error:nil];
@@ -40,6 +54,8 @@
     
     CLLocationCoordinate2D  points[cant];
     
+    
+    
     for(int i=0; i<[jsonFriends count];i++)
     {
         data= [jsonFriends objectAtIndex:i];
@@ -51,42 +67,9 @@
         annotationPoint.title = [data objectForKey:@"Mail"];
         [mapView addAnnotation:annotationPoint];
     }
-    
 }
-/*
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    mapView.showsUserLocation = YES;
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
-                                                          URLWithString:@"http://developmentpis.azurewebsites.net/api/Geolocation/GetLastFriendsLocations/1"]];
-    
-    NSData *response = [NSURLConnection sendSynchronousRequest:request
-                                             returningResponse:nil error:nil];
-    NSError *jsonParsingError = nil;
-    jsonFriends = [NSJSONSerialization JSONObjectWithData:response
-                                               options:0 error:&jsonParsingError];
-    
-    NSDictionary * data;
-    
-    int cant= [jsonFriends count];
-    
-    CLLocationCoordinate2D  points[cant];
-    
-    for(int i=0; i<[jsonFriends count];i++)
-    {
-        data= [jsonFriends objectAtIndex:i];
-        points[i].latitude = [[data objectForKey:@"Latitude"] floatValue];
-        points[i].longitude = [[data objectForKey:@"Longitude"] floatValue];
-    
-    MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
-    annotationPoint.coordinate = points[i];
-    annotationPoint.title = [data objectForKey:@"Mail"];
-    [mapView addAnnotation:annotationPoint];
-    }
-	// Do any additional setup after loading the view, typically from a nib.
-}*/
+
+
 
 - (void)didReceiveMemoryWarning
 {

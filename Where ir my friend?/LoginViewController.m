@@ -88,8 +88,17 @@
         //comparo segun lo que me dio el status code para ver como sigo
         if ((long)urlResponse.statusCode == 200){
             // paso la info del json obtenido
-            
             [self performSegueWithIdentifier:@"logsegue" sender:self];
+            
+            //BUSCO LA UBICACION DEL USUARIO
+            locationManager.delegate = self;
+            locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+            
+            locationManager.distanceFilter = 50; // metros
+            
+            [locationManager startUpdatingLocation];
+            
+            
         }else{
             pass.text=@"";
             [butlog setBackgroundColor:[UIColor colorWithRed:0.0/255.0f green:175.0/255.0f blue:240.0/255.0f alpha:0.5]];
@@ -104,14 +113,9 @@
         }
 
     }
-    //BUSCO LA UBICACION DEL CELULAR
-    //FALTA CONDICION QUE SE FIJE SI SE PUDO LOGUEAR
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
     
-    locationManager.distanceFilter = 500; // metros
     
-    [locationManager startUpdatingLocation];
+
     
 }
 
