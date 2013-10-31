@@ -24,7 +24,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:10
+    timer = [NSTimer scheduledTimerWithTimeInterval:45
                                                     target:self
                                                     selector:@selector(targetMethod:)
                                                     userInfo:nil
@@ -39,8 +39,15 @@
     [mapView removeAnnotations:mapView.annotations];
     mapView.showsUserLocation = YES;
     
+    NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"IdUsuario"];
+    
+    NSString *aux = @"http://developmentpis.azurewebsites.net/api/Geolocation/GetLastFriendsLocationsById/";
+    NSString *direc = [aux stringByAppendingString:id];
+    
+
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
-                                                          URLWithString:@"http://developmentpis.azurewebsites.net/api/Geolocation/GetLastFriendsLocationsById/1"]];
+                                                          URLWithString:direc]];
     
     NSData *response = [NSURLConnection sendSynchronousRequest:request
                                              returningResponse:nil error:nil];

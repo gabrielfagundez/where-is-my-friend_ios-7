@@ -29,6 +29,8 @@
 		EFC077E417F776FB001B1EEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC077B417F776FA001B1EEF /* Foundation.framework */; };
 		EFC077EC17F776FB001B1EEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFC077EA17F776FB001B1EEF /* InfoPlist.strings */; };
 		EFC077EF17F776FB001B1EEF /* Where_ir_my_friend_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC077EE17F776FB001B1EEF /* Where_ir_my_friend_Tests.m */; };
+		FE876D061819AD070067A75F /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = FE876D051819AD070067A75F /* settings.png */; };
+		FE87908318219D4E00F237B5 /* RequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE87908218219D4E00F237B5 /* RequestsViewController.m */; };
 		FE88F5DC1804B49F0078A941 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE88F5DB1804B49F0078A941 /* CoreLocation.framework */; };
 		FE8C2B3118033AF2001595B5 /* wheres titulo2.png in Resources */ = {isa = PBXBuildFile; fileRef = FE8C2B3018033AF2001595B5 /* wheres titulo2.png */; };
 		FED8241618006BEC0089C870 /* face.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FED8241518006BEC0089C870 /* face.jpg */; };
@@ -79,6 +81,9 @@
 		EFC077EB17F776FB001B1EEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EFC077ED17F776FB001B1EEF /* Where_ir_my_friend_Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Where_ir_my_friend_Tests.h; sourceTree = "<group>"; };
 		EFC077EE17F776FB001B1EEF /* Where_ir_my_friend_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Where_ir_my_friend_Tests.m; sourceTree = "<group>"; };
+		FE876D051819AD070067A75F /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		FE87908118219D4E00F237B5 /* RequestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestsViewController.h; sourceTree = "<group>"; };
+		FE87908218219D4E00F237B5 /* RequestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestsViewController.m; sourceTree = "<group>"; };
 		FE88F5DB1804B49F0078A941 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FE8C2B3018033AF2001595B5 /* wheres titulo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheres titulo2.png"; sourceTree = "<group>"; };
 		FED8241518006BEC0089C870 /* face.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = face.jpg; sourceTree = "<group>"; };
@@ -160,9 +165,11 @@
 				EFC077D517F776FA001B1EEF /* SecondViewController.m */,
 				EFC077D717F776FA001B1EEF /* second.png */,
 				EFC077D917F776FA001B1EEF /* second@2x.png */,
-				EFC077B917F776FA001B1EEF /* Supporting Files */,
+				FE87908118219D4E00F237B5 /* RequestsViewController.h */,
+				FE87908218219D4E00F237B5 /* RequestsViewController.m */,
 				EF43963017F7946A00AC7660 /* LoginViewController.h */,
 				EF43963117F7946A00AC7660 /* LoginViewController.m */,
+				EFC077B917F776FA001B1EEF /* Supporting Files */,
 			);
 			path = "Where ir my friend?";
 			sourceTree = "<group>";
@@ -170,6 +177,7 @@
 		EFC077B917F776FA001B1EEF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FE876D051819AD070067A75F /* settings.png */,
 				FE8C2B3018033AF2001595B5 /* wheres titulo2.png */,
 				FED8241518006BEC0089C870 /* face.jpg */,
 				FEEBC7FA17FCB97A00D73176 /* requests.png */,
@@ -282,6 +290,7 @@
 				EFC077C717F776FA001B1EEF /* Default@2x.png in Resources */,
 				EFC077C917F776FA001B1EEF /* Default-568h@2x.png in Resources */,
 				FEEBC7F717FCB96400D73176 /* map.png in Resources */,
+				FE876D061819AD070067A75F /* settings.png in Resources */,
 				EFC077CC17F776FA001B1EEF /* MainStoryboard.storyboard in Resources */,
 				FED8241618006BEC0089C870 /* face.jpg in Resources */,
 				EFC077D117F776FA001B1EEF /* first.png in Resources */,
@@ -326,6 +335,7 @@
 			files = (
 				EFC077BF17F776FA001B1EEF /* main.m in Sources */,
 				EFC077C317F776FA001B1EEF /* AppDelegate.m in Sources */,
+				FE87908318219D4E00F237B5 /* RequestsViewController.m in Sources */,
 				EFC077CF17F776FA001B1EEF /* FirstViewController.m in Sources */,
 				EFC077D617F776FA001B1EEF /* SecondViewController.m in Sources */,
 				EF43963217F7946A00AC7660 /* LoginViewController.m in Sources */,

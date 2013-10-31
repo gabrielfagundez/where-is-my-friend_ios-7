@@ -53,18 +53,22 @@
   	  if ([sender tag] == 1) {
         //sender.adjustsImageWhenHighlighted = YES;
         NSString * email = em.text;
-        NSString * pswd = pass.text;	
+        NSString * pswd = pass.text;
+        NSString * plat= @"ios";
+        NSString * device= @"123";
         //build an info object and convert to json
          NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys:
                               email,@"Mail",
                               pswd, @"Password",
+                              plat,@"Platform",
+                              device,@"DeviceId",
                               nil];
         
         
         
         // POST
         NSMutableURLRequest *request = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Users/login/"]];
+                                        requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Users/LoginWhere/"]];
         
         NSError *error;
         NSData *postData = [NSJSONSerialization dataWithJSONObject:info options:0 error:&error];
@@ -90,13 +94,24 @@
             // paso la info del json obtenido
             [self performSegueWithIdentifier:@"logsegue" sender:self];
             
+            //GUARDO LA INFO DEL USUARIO
+            
+            NSError *jsonParsingError = nil;
+            NSDictionary * data = [NSJSONSerialization JSONObjectWithData:responseData
+                                                          options:0 error:&jsonParsingError];
+
+             NSString *ID =[data objectForKey:@"Id"];
+            [[NSUserDefaults standardUserDefaults] setObject:ID forKey:@"IdUsuario"];
+            
             //BUSCO LA UBICACION DEL USUARIO
             locationManager.delegate = self;
             locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
-            
             locationManager.distanceFilter = 50; // metros
             
             [locationManager startUpdatingLocation];
+            
+            
+            
             
             
         }else{

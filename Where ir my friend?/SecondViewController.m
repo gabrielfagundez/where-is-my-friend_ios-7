@@ -15,7 +15,7 @@
 @implementation SecondViewController
 {
     NSArray * jsonData;
-    NSString * mail;
+    int ident;
 }
 
 
@@ -23,14 +23,27 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"IdUsuario"];
+    
+    NSString *aux = @"http://developmentpis.azurewebsites.net/api/Friends/GetAllFriends/";
+    NSString *direc = [aux stringByAppendingString:id];
+    
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
-                                                          URLWithString:@"http://serverdevelopmentpis.azurewebsites.net/api/Friends/GetAllFriends/1"]];
+                                                          URLWithString:direc]];
+    
     
     NSData *response = [NSURLConnection sendSynchronousRequest:request
                                              returningResponse:nil error:nil];
     NSError *jsonParsingError = nil;
     jsonData = [NSJSONSerialization JSONObjectWithData:response
                                                               options:0 error:&jsonParsingError];
+    
+    UITabBarItem *tbi = (UITabBarItem*)[[[self.tabBarController tabBar] items] objectAtIndex:2];
+    
+    [tbi setBadgeValue:@"1"];
+    
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -53,6 +66,9 @@
     cell.textLabel.text = [data objectForKey:@"Name"];
     cell.detailTextLabel.text=[data objectForKey:@"Mail"];
     
+    NSString * tagid=[data objectForKey:@"Id"];
+    cell.tag= [tagid intValue];
+    
     cell.imageView.image = [UIImage imageNamed:@"face.jpg"];
     UISwitch *mySwitch = [[[UISwitch alloc] init] autorelease];
     cell.accessoryView = mySwitch;
@@ -67,8 +83,7 @@
     UIAlertView *messageAlert = [[UIAlertView alloc]
                                  initWithTitle:@"Row Selected" message:mensNoti delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel",nil];
     
-    mail=cell.detailTextLabel.text;
-
+    ident= cell.tag;
     // Display Alert Message
     [messageAlert show];
   
@@ -80,6 +95,35 @@
     if (buttonIndex == 0)
     {
     NSLog(@"entro AL OK");
+        
+        //envio la solicitud
+        
+        //creo el JSON
+        
+        NSString * from=[[NSUserDefaults standardUserDefaults]stringForKey:@"IdUsuario"];
+        NSString * to=[NSString stringWithFormat:@"%d",ident ];
+
+        
+        NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys:
+                               from,@"IdFrom",
+                               to, @"IdTo",
+                               nil];
+        
+        // POST
+        NSMutableURLRequest *request = [NSMutableURLRequest
+                                         requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Solicitudes/Send/"]];
+        
+        NSError *error;
+        NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info options:0 error:&error];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:postData2];
+        
+        NSHTTPURLResponse* urlResponse = nil;
+        error = [[NSError alloc] init];
+        NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+        NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        
         
     }
 
