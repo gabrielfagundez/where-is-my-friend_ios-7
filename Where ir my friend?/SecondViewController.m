@@ -7,6 +7,8 @@
 //
 
 #import "SecondViewController.h"
+#import "BackendProxy.h"
+#import "ServerResponse.h"
 
 @interface SecondViewController ()
 
@@ -94,37 +96,32 @@
     NSLog(@"entro");
     if (buttonIndex == 0)
     {
-    NSLog(@"entro AL OK");
+        NSLog(@"entro AL OK");
         
-        //envio la solicitud
+        if ([BackendProxy internetConnection]){
+            //si hay conexion con el server
+            
+            //envio la solicitud        
+            NSString * to=[NSString stringWithFormat:@"%d",ident ];
+            
+            //llamo a la funcion de backend
+            ServerResponse * sr = [BackendProxy send :to];
+            
+            //comparo segun lo que me dio la funcion enterUser para ver como sigo
+            if ([sr getCodigo] != 200){
+                
+                //hubo error, capaz hay que tirar mensaje
+                
+                //si es 200 (esta todo bien) creo que no se hace nada
+            }
+        }
         
-        //creo el JSON
-        
-        NSString * from=[[NSUserDefaults standardUserDefaults]stringForKey:@"IdUsuario"];
-        NSString * to=[NSString stringWithFormat:@"%d",ident ];
-
-        
-        NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys:
-                               from,@"IdFrom",
-                               to, @"IdTo",
-                               nil];
-        
-        // POST
-        NSMutableURLRequest *request = [NSMutableURLRequest
-                                         requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Solicitudes/Send/"]];
-        
-        NSError *error;
-        NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info options:0 error:&error];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [request setHTTPMethod:@"POST"];
-        [request setHTTPBody:postData2];
-        
-        NSHTTPURLResponse* urlResponse = nil;
-        error = [[NSError alloc] init];
-        NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
-        NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-        
-        
+        else{
+            //si no hay conexion con el server
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Failed" message:@"You must have internet in order to login. Check your internet connection and try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
+        }
+  
     }
 
 }

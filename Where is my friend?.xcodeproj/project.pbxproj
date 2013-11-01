@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF23222618240D930035F062 /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = EF23222518240D930035F062 /* ServerResponse.m */; };
 		EF43963217F7946A00AC7660 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43963117F7946A00AC7660 /* LoginViewController.m */; };
 		EFC077B317F776FA001B1EEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC077B217F776FA001B1EEF /* UIKit.framework */; };
 		EFC077B517F776FA001B1EEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC077B417F776FA001B1EEF /* Foundation.framework */; };
@@ -29,6 +30,9 @@
 		EFC077E417F776FB001B1EEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC077B417F776FA001B1EEF /* Foundation.framework */; };
 		EFC077EC17F776FB001B1EEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFC077EA17F776FB001B1EEF /* InfoPlist.strings */; };
 		EFC077EF17F776FB001B1EEF /* Where_ir_my_friend_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC077EE17F776FB001B1EEF /* Where_ir_my_friend_Tests.m */; };
+		EFD4878F18230F8300E34C94 /* BackendProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD4878E18230F8300E34C94 /* BackendProxy.m */; };
+		EFD48795182311E000E34C94 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD48794182311E000E34C94 /* Reachability.m */; };
+		EFD487971823148D00E34C94 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD487961823148D00E34C94 /* SystemConfiguration.framework */; };
 		FE876D061819AD070067A75F /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = FE876D051819AD070067A75F /* settings.png */; };
 		FE87908318219D4E00F237B5 /* RequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE87908218219D4E00F237B5 /* RequestsViewController.m */; };
 		FE88F5DC1804B49F0078A941 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE88F5DB1804B49F0078A941 /* CoreLocation.framework */; };
@@ -51,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF23222418240D930035F062 /* ServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerResponse.h; sourceTree = "<group>"; };
+		EF23222518240D930035F062 /* ServerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerResponse.m; sourceTree = "<group>"; };
 		EF43963017F7946A00AC7660 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		EF43963117F7946A00AC7660 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		EFC077AF17F776FA001B1EEF /* Where is my friend?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Where is my friend?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +87,11 @@
 		EFC077EB17F776FB001B1EEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EFC077ED17F776FB001B1EEF /* Where_ir_my_friend_Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Where_ir_my_friend_Tests.h; sourceTree = "<group>"; };
 		EFC077EE17F776FB001B1EEF /* Where_ir_my_friend_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Where_ir_my_friend_Tests.m; sourceTree = "<group>"; };
+		EFD4878D18230F8300E34C94 /* BackendProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendProxy.h; sourceTree = "<group>"; };
+		EFD4878E18230F8300E34C94 /* BackendProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackendProxy.m; sourceTree = "<group>"; };
+		EFD48793182311E000E34C94 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		EFD48794182311E000E34C94 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		EFD487961823148D00E34C94 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FE876D051819AD070067A75F /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		FE87908118219D4E00F237B5 /* RequestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestsViewController.h; sourceTree = "<group>"; };
 		FE87908218219D4E00F237B5 /* RequestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestsViewController.m; sourceTree = "<group>"; };
@@ -98,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFD487971823148D00E34C94 /* SystemConfiguration.framework in Frameworks */,
 				FE88F5DC1804B49F0078A941 /* CoreLocation.framework in Frameworks */,
 				FEEBC7F517FCB1CC00D73176 /* MapKit.framework in Frameworks */,
 				EFC077B317F776FA001B1EEF /* UIKit.framework in Frameworks */,
@@ -141,6 +153,7 @@
 		EFC077B117F776FA001B1EEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFD487961823148D00E34C94 /* SystemConfiguration.framework */,
 				FE88F5DB1804B49F0078A941 /* CoreLocation.framework */,
 				FEEBC7F417FCB1CC00D73176 /* MapKit.framework */,
 				EFC077B217F776FA001B1EEF /* UIKit.framework */,
@@ -163,6 +176,8 @@
 				EFC077D217F776FA001B1EEF /* first@2x.png */,
 				EFC077D417F776FA001B1EEF /* SecondViewController.h */,
 				EFC077D517F776FA001B1EEF /* SecondViewController.m */,
+				EFD4878D18230F8300E34C94 /* BackendProxy.h */,
+				EFD4878E18230F8300E34C94 /* BackendProxy.m */,
 				EFC077D717F776FA001B1EEF /* second.png */,
 				EFC077D917F776FA001B1EEF /* second@2x.png */,
 				FE87908118219D4E00F237B5 /* RequestsViewController.h */,
@@ -170,6 +185,10 @@
 				EF43963017F7946A00AC7660 /* LoginViewController.h */,
 				EF43963117F7946A00AC7660 /* LoginViewController.m */,
 				EFC077B917F776FA001B1EEF /* Supporting Files */,
+				EFD48793182311E000E34C94 /* Reachability.h */,
+				EFD48794182311E000E34C94 /* Reachability.m */,
+				EF23222418240D930035F062 /* ServerResponse.h */,
+				EF23222518240D930035F062 /* ServerResponse.m */,
 			);
 			path = "Where ir my friend?";
 			sourceTree = "<group>";
@@ -334,8 +353,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFC077BF17F776FA001B1EEF /* main.m in Sources */,
+				EFD4878F18230F8300E34C94 /* BackendProxy.m in Sources */,
+				EFD48795182311E000E34C94 /* Reachability.m in Sources */,
 				EFC077C317F776FA001B1EEF /* AppDelegate.m in Sources */,
 				FE87908318219D4E00F237B5 /* RequestsViewController.m in Sources */,
+				EF23222618240D930035F062 /* ServerResponse.m in Sources */,
 				EFC077CF17F776FA001B1EEF /* FirstViewController.m in Sources */,
 				EFC077D617F776FA001B1EEF /* SecondViewController.m in Sources */,
 				EF43963217F7946A00AC7660 /* LoginViewController.m in Sources */,

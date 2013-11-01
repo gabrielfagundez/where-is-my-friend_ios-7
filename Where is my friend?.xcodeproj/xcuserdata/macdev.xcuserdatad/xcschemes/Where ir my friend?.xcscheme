@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EFC077AE17F776FA001B1EEF"
-               BuildableName = "Where ir my friend?.app"
+               BuildableName = "Where is my friend?.app"
                BlueprintName = "Where is my friend?"
                ReferencedContainer = "container:Where is my friend?.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EFC077DF17F776FB001B1EEF"
-               BuildableName = "Where ir my friend?Tests.octest"
+               BuildableName = "Where is my friend?Tests.octest"
                BlueprintName = "Where is my friend?Tests"
                ReferencedContainer = "container:Where is my friend?.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EFC077AE17F776FA001B1EEF"
-            BuildableName = "Where ir my friend?.app"
+            BuildableName = "Where is my friend?.app"
             BlueprintName = "Where is my friend?"
             ReferencedContainer = "container:Where is my friend?.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EFC077AE17F776FA001B1EEF"
-            BuildableName = "Where ir my friend?.app"
+            BuildableName = "Where is my friend?.app"
             BlueprintName = "Where is my friend?"
             ReferencedContainer = "container:Where is my friend?.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EFC077AE17F776FA001B1EEF"
-            BuildableName = "Where ir my friend?.app"
+            BuildableName = "Where is my friend?.app"
             BlueprintName = "Where is my friend?"
             ReferencedContainer = "container:Where is my friend?.xcodeproj">
          </BuildableReference>
