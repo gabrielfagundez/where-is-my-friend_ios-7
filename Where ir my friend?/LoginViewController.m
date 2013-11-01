@@ -102,7 +102,7 @@
         }
         else{
             //si no hay conexion con el server
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Failed" message:@"You must have internet in order to login. Check your internet connection and try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Login", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert show];
         }
     }
