@@ -30,12 +30,14 @@
     [self targetMethod:(NSTimer *) timer2];
     isFirstLaunch=YES;
     
+
+    
 }
 
 -(void) viewDidLoad{
     mapView.showsUserLocation = YES;
     mapView.delegate = self;
-
+    [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
 }
 
 
@@ -91,21 +93,21 @@
 
 
 //mkmapviewdelegates
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-    if (isFirstLaunch) {
-        MKCoordinateRegion region;
-        MKCoordinateSpan span;
-        span.latitudeDelta = 0.005;
-        span.longitudeDelta = 0.005;
-        CLLocationCoordinate2D location;
-        location.latitude = userLocation.coordinate.latitude;
-        location.longitude = userLocation.coordinate.longitude;
-        region.span = span;
-        region.center = location;
-        [mapView setRegion:region animated:YES];
-        isFirstLaunch=NO;
-    }
-}
+//- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+//    if (isFirstLaunch) {
+//        MKCoordinateRegion region;
+//        MKCoordinateSpan span;
+//        span.latitudeDelta = 0.005;
+//        span.longitudeDelta = 0.005;
+//        CLLocationCoordinate2D location;
+//        location.latitude = userLocation.coordinate.latitude;
+//        location.longitude = userLocation.coordinate.longitude;
+//        region.span = span;
+//        region.center = location;
+//        [mapView setRegion:region animated:YES];
+//        isFirstLaunch=NO;
+//    }
+//}
 
 - (IBAction)centerMapOnUserButtonClicked:(id)sender {
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
