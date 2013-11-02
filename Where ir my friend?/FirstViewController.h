@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface FirstViewController : UIViewController{
+@interface FirstViewController : UIViewController <MKMapViewDelegate>{
     
     MKMapView * mapView;
-    
+    BOOL isFirstLaunch;
 }
 
 @property(nonatomic,retain) IBOutlet MKMapView *mapView;
+
+-(IBAction)centerMapOnUserButtonClicked:(id)sender;
 
 @end

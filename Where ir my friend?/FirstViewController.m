@@ -21,16 +21,21 @@
 }
 @synthesize mapView;
 
--(void)viewWillAppear:(BOOL)animated
-{
-    
+-(void)viewWillAppear:(BOOL)animated{
     timer = [NSTimer scheduledTimerWithTimeInterval:200
-                                                    target:self
-                                                    selector:@selector(targetMethod:)
-                                                    userInfo:nil
-                                                     repeats:YES];
+                                             target:self
+                                           selector:@selector(targetMethod:)
+                                           userInfo:nil
+                                            repeats:YES];
     [self targetMethod:(NSTimer *) timer2];
+    isFirstLaunch=YES;
     
+}
+
+-(void) viewDidLoad{
+    mapView.showsUserLocation = YES;
+    mapView.delegate = self;
+
 }
 
 
@@ -83,5 +88,28 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+//mkmapviewdelegates
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    if (isFirstLaunch) {
+        MKCoordinateRegion region;
+        MKCoordinateSpan span;
+        span.latitudeDelta = 0.005;
+        span.longitudeDelta = 0.005;
+        CLLocationCoordinate2D location;
+        location.latitude = userLocation.coordinate.latitude;
+        location.longitude = userLocation.coordinate.longitude;
+        region.span = span;
+        region.center = location;
+        [mapView setRegion:region animated:YES];
+        isFirstLaunch=NO;
+    }
+}
+
+- (IBAction)centerMapOnUserButtonClicked:(id)sender {
+    [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
+}
+
 
 @end
