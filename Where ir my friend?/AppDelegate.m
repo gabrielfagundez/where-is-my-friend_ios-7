@@ -21,7 +21,16 @@
     // Override point for customization after application launch.
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:10.0/256.0 green:145.0/10.0 blue:35.0/256.0 alpha:1.0]];
     
-    	
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *user = [defaults stringForKey:@"id"];
+    if (user){
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
+        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"tabbar"];
+        self.window.rootViewController= viewController;
+    }
+    return YES;
+
+    
     return YES;
 }
 							

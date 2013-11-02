@@ -107,7 +107,7 @@ NSString * server = @"developmentpis.azurewebsites.net";
 + (ServerResponse *)send :(NSString*)to{
     
     //creo el JSON
-    NSString * from=[[NSUserDefaults standardUserDefaults]stringForKey:@"IdUsuario"];
+    NSString * from=[[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
     
     NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys:
                           from,@"IdFrom",

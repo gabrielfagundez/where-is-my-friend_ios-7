@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"IdUsuario"];
+    NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
     
     NSString *aux = @"http://developmentpis.azurewebsites.net/api/Friends/GetAllFriends/";
     NSString *direc = [aux stringByAppendingString:id];
