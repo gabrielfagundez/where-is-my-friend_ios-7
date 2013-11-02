@@ -87,8 +87,10 @@ NSString * server = @"developmentpis.azurewebsites.net";
         sr = [sr initialize :(NSInteger)urlResponse.statusCode :result :userId :userName : userMail];
         
         //GUARDO LA INFO DEL USUARIO
-        [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"IdUsuario"];
-        
+        [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"id"];
+        [[NSUserDefaults standardUserDefaults] setObject:userName forKey:@"name"];
+        [[NSUserDefaults standardUserDefaults] setObject:userMail forKey:@"mail"];
+
         return sr;
         
     }
@@ -104,7 +106,7 @@ NSString * server = @"developmentpis.azurewebsites.net";
 + (ServerResponse *)send :(NSString*)to{
     
     //creo el JSON
-    NSString * from=[[NSUserDefaults standardUserDefaults]stringForKey:@"IdUsuario"];
+    NSString * from=[[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
     
     NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys:
                           from,@"IdFrom",

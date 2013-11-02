@@ -32,7 +32,7 @@
 {
     [super viewDidLoad];
 
-    NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"IdUsuario"];
+    NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
     
     NSString *aux = @"http://developmentpis.azurewebsites.net/api/Solicitudes/GetAll/";
     NSString *direc = [aux stringByAppendingString:id];

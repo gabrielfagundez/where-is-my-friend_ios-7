@@ -46,7 +46,7 @@
     [mapView removeAnnotations:mapView.annotations];
     mapView.showsUserLocation = YES;
     
-    NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"IdUsuario"];
+    NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
     
     NSString *aux = @"http://developmentpis.azurewebsites.net/api/Geolocation/GetLastFriendsLocationsById/";
     NSString *direc = [aux stringByAppendingString:id];
