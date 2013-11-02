@@ -20,7 +20,7 @@
 		EFC077C717F776FA001B1EEF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFC077C617F776FA001B1EEF /* Default@2x.png */; };
 		EFC077C917F776FA001B1EEF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFC077C817F776FA001B1EEF /* Default-568h@2x.png */; };
 		EFC077CC17F776FA001B1EEF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFC077CA17F776FA001B1EEF /* MainStoryboard.storyboard */; };
-		EFC077CF17F776FA001B1EEF /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC077CE17F776FA001B1EEF /* FirstViewController.m */; };
+		EFC077CF17F776FA001B1EEF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC077CE17F776FA001B1EEF /* MapViewController.m */; };
 		EFC077D117F776FA001B1EEF /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = EFC077D017F776FA001B1EEF /* first.png */; };
 		EFC077D317F776FA001B1EEF /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFC077D217F776FA001B1EEF /* first@2x.png */; };
 		EFC077D617F776FA001B1EEF /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC077D517F776FA001B1EEF /* SecondViewController.m */; };
@@ -75,8 +75,8 @@
 		EFC077C617F776FA001B1EEF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EFC077C817F776FA001B1EEF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EFC077CB17F776FA001B1EEF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		EFC077CD17F776FA001B1EEF /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		EFC077CE17F776FA001B1EEF /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		EFC077CD17F776FA001B1EEF /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		EFC077CE17F776FA001B1EEF /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		EFC077D017F776FA001B1EEF /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		EFC077D217F776FA001B1EEF /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		EFC077D417F776FA001B1EEF /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
@@ -172,8 +172,8 @@
 				EFC077C117F776FA001B1EEF /* AppDelegate.h */,
 				EFC077C217F776FA001B1EEF /* AppDelegate.m */,
 				EFC077CA17F776FA001B1EEF /* MainStoryboard.storyboard */,
-				EFC077CD17F776FA001B1EEF /* FirstViewController.h */,
-				EFC077CE17F776FA001B1EEF /* FirstViewController.m */,
+				EFC077CD17F776FA001B1EEF /* MapViewController.h */,
+				EFC077CE17F776FA001B1EEF /* MapViewController.m */,
 				EFC077D017F776FA001B1EEF /* first.png */,
 				EFC077D217F776FA001B1EEF /* first@2x.png */,
 				EFC077D417F776FA001B1EEF /* SecondViewController.h */,
@@ -362,7 +362,7 @@
 				EFC077C317F776FA001B1EEF /* AppDelegate.m in Sources */,
 				FE87908318219D4E00F237B5 /* RequestsViewController.m in Sources */,
 				EF23222618240D930035F062 /* ServerResponse.m in Sources */,
-				EFC077CF17F776FA001B1EEF /* FirstViewController.m in Sources */,
+				EFC077CF17F776FA001B1EEF /* MapViewController.m in Sources */,
 				EFC077D617F776FA001B1EEF /* SecondViewController.m in Sources */,
 				EF43963217F7946A00AC7660 /* LoginViewController.m in Sources */,
 			);

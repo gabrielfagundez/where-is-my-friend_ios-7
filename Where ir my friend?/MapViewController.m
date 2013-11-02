@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 MacDev. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "MapViewController.h"
 
-@interface FirstViewController ()
+@interface MapViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation MapViewController
 {
 
     NSArray * jsonFriends;

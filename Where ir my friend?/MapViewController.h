@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface FirstViewController : UIViewController <MKMapViewDelegate>{
+@interface MapViewController : UIViewController <MKMapViewDelegate>{
     
     MKMapView * mapView;
     BOOL isFirstLaunch;
