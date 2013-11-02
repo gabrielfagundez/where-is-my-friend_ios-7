@@ -216,7 +216,16 @@
                                 <segue destination="HDr-1a-kTP" kind="push" id="HOp-t8-5Q1"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" style="plain" id="cAW-OY-jSn">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="logoutClicked:" destination="mBb-0l-zRz" id="XW0-Wz-Pne"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="ezK-59-NJL" kind="modal" identifier="logoutSegue" modalTransitionStyle="crossDissolve" id="0MT-8d-fru"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r00-Yg-tzW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

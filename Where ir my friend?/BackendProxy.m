@@ -87,7 +87,10 @@ NSString * server = @"developmentpis.azurewebsites.net";
         sr = [sr initialize :(NSInteger)urlResponse.statusCode :result :userId :userName : userMail];
         
         //GUARDO LA INFO DEL USUARIO
-        [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"IdUsuario"];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:userId forKey:@"IdUsuario"];
+        [defaults setObject:userMail forKey:@"MailUsuario"];
+        [defaults setObject:userName forKey:@"NameUsuario"];
         
         return sr;
         
@@ -137,6 +140,50 @@ NSString * server = @"developmentpis.azurewebsites.net";
     
     return sr;
     
+}
+
++ (ServerResponse *)logout{
+    
+    //creo el JSON
+    NSString * mail=[[NSUserDefaults standardUserDefaults]stringForKey:@"MailUsuario"];
+    
+    NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys:
+                          mail,@"Mail",
+                          nil];
+    
+    NSString * url = @"http://";
+    NSString * url1 = [server copy];
+    url = [url stringByAppendingString:url1];
+    url = [url stringByAppendingString:@"/api/Users/LogoutWhere/"];
+    
+    // POST
+    NSMutableURLRequest *request = [NSMutableURLRequest
+                                    requestWithURL:[NSURL URLWithString:url]];
+    
+    NSError *error;
+    NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info options:0 error:&error];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:postData2];
+    
+    // imprimo lo que mando para verificar
+    //NSLog(@"%@", [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding]);
+    
+    NSHTTPURLResponse* urlResponse = nil;
+    error = [[NSError alloc] init];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    
+    // imprimo el resultado del post para verificar
+    NSLog(@"Response: %@", result);
+    NSLog(@"Response: %ld", (long)urlResponse.statusCode);
+    
+    //me creo el objeto serverResponse
+    ServerResponse * sr = [ServerResponse alloc];
+    sr = [sr initialize :(NSInteger)urlResponse.statusCode :NULL :NULL :NULL :NULL];
+    
+    return sr;
+
 }
 
 @end

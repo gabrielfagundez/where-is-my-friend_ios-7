@@ -132,4 +132,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)logoutClicked:(id)sender{
+    // Create the action sheet
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+                                         destructiveButtonTitle:NSLocalizedString(@"Logout", nil)
+                                              otherButtonTitles:nil];
+    [sheet showInView:self.view];
+    
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == actionSheet.destructiveButtonIndex) {
+        
+        if ([BackendProxy internetConnection]){
+            ServerResponse * sr = [BackendProxy logout];
+            if ([sr getCodigo] == 200){
+                [self performSegueWithIdentifier:@"logoutSegue" sender:self];
+            }
+            else{
+                //error al cerrar sesion, no deberia pasar nunca
+            }
+        }
+        else{
+            //ver que hacemos ene estos casos, si no dejamos cerar o hacemos una cerrado sin server
+        }
+    }
+}
+
 @end

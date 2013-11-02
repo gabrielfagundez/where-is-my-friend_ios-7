@@ -16,5 +16,6 @@
 + (bool)internetConnection;
 + (ServerResponse *)login :(NSString*)email :(NSString*)pswd :(NSString*)plat :(NSString*)device;
 + (ServerResponse *)send :(NSString*)to;
++ (ServerResponse *)logout;
 
 @end

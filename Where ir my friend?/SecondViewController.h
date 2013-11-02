@@ -12,4 +12,6 @@
 @interface SecondViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 
 
+-(IBAction)logoutClicked:(id)sender;
+
 @end
