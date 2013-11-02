@@ -24,7 +24,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:45
+    timer = [NSTimer scheduledTimerWithTimeInterval:200
                                                     target:self
                                                     selector:@selector(targetMethod:)
                                                     userInfo:nil

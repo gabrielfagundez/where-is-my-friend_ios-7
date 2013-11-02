@@ -15,11 +15,10 @@
 @implementation RequestsViewController
 {
 
-   
+    NSArray * jsonData;
     int ident;
 }
- 
-@synthesize jsonData;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -46,16 +45,15 @@
     NSData *response = [NSURLConnection sendSynchronousRequest:request
                                              returningResponse:nil error:nil];
     NSError *jsonParsingError = nil;
-    self.jsonData = [NSJSONSerialization JSONObjectWithData:response
+    jsonData = [NSJSONSerialization JSONObjectWithData:response
                                                options:0 error:&jsonParsingError];
     
-    [[self tabBarItem] setBadgeValue:@"5"];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.jsonData count];
+    return [jsonData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -69,13 +67,13 @@
     }
     
     NSDictionary * data;
-    NSInteger num = [self.jsonData count];
+    NSInteger num = [jsonData count];
     
     NSLog(@"la fila numero %ld", (long)indexPath.row);
     NSLog(@"elementos de jsonData %ld", (long)num);
 
     
-    data= [self.jsonData objectAtIndex:indexPath.row];
+    data= [jsonData objectAtIndex:indexPath.row];
     cell.textLabel.text = [data objectForKey:@"SolicitudFromNombre"];
     
     NSString * tagid=[data objectForKey:@"SolicitudId"];

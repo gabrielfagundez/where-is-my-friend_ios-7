@@ -10,6 +10,5 @@
 
 @interface RequestsViewController : UITableViewController
 
-@property(retain)  NSArray * jsonData;
 
 @end
