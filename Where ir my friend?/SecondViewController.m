@@ -118,8 +118,8 @@
         
         else{
             //si no hay conexion con el server
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Send", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert show];
+            //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Send", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            //[alert show];
         }
   
     }
@@ -132,6 +132,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//provisorio ara la liberacion, despues lo pongo en settings
 -(IBAction)logoutClicked:(id)sender{
     // Create the action sheet
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
@@ -144,19 +145,23 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
     if (buttonIndex == actionSheet.destructiveButtonIndex) {
-        
+
         if ([BackendProxy internetConnection]){
             ServerResponse * sr = [BackendProxy logout];
             if ([sr getCodigo] == 200){
                 [self performSegueWithIdentifier:@"logoutSegue" sender:self];
+                NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+                [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
             }
             else{
                 //error al cerrar sesion, no deberia pasar nunca
             }
         }
         else{
-            //ver que hacemos ene estos casos, si no dejamos cerar o hacemos una cerrado sin server
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Logout", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
         }
     }
 }

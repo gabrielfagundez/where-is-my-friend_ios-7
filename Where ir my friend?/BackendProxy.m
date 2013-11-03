@@ -55,7 +55,7 @@ NSString * server = @"developmentpis.azurewebsites.net";
     //NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 
     // imprimo lo que mando para verificar
-    //NSLog(@"%@", [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding]);
+    //NSLog(@"%@", [[NSString alloc] initWithData:postData2 encoding:NSUTF8StringEncoding]);
 
     NSHTTPURLResponse* urlResponse = nil;
     error = [[NSError alloc] init];
@@ -88,9 +88,9 @@ NSString * server = @"developmentpis.azurewebsites.net";
         
         //GUARDO LA INFO DEL USUARIO
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:userId forKey:@"IdUsuario"];
-        [defaults setObject:userMail forKey:@"MailUsuario"];
-        [defaults setObject:userName forKey:@"NameUsuario"];
+        [defaults setObject:userId forKey:@"id"];
+        [defaults setObject:userMail forKey:@"mail"];
+        [defaults setObject:userName forKey:@"name"];
         
         return sr;
         
@@ -145,7 +145,7 @@ NSString * server = @"developmentpis.azurewebsites.net";
 + (ServerResponse *)logout{
     
     //creo el JSON
-    NSString * mail=[[NSUserDefaults standardUserDefaults]stringForKey:@"MailUsuario"];
+    NSString * mail=[[NSUserDefaults standardUserDefaults]stringForKey:@"mail"];
     
     NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys:
                           mail,@"Mail",
@@ -167,16 +167,16 @@ NSString * server = @"developmentpis.azurewebsites.net";
     [request setHTTPBody:postData2];
     
     // imprimo lo que mando para verificar
-    //NSLog(@"%@", [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding]);
+    //NSLog(@"%@", [[NSString alloc] initWithData:postData2 encoding:NSUTF8StringEncoding]);
     
     NSHTTPURLResponse* urlResponse = nil;
     error = [[NSError alloc] init];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
-    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    //NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
     
     // imprimo el resultado del post para verificar
-    NSLog(@"Response: %@", result);
-    NSLog(@"Response: %ld", (long)urlResponse.statusCode);
+    //NSLog(@"Response: %@", result);
+    //NSLog(@"Response: %ld", (long)urlResponse.statusCode);
     
     //me creo el objeto serverResponse
     ServerResponse * sr = [ServerResponse alloc];

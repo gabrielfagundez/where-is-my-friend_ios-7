@@ -8,4 +8,5 @@
 
 "No Internet Connection Login" = "You must have internet in order to login. Check your internet connection and try again.";
 "No Internet Connection Send" = "You must have internet in order to ..... . Check your internet connection and try again.";
+"No Internet Connection Logout" = "You must have internet in order to logout. Check your internet connection and try again.";
 "Connection Failed" = "Connection Failed";

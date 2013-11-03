@@ -202,13 +202,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Friends" id="Mbq-cZ-C4z">
-                        <barButtonItem key="rightBarButtonItem" image="19-gear.png" style="plain" id="syh-jx-ILN">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Logout" style="plain" id="cAW-OY-jSn">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" style="plain" id="FKz-9w-anJ">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="logoutClicked:" destination="mBb-0l-zRz" id="XW0-Wz-Pne"/>
+                                <action selector="logoutClicked:" destination="mBb-0l-zRz" id="jOs-Mx-hUP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -299,7 +296,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="19-gear.png" width="26" height="26"/>
         <image name="friends.png" width="40" height="40"/>
         <image name="map.png" width="48" height="48"/>
         <image name="requests.png" width="48" height="48"/>
