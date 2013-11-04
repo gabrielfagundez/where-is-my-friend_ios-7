@@ -68,7 +68,7 @@
     
     CLLocationCoordinate2D  points[cant];
     
-    
+ 
     
     for(int i=0; i<[jsonFriends count];i++)
     {

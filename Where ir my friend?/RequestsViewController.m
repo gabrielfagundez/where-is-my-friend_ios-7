@@ -79,8 +79,40 @@
     NSString * tagid=[data objectForKey:@"SolicitudId"];
     cell.tag= [tagid intValue];
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    // agrego los botones
+    UIButton *aceptar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    aceptar.frame = CGRectMake(200.0f, 5.0f, 75.0f, 30.0f);
+    [aceptar setTitle:@"Yes" forState:UIControlStateNormal];
+    [cell addSubview:aceptar];
+    [aceptar addTarget:self
+                        action:@selector(aceptar:)
+              forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *rechazar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    rechazar.frame = CGRectMake(250.0f, 5.0f, 75.0f, 30.0f);
+    [rechazar setTitle:@"No" forState:UIControlStateNormal];
+    [cell addSubview:rechazar];
+    [rechazar addTarget:self
+                action:@selector(rechazar:)
+      forControlEvents:UIControlEventTouchUpInside];
+
+
     return cell;
 
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+- (IBAction)aceptar:(id)sender
+{
+    NSLog(@"Aceptooo.");
+}
+- (IBAction)rechazar:(id)sender
+{
+    NSLog(@"Rechazoooo.");
 }
 
 - (void)didReceiveMemoryWarning
