@@ -21,7 +21,7 @@
     CLLocationManager * locationManager;
 }
 
-@synthesize pass,em, butlog, wrongView, spinner;
+@synthesize pass,em, butlog, wrongView, spinner, table;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,10 +44,36 @@
     //[em setDelegate:self];
     pass.delegate = self;
     em.delegate = self;
+    table.dataSource=self;
     
     locationManager = [[CLLocationManager alloc] init];
     
     [spinner setHidden:YES];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self.table cellForRowAtIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] init ];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    }
+    
+    
+    
+    return cell;
 }
 
 -(IBAction)butlogClick:(id)sender{
@@ -63,33 +89,33 @@
     NSString * email = em.text;
     NSString * pswd = pass.text;
     if (email!=nil && pswd!= nil && ![email isEqualToString:@""] && ![pswd isEqualToString:@""]){//no hay cosas vacias
-    
+        
         if ([BackendProxy internetConnection]){
             //si hay conexion con el server
-    
+            
             NSString * plat= @"ios";
             NSString * device= @"123";
             
             //llamo a la funcion de backend
             ServerResponse * sr = [BackendProxy login :email :pswd :plat :device];
-
+            
             //comparo segun lo que me dio la funcion enterUser para ver como sigo
             if ([sr getCodigo] == 200){
-
+                
                 //BUSCO LA UBICACION DEL USUARIO
                 locationManager.delegate = self;
                 locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
                 locationManager.distanceFilter = 50; // metros
-            
+                
                 [locationManager startUpdatingLocation];
-    
+                
                 
                 [self performSelectorOnMainThread:@selector(finishedLoading) withObject:nil waitUntilDone:NO];
-            
+                
             }else{
                 pass.text=@"";
                 pswd=nil;
-                [butlog setBackgroundColor:[UIColor colorWithRed:0.0/255.0f green:175.0/255.0f blue:240.0/255.0f alpha:0.5]];
+                //[butlog setBackgroundColor:[UIColor colorWithRed:0.0/255.0f green:175.0/255.0f blue:240.0/255.0f alpha:0.5]];
                 //[butlog setEnabled:NO];
                 if ([sr getCodigo] == 404){
                     wrongView.text = @"User not found";
@@ -108,16 +134,16 @@
     }
     else{
         //txtWrong.text=NSLocalizedString(@"Complete all the fields to login", nil);
-        [butlog setBackgroundColor:[UIColor colorWithRed:0.0/255.0f green:175.0/255.0f blue:240.0/255.0f alpha:0.5]];
+        //[butlog setBackgroundColor:[UIColor colorWithRed:0.0/255.0f green:175.0/255.0f blue:240.0/255.0f alpha:0.5]];
         //[butlog setEnabled:NO];
-        wrongView.text = @"Complete all the fields to login";
+        wrongView.text = @"You must complete all the fields";
         [wrongView setHidden:NO];
         
     }
     
     [spinner stopAnimating];
     [spinner setHidden:YES];
-
+    
     
 }
 
@@ -147,16 +173,16 @@
         NSString * email = em.text;
         NSString *longit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.longitude ];
         NSString *latit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.latitude ];
-
+        
         NSDictionary* info2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                              email,@"Mail",
-                              latit, @"Latitude",
-                              longit, @"Longitude",
-                              nil];
+                               email,@"Mail",
+                               latit, @"Latitude",
+                               longit, @"Longitude",
+                               nil];
         
         // POST
         NSMutableURLRequest *request2 = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
+                                         requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
         
         NSError *error;
         NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
@@ -182,9 +208,9 @@
             // paso la info del json obtenido
             
         }else{
-
+            
         }
-
+        
     }
 }
 
@@ -201,11 +227,11 @@
 }
 
 //- (void)textFieldDidEndEditing:(UITextField *)textField{
-    //if (![em.text isEqualToString:@""] && ![pass.text isEqualToString:@""]){
-        //[butlog setEnabled:YES];
-   // }else {
-         //[butlog setEnabled:NO];
-    //}
+//if (![em.text isEqualToString:@""] && ![pass.text isEqualToString:@""]){
+//[butlog setEnabled:YES];
+// }else {
+//[butlog setEnabled:NO];
+//}
 //}
 
 

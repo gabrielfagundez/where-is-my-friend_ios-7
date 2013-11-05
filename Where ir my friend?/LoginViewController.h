@@ -17,6 +17,7 @@
     IBOutlet UIButton * butlog;
     IBOutlet UILabel *wrongView;
     IBOutlet UIActivityIndicatorView *spinner;
+    IBOutlet UITableView *table;
 }
 
 @property(nonatomic,retain) UITextField * em;
@@ -24,6 +25,7 @@
 @property(nonatomic,retain) UIView *wrongView;
 @property(nonatomic,retain) UIButton * butlog;
 @property(nonatomic,retain) UIActivityIndicatorView *spinner;
+@property(nonatomic,retain) UITableView *table;
 
 -(IBAction)butlogClick:(id)sender;
 
