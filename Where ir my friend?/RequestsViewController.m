@@ -109,10 +109,78 @@
 - (IBAction)aceptar:(id)sender
 {
     NSLog(@"Aceptooo.");
+    //creo el JSON
+    NSString * idUser =[[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
+    
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    NSString * idSol=[NSString stringWithFormat:@"%d", cell.tag];
+    
+    
+      NSLog(@"El id de la solicitud es:%@",idSol);
+    
+    NSDictionary* info2 = [NSDictionary dictionaryWithObjectsAndKeys:
+                           idUser,@"idUser",
+                           idSol, @"idSolicitud",
+                           nil];
+    
+    NSMutableURLRequest *request2 = [NSMutableURLRequest
+                                     requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Solicitudes/Accept"]];
+    
+    NSError *error;
+    NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
+    [request2 setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request2 setHTTPMethod:@"POST"];
+    [request2 setHTTPBody:postData2];
+    //NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    // imprimo lo que mando para verificar
+    NSLog(@"%@", [[NSString alloc] initWithData:postData2 encoding:NSUTF8StringEncoding]);
+    
+    NSHTTPURLResponse* urlResponse = nil;
+    error = [[NSError alloc] init];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request2 returningResponse:&urlResponse error:&error];
+    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 }
 - (IBAction)rechazar:(id)sender
 {
     NSLog(@"Rechazoooo.");
+    //creo el JSON
+    NSString * idUser =[[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
+    
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    NSString * idSol=[NSString stringWithFormat:@"%d", cell.tag];
+    
+    
+    NSLog(@"El id de la solicitud es:%@",idSol);
+    
+    NSDictionary* info2 = [NSDictionary dictionaryWithObjectsAndKeys:
+                           idUser,@"idUser",
+                           idSol, @"idSolicitud",
+                           nil];
+    
+    NSMutableURLRequest *request2 = [NSMutableURLRequest
+                                     requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Solicitudes/Reject"]];
+    
+    NSError *error;
+    NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
+    [request2 setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request2 setHTTPMethod:@"POST"];
+    [request2 setHTTPBody:postData2];
+    //NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    // imprimo lo que mando para verificar
+    NSLog(@"%@", [[NSString alloc] initWithData:postData2 encoding:NSUTF8StringEncoding]);
+    
+    NSHTTPURLResponse* urlResponse = nil;
+    error = [[NSError alloc] init];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request2 returningResponse:&urlResponse error:&error];
+    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 }
 
 - (void)didReceiveMemoryWarning
