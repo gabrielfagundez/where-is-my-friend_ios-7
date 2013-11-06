@@ -38,6 +38,10 @@
     mapView.showsUserLocation = YES;
     mapView.delegate = self;
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
+    
+    UITabBarItem *tbi = (UITabBarItem*)[[[self.tabBarController tabBar] items] objectAtIndex:2];
+    
+    [tbi setBadgeValue:@"1"];
 }
 
 

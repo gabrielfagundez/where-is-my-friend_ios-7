@@ -28,9 +28,8 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
 
     NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
     
@@ -48,6 +47,7 @@
     jsonData = [NSJSONSerialization JSONObjectWithData:response
                                                options:0 error:&jsonParsingError];
     
+    [self.tableView reloadData];
 }
 
 

@@ -21,9 +21,8 @@
 }
 
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
     
@@ -41,10 +40,7 @@
     jsonData = [NSJSONSerialization JSONObjectWithData:response
                                                               options:0 error:&jsonParsingError];
     
-    UITabBarItem *tbi = (UITabBarItem*)[[[self.tabBarController tabBar] items] objectAtIndex:2];
-    
-    [tbi setBadgeValue:@"1"];
-    
+    [self.tableView reloadData];
 
 }
 
