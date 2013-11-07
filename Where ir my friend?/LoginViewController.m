@@ -21,7 +21,7 @@
     CLLocationManager * locationManager;
 }
 
-@synthesize pass,em, butlog, wrongView, spinner, table;
+@synthesize pass,em, butlog, wrongView, spinner, table, btnWrong, wrongTxt;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,10 +45,14 @@
     pass.delegate = self;
     em.delegate = self;
     table.dataSource=self;
+    btnWrong.transform = CGAffineTransformMakeRotation(45.0*M_PI/180.0);
     
     locationManager = [[CLLocationManager alloc] init];
     
     [spinner setHidden:YES];
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [wrongView setHidden:YES];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -118,10 +122,10 @@
                 //[butlog setBackgroundColor:[UIColor colorWithRed:0.0/255.0f green:175.0/255.0f blue:240.0/255.0f alpha:0.5]];
                 //[butlog setEnabled:NO];
                 if ([sr getCodigo] == 404){
-                    wrongView.text = @"User not found";
+                    wrongTxt.text = @"User not found";
                     [wrongView setHidden:NO];
                 }else{
-                    wrongView.text = @"Wrong Password";
+                    wrongTxt.text = @"Wrong Password";
                     [wrongView setHidden:NO];
                 }
             }
@@ -136,7 +140,7 @@
         //txtWrong.text=NSLocalizedString(@"Complete all the fields to login", nil);
         //[butlog setBackgroundColor:[UIColor colorWithRed:0.0/255.0f green:175.0/255.0f blue:240.0/255.0f alpha:0.5]];
         //[butlog setEnabled:NO];
-        wrongView.text = @"You must complete all the fields";
+        wrongTxt.text = @"You must complete all the fields";
         [wrongView setHidden:NO];
         
     }
@@ -226,13 +230,15 @@
     return YES;
 }
 
-//- (void)textFieldDidEndEditing:(UITextField *)textField{
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+
+    [wrongView setHidden:YES];
 //if (![em.text isEqualToString:@""] && ![pass.text isEqualToString:@""]){
 //[butlog setEnabled:YES];
 // }else {
 //[butlog setEnabled:NO];
 //}
-//}
+}
 
 
 
