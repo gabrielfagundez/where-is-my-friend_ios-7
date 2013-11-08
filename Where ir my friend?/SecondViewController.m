@@ -24,8 +24,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	// Do any additional setup after loading the view, typically from a nib.
-
-    jsonData = [BackendProxy GetAllFriends];
+    
+    if ([BackendProxy internetConnection]){
+        jsonData = [BackendProxy GetAllFriends];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Failed" message:@"You must have internet in order to..." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }
     
     [self.tableView reloadData];
 
@@ -101,8 +107,8 @@
         
         else{
             //si no hay conexion con el server
-            //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Send", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            //[alert show];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Failed" message:@"You must have internet in order to..." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
         }
   
     }
