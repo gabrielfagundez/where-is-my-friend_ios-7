@@ -186,4 +186,131 @@ NSString * server = @"developmentpis.azurewebsites.net";
 
 }
 
++ (NSArray *)GetLastFriendsLocationsById{
+    
+    NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
+    
+    NSString * url = @"http://";
+    NSString * url1 = [server copy];
+    url = [url stringByAppendingString:url1];
+    url = [url stringByAppendingString:@"/api/Geolocation/GetLastFriendsLocationsById/"];
+    url = [url stringByAppendingString:id];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
+                                                          URLWithString:url]];
+    
+    NSData *response = [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:nil error:nil];
+    NSError *jsonParsingError = nil;
+    NSArray * jsonFriends = [NSJSONSerialization JSONObjectWithData:response
+                                                  options:0 error:&jsonParsingError];
+    
+    return jsonFriends;
+}
+
++ (NSArray *)GetAllFriends{
+    NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
+    
+    NSString * url = @"http://";
+    NSString * url1 = [server copy];
+    url = [url stringByAppendingString:url1];
+    url = [url stringByAppendingString:@"/api/Friends/GetAllFriends/"];
+    url = [url stringByAppendingString:id];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
+                                                          URLWithString:url]];
+    
+    
+    NSData *response = [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:nil error:nil];
+    NSError *jsonParsingError = nil;
+    NSArray * jsonData = [NSJSONSerialization JSONObjectWithData:response
+                                               options:0 error:&jsonParsingError];
+    
+    return jsonData;
+}
+
++ (NSArray *)GetAll{
+    
+    NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
+    
+    NSString * url = @"http://";
+    NSString * url1 = [server copy];
+    url = [url stringByAppendingString:url1];
+    url = [url stringByAppendingString:@"/api/Solicitudes/GetAll/"];
+    url = [url stringByAppendingString:id];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
+                                                          URLWithString:url]];
+    
+    
+    NSData *response = [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:nil error:nil];
+    NSError *jsonParsingError = nil;
+    NSArray * jsonData = [NSJSONSerialization JSONObjectWithData:response
+                                               options:0 error:&jsonParsingError];
+    
+    return jsonData;
+}
+
++ (void)Accept :(NSString *)idSol {
+    
+    //creo el JSON
+    NSString * idUser =[[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
+    
+    NSDictionary* info2 = [NSDictionary dictionaryWithObjectsAndKeys:
+                           idUser,@"idUser",
+                           idSol, @"idSolicitud",
+                           nil];
+    
+    NSMutableURLRequest *request2 = [NSMutableURLRequest
+                                     requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Solicitudes/Accept"]];
+    
+    NSError *error;
+    NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
+    [request2 setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request2 setHTTPMethod:@"POST"];
+    [request2 setHTTPBody:postData2];
+    //NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    // imprimo lo que mando para verificar
+    NSLog(@"%@", [[NSString alloc] initWithData:postData2 encoding:NSUTF8StringEncoding]);
+    
+    NSHTTPURLResponse* urlResponse = nil;
+    error = [[NSError alloc] init];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request2 returningResponse:&urlResponse error:&error];
+    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    
+}
+
++ (void)Reject :(NSString *)idSol{
+    
+    //creo el JSON
+    NSString * idUser =[[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
+    
+    NSDictionary* info2 = [NSDictionary dictionaryWithObjectsAndKeys:
+                           idUser,@"idUser",
+                           idSol, @"idSolicitud",
+                           nil];
+    
+    NSMutableURLRequest *request2 = [NSMutableURLRequest
+                                     requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Solicitudes/Reject"]];
+    
+    NSError *error;
+    NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
+    [request2 setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request2 setHTTPMethod:@"POST"];
+    [request2 setHTTPBody:postData2];
+    //NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    // imprimo lo que mando para verificar
+    NSLog(@"%@", [[NSString alloc] initWithData:postData2 encoding:NSUTF8StringEncoding]);
+    
+    NSHTTPURLResponse* urlResponse = nil;
+    error = [[NSError alloc] init];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request2 returningResponse:&urlResponse error:&error];
+    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    
+}
+
 @end

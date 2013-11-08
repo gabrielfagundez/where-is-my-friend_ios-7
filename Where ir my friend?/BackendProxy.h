@@ -17,5 +17,10 @@
 + (ServerResponse *)login :(NSString*)email :(NSString*)pswd :(NSString*)plat :(NSString*)device;
 + (ServerResponse *)send :(NSString*)to;
 + (ServerResponse *)logout;
++ (NSArray *)GetLastFriendsLocationsById;
++ (NSArray *)GetAllFriends;
++ (NSArray *)GetAll;
++ (void)Accept :(NSString *)idSol;
++ (void)Reject :(NSString *)idSol;
 
 @end

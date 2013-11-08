@@ -141,8 +141,7 @@
         //[butlog setBackgroundColor:[UIColor colorWithRed:0.0/255.0f green:175.0/255.0f blue:240.0/255.0f alpha:0.5]];
         //[butlog setEnabled:NO];
         wrongTxt.text = @"You must complete all the fields";
-        [wrongView setHidden:NO];
-        
+        [wrongView setHidden:NO];        
     }
     
     [spinner stopAnimating];

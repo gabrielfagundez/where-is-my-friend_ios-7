@@ -24,21 +24,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	// Do any additional setup after loading the view, typically from a nib.
-    NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
-    
-    NSString *aux = @"http://developmentpis.azurewebsites.net/api/Friends/GetAllFriends/";
-    NSString *direc = [aux stringByAppendingString:id];
-    
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
-                                                          URLWithString:direc]];
-    
-    
-    NSData *response = [NSURLConnection sendSynchronousRequest:request
-                                             returningResponse:nil error:nil];
-    NSError *jsonParsingError = nil;
-    jsonData = [NSJSONSerialization JSONObjectWithData:response
-                                                              options:0 error:&jsonParsingError];
+
+    jsonData = [BackendProxy GetAllFriends];
     
     [self.tableView reloadData];
 

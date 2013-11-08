@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import "BackendProxy.h"
 
 @interface MapViewController ()
 
@@ -49,22 +50,8 @@
     NSLog(@"tiempooooooooooooo");
     [mapView removeAnnotations:mapView.annotations];
     mapView.showsUserLocation = YES;
-    
-    NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
-    
-    NSString *aux = @"http://developmentpis.azurewebsites.net/api/Geolocation/GetLastFriendsLocationsById/";
-    NSString *direc = [aux stringByAppendingString:id];
-    
 
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
-                                                          URLWithString:direc]];
-    
-    NSData *response = [NSURLConnection sendSynchronousRequest:request
-                                             returningResponse:nil error:nil];
-    NSError *jsonParsingError = nil;
-    jsonFriends = [NSJSONSerialization JSONObjectWithData:response
-                                                  options:0 error:&jsonParsingError];
+    jsonFriends = [BackendProxy GetLastFriendsLocationsById];
     
     NSDictionary * data;
     
