@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface LoginViewController : UIViewController <UITextFieldDelegate,CLLocationManagerDelegate>
+@interface LoginViewController : UIViewController <UITextFieldDelegate,CLLocationManagerDelegate,UITableViewDataSource>
 {
 
     IBOutlet UITextField * em;

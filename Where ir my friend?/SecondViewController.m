@@ -132,23 +132,12 @@
     if (buttonIndex == actionSheet.destructiveButtonIndex) {
 
         if ([BackendProxy internetConnection]){
-            ServerResponse * sr = [BackendProxy logout];
-            if ([sr getCodigo] == 200){
-                [self performSegueWithIdentifier:@"logoutSegue" sender:self];
-                NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-                [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
-            }
-            else{
-                //error al cerrar sesion, no deberia pasar nunca
-           //     [self performSegueWithIdentifier:@"logoutSegue" sender:self];
-            //    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-             //   [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
-            }
+            [BackendProxy logout];
         }
-        else{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Logout", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert show];
-        }
+        [self performSegueWithIdentifier:@"logoutSegue" sender:self];
+        NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+
     }
 }
 

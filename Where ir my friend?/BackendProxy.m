@@ -142,7 +142,7 @@ NSString * server = @"developmentpis.azurewebsites.net";
     
 }
 
-+ (ServerResponse *)logout{
++ (void)logout{
     
     //creo el JSON
     NSString * mail=[[NSUserDefaults standardUserDefaults]stringForKey:@"mail"];
@@ -166,23 +166,9 @@ NSString * server = @"developmentpis.azurewebsites.net";
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:postData2];
     
-    // imprimo lo que mando para verificar
-    //NSLog(@"%@", [[NSString alloc] initWithData:postData2 encoding:NSUTF8StringEncoding]);
-    
     NSHTTPURLResponse* urlResponse = nil;
     error = [[NSError alloc] init];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
-    //NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    
-    // imprimo el resultado del post para verificar
-    //NSLog(@"Response: %@", result);
-    //NSLog(@"Response: %ld", (long)urlResponse.statusCode);
-    
-    //me creo el objeto serverResponse
-    ServerResponse * sr = [ServerResponse alloc];
-    sr = [sr initialize :(NSInteger)urlResponse.statusCode :NULL :NULL :NULL :NULL];
-    
-    return sr;
 
 }
 

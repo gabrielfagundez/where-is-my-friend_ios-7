@@ -16,7 +16,7 @@
 + (bool)internetConnection;
 + (ServerResponse *)login :(NSString*)email :(NSString*)pswd :(NSString*)plat :(NSString*)device;
 + (ServerResponse *)send :(NSString*)to;
-+ (ServerResponse *)logout;
++ (void)logout;
 + (NSArray *)GetLastFriendsLocationsById;
 + (NSArray *)GetAllFriends;
 + (NSArray *)GetAll;
