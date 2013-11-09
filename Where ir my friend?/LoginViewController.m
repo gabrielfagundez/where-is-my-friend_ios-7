@@ -106,7 +106,7 @@
             //si hay conexion con el server
             
             NSString * plat= @"ios";
-            NSString * device= @"123";
+            NSString * device= [[UAPush shared] deviceToken];
             
             //llamo a la funcion de backend
             ServerResponse * sr = [BackendProxy login :email :pswd :plat :device];
@@ -187,7 +187,7 @@
         
         // POST
         NSMutableURLRequest *request2 = [NSMutableURLRequest
-                                         requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
+                                         requestWithURL:[NSURL URLWithString:@"http://serverdevelopmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
         
         NSError *error;
         NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];

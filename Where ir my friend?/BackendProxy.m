@@ -9,7 +9,7 @@
 #import "BackendProxy.h"
 #import "Reachability.h"
 
-NSString * server = @"developmentpis.azurewebsites.net";
+NSString * server = @"serverdevelopmentpis.azurewebsites.net";
 
 @implementation BackendProxy
 
@@ -250,7 +250,7 @@ NSString * server = @"developmentpis.azurewebsites.net";
                            nil];
     
     NSMutableURLRequest *request2 = [NSMutableURLRequest
-                                     requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Solicitudes/Accept"]];
+                                     requestWithURL:[NSURL URLWithString:@"http://serverdevelopmentpis.azurewebsites.net/api/Solicitudes/Accept"]];
     
     NSError *error;
     NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
@@ -280,7 +280,7 @@ NSString * server = @"developmentpis.azurewebsites.net";
                            nil];
     
     NSMutableURLRequest *request2 = [NSMutableURLRequest
-                                     requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Solicitudes/Reject"]];
+                                     requestWithURL:[NSURL URLWithString:@"http://serverdevelopmentpis.azurewebsites.net/api/Solicitudes/Reject"]];
     
     NSError *error;
     NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "UAirship.h"
+#import "UAConfig.h"
+#import "UAPush.h"
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate,CLLocationManagerDelegate,UITableViewDataSource>
 {
