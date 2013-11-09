@@ -107,7 +107,7 @@
                                 </prototypes>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r6f-Ma-gnO">
-                                <rect key="frame" x="18" y="188" width="289" height="32"/>
+                                <rect key="frame" x="18" y="184" width="289" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="HVW-Ka-3fp"/>
@@ -117,7 +117,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U1k-qQ-UX2">
-                                <rect key="frame" x="18" y="230" width="289" height="30"/>
+                                <rect key="frame" x="18" y="228" width="289" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="3uK-QR-H3s"/>
@@ -178,18 +178,18 @@
                             <constraint firstItem="x0N-h0-pXH" firstAttribute="centerX" secondItem="L7r-28-5Z8" secondAttribute="centerX" type="default" id="7bh-YK-04G"/>
                             <constraint firstAttribute="bottom" secondItem="EM2-MX-lUP" secondAttribute="bottom" constant="119" id="DuP-gn-7Gi"/>
                             <constraint firstItem="7fB-zv-qCY" firstAttribute="leading" secondItem="L7r-28-5Z8" secondAttribute="leading" constant="7" id="OVu-uk-caL"/>
+                            <constraint firstItem="r6f-Ma-gnO" firstAttribute="top" secondItem="L7r-28-5Z8" secondAttribute="top" constant="184" id="OjN-ju-O7i"/>
                             <constraint firstAttribute="bottom" secondItem="x0N-h0-pXH" secondAttribute="bottom" constant="199" id="Qh7-NQ-WfQ"/>
                             <constraint firstItem="U1k-qQ-UX2" firstAttribute="trailing" secondItem="r6f-Ma-gnO" secondAttribute="trailing" type="default" id="T52-Yv-CiL"/>
                             <constraint firstItem="7fB-zv-qCY" firstAttribute="top" secondItem="L7r-28-5Z8" secondAttribute="top" constant="132" id="gQf-GC-j6J"/>
                             <constraint firstItem="Oks-s4-Y9J" firstAttribute="top" secondItem="L7r-28-5Z8" secondAttribute="top" constant="134" id="gcL-Py-wDZ"/>
-                            <constraint firstItem="U1k-qQ-UX2" firstAttribute="top" secondItem="L7r-28-5Z8" secondAttribute="top" constant="230" id="i19-9l-2O7"/>
+                            <constraint firstItem="U1k-qQ-UX2" firstAttribute="top" secondItem="L7r-28-5Z8" secondAttribute="top" constant="228" id="hF3-W9-m71"/>
                             <constraint firstItem="x0N-h0-pXH" firstAttribute="trailing" secondItem="U1k-qQ-UX2" secondAttribute="trailing" type="default" id="jBC-xF-rPw"/>
                             <constraint firstItem="Oks-s4-Y9J" firstAttribute="leading" secondItem="L7r-28-5Z8" secondAttribute="leading" type="default" id="kos-4D-zuK"/>
                             <constraint firstAttribute="bottom" secondItem="7fB-zv-qCY" secondAttribute="bottom" constant="384" id="m75-XS-sB9"/>
                             <constraint firstItem="7fB-zv-qCY" firstAttribute="trailing" secondItem="r6f-Ma-gnO" secondAttribute="trailing" type="default" id="qoR-pg-arb"/>
                             <constraint firstItem="3i3-On-xhc" firstAttribute="centerX" secondItem="x0N-h0-pXH" secondAttribute="centerX" type="default" id="rhX-mM-bfg"/>
                             <constraint firstItem="EM2-MX-lUP" firstAttribute="centerX" secondItem="x0N-h0-pXH" secondAttribute="centerX" type="default" id="s6O-mH-5ED"/>
-                            <constraint firstItem="r6f-Ma-gnO" firstAttribute="top" secondItem="L7r-28-5Z8" secondAttribute="top" constant="188" id="shn-fk-kpn"/>
                             <constraint firstItem="U1k-qQ-UX2" firstAttribute="leading" secondItem="r6f-Ma-gnO" secondAttribute="leading" type="default" id="xkd-fa-FaQ"/>
                         </constraints>
                     </view>
