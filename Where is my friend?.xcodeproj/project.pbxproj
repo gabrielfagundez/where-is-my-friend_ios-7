@@ -1038,7 +1038,7 @@
 				INFOPLIST_FILE = "Where ir my friend?/Where is my friend?-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/toptierlabs/Desktop/PIS/wmf_ios/libUAirship-latest/Airship",
+					"$(SRCROOT)/libUAirship-latest/Airship",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Where is my friend?";
@@ -1059,7 +1059,7 @@
 				INFOPLIST_FILE = "Where ir my friend?/Where is my friend?-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/toptierlabs/Desktop/PIS/wmf_ios/libUAirship-latest/Airship",
+					"$(SRCROOT)/libUAirship-latest/Airship",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Where is my friend?";
