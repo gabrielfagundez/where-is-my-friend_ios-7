@@ -47,6 +47,18 @@
                                          UIRemoteNotificationTypeNewsstandContentAvailability);
 
 
+    if (launchOptions)
+    {
+        NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        if (dictionary != nil)
+        {
+            NSLog(@"Launched from push notification: %@", dictionary);
+            
+            [self clearNotifications];
+        }
+    }
+    
+
     
     return YES;
 }
@@ -76,6 +88,18 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void) clearNotifications {
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+}
+
+
+- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
+{
+    NSLog(@"Received notification: %@", userInfo);
+    [self clearNotifications];
 }
 
 @end

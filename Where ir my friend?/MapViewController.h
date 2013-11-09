@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface MapViewController : UIViewController <MKMapViewDelegate, UIActionSheetDelegate>{
+@interface MapViewController : UIViewController <MKMapViewDelegate, UIActionSheetDelegate,CLLocationManagerDelegate>{
     
     MKMapView * mapView;
     BOOL isFirstLaunch;
+    CLLocationManager *locationManager;
 }
 
 @property(nonatomic,retain) IBOutlet MKMapView *mapView;
+@property(nonatomic,retain) CLLocationManager *locationManager;
 
 -(IBAction)centerMapOnUserButtonClicked:(id)sender;
 -(IBAction)logoutClicked:(id)sender;

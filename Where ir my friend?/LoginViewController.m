@@ -16,10 +16,7 @@
 
 @end
 
-@implementation LoginViewController{
-    
-    CLLocationManager * locationManager;
-}
+@implementation LoginViewController
 
 @synthesize pass,em, butlog, wrongView, spinner, table, btnWrong, wrongTxt;
 
@@ -47,7 +44,7 @@
     table.dataSource=self;
     btnWrong.transform = CGAffineTransformMakeRotation(45.0*M_PI/180.0);
     
-    locationManager = [[CLLocationManager alloc] init];
+    //locationManager = [[CLLocationManager alloc] init];
     
     [spinner setHidden:YES];
     
@@ -83,8 +80,6 @@
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
     }
     
-    
-    
     return cell;
 }
 
@@ -92,12 +87,14 @@
     //[txtPassword resignFirstResponder];
     [spinner setHidden:NO];
     [spinner startAnimating];
+    [em resignFirstResponder];
+    [pass resignFirstResponder];
+
     [self performSelectorInBackground:@selector(processLogin) withObject:self];
     
 }
 
 -(void)processLogin{
-    
     NSString * email = em.text;
     NSString * pswd = pass.text;
     if (email!=nil && pswd!= nil && ![email isEqualToString:@""] && ![pswd isEqualToString:@""]){//no hay cosas vacias
@@ -115,13 +112,11 @@
             if ([sr getCodigo] == 200){
                 
                 //BUSCO LA UBICACION DEL USUARIO
-                locationManager.delegate = self;
-                locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
-                locationManager.distanceFilter = 50; // metros
+                //locationManager.delegate = self;
+//                locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+//                locationManager.distanceFilter = 50; // metros
                 
-                [locationManager startUpdatingLocation];
-                
-                
+                //[locationManager startUpdatingLocation];
                 [self performSelectorOnMainThread:@selector(finishedLoading) withObject:nil waitUntilDone:NO];
                 
             }else{
@@ -129,7 +124,6 @@
                 pswd=nil;
                 wrongTxt.text = @"Invalid Mail and/or Password";
                 [wrongView setHidden:NO];
-                
             }
         }
         else{
@@ -156,68 +150,68 @@
     [self performSegueWithIdentifier:@"logsegue" sender:self];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"didFailWithError: %@", error);
-    UIAlertView *errorAlert = [[UIAlertView alloc]
-                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [errorAlert show];
-}
+//- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+//{
+//    NSLog(@"didFailWithError: %@", error);
+//    UIAlertView *errorAlert = [[UIAlertView alloc]
+//                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//    [errorAlert show];
+//}
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-    NSLog(@"didUpdateToLocation: %@", newLocation);
-    CLLocation *currentLocation = newLocation;
-    
-    if (currentLocation != nil) {
-        NSLog(@"Response: %8F", currentLocation.coordinate.longitude);
-        NSLog(@"Response: %8F", currentLocation.coordinate.latitude);
-        //ACA MANDO AL SERVIDOR
-        
-        //creo el JSON
-        NSString * email = em.text;
-        NSString *longit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.longitude ];
-        NSString *latit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.latitude ];
-        
-        NSDictionary* info2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                               email,@"Mail",
-                               latit, @"Latitude",
-                               longit, @"Longitude",
-                               nil];
-        
-        // POST
-        NSMutableURLRequest *request2 = [NSMutableURLRequest
-                                         requestWithURL:[NSURL URLWithString:@"http://serverdevelopmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
-        
-        NSError *error;
-        NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
-        [request2 setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [request2 setHTTPMethod:@"POST"];
-        [request2 setHTTPBody:postData2];
-        //NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        
-        // imprimo lo que mando para verificar
-        NSLog(@"%@", [[NSString alloc] initWithData:postData2 encoding:NSUTF8StringEncoding]);
-        
-        NSHTTPURLResponse* urlResponse = nil;
-        error = [[NSError alloc] init];
-        NSData *responseData = [NSURLConnection sendSynchronousRequest:request2 returningResponse:&urlResponse error:&error];
-        NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-        
-        // imprimo el resultado del post para verificar
-        NSLog(@"Response: %@", result);
-        NSLog(@"Response: %ld", (long)urlResponse.statusCode);
-        
-        //comparo segun lo que me dio el status code para ver como sigo
-        if ((long)urlResponse.statusCode == 200){
-            // paso la info del json obtenido
-            
-        }else{
-            
-        }
-        
-    }
-}
+//- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+//{
+//    NSLog(@"didUpdateToLocation: %@", newLocation);
+//    CLLocation *currentLocation = newLocation;
+//    
+//    if (currentLocation != nil) {
+//        NSLog(@"Response: %8F", currentLocation.coordinate.longitude);
+//        NSLog(@"Response: %8F", currentLocation.coordinate.latitude);
+//        //ACA MANDO AL SERVIDOR
+//        
+//        //creo el JSON
+//        NSString * email = em.text;
+//        NSString *longit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.longitude ];
+//        NSString *latit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.latitude ];
+//        
+//        NSDictionary* info2 = [NSDictionary dictionaryWithObjectsAndKeys:
+//                               email,@"Mail",
+//                               latit, @"Latitude",
+//                               longit, @"Longitude",
+//                               nil];
+//        
+//        // POST
+//        NSMutableURLRequest *request2 = [NSMutableURLRequest
+//                                         requestWithURL:[NSURL URLWithString:@"http://serverdevelopmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
+//        
+//        NSError *error;
+//        NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
+//        [request2 setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//        [request2 setHTTPMethod:@"POST"];
+//        [request2 setHTTPBody:postData2];
+//        //NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+//        
+//        // imprimo lo que mando para verificar
+//        NSLog(@"%@", [[NSString alloc] initWithData:postData2 encoding:NSUTF8StringEncoding]);
+//        
+//        NSHTTPURLResponse* urlResponse = nil;
+//        error = [[NSError alloc] init];
+//        NSData *responseData = [NSURLConnection sendSynchronousRequest:request2 returningResponse:&urlResponse error:&error];
+//        NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+//        
+//        // imprimo el resultado del post para verificar
+//        NSLog(@"Response: %@", result);
+//        NSLog(@"Response: %ld", (long)urlResponse.statusCode);
+//        
+//        //comparo segun lo que me dio el status code para ver como sigo
+//        if ((long)urlResponse.statusCode == 200){
+//            // paso la info del json obtenido
+//            
+//        }else{
+//            
+//        }
+//        
+//    }
+//}
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
