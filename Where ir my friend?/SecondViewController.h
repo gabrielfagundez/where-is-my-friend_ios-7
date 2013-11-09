@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface SecondViewController : UITableViewController <UIAlertViewDelegate, UIActionSheetDelegate>
+@interface SecondViewController : UITableViewController <UIAlertViewDelegate>
 
 //UITableViewDelegate,UITableViewDataSource,
--(IBAction)logoutClicked:(id)sender;
 
 @end

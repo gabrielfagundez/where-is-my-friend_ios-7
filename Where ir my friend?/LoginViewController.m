@@ -50,10 +50,13 @@
     locationManager = [[CLLocationManager alloc] init];
     
     [spinner setHidden:YES];
+    
+    [btnWrong setTintColor:[UIColor colorWithRed:190.0/255.0f green:0.0/255.0f blue:0.0/255.0f alpha:1]];
+    [wrongTxt setTextColor:[UIColor colorWithRed:190.0/255.0f green:0.0/255.0f blue:0.0/255.0f alpha:1]];
 }
 
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-  //  return @"Login";
+//  return @"Login";
 //}
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -124,15 +127,9 @@
             }else{
                 pass.text=@"";
                 pswd=nil;
-                //[butlog setBackgroundColor:[UIColor colorWithRed:0.0/255.0f green:175.0/255.0f blue:240.0/255.0f alpha:0.5]];
-                //[butlog setEnabled:NO];
-                if ([sr getCodigo] == 404){
-                    wrongTxt.text = @"User not found";
-                    [wrongView setHidden:NO];
-                }else{
-                    wrongTxt.text = @"Wrong Password";
-                    [wrongView setHidden:NO];
-                }
+                wrongTxt.text = @"Invalid Mail and/or Password";
+                [wrongView setHidden:NO];
+                
             }
         }
         else{
@@ -146,7 +143,7 @@
         //[butlog setBackgroundColor:[UIColor colorWithRed:0.0/255.0f green:175.0/255.0f blue:240.0/255.0f alpha:0.5]];
         //[butlog setEnabled:NO];
         wrongTxt.text = @"You must complete all the fields";
-        [wrongView setHidden:NO];        
+        [wrongView setHidden:NO];
     }
     
     [spinner stopAnimating];
@@ -235,13 +232,13 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-
+    
     [wrongView setHidden:YES];
-//if (![em.text isEqualToString:@""] && ![pass.text isEqualToString:@""]){
-//[butlog setEnabled:YES];
-// }else {
-//[butlog setEnabled:NO];
-//}
+    //if (![em.text isEqualToString:@""] && ![pass.text isEqualToString:@""]){
+    //[butlog setEnabled:YES];
+    // }else {
+    //[butlog setEnabled:NO];
+    //}
 }
 
 

@@ -15,10 +15,10 @@
 
 @implementation MapViewController
 {
-
+    
     NSArray * jsonFriends;
     NSTimer * timer,*timer2;
-
+    
 }
 @synthesize mapView;
 
@@ -31,7 +31,7 @@
     [self targetMethod:(NSTimer *) timer2];
     isFirstLaunch=YES;
     
-
+    
     
 }
 
@@ -50,7 +50,7 @@
     NSLog(@"tiempooooooooooooo");
     [mapView removeAnnotations:mapView.annotations];
     mapView.showsUserLocation = YES;
-
+    
     jsonFriends = [BackendProxy GetLastFriendsLocationsById];
     
     NSDictionary * data;
@@ -59,7 +59,7 @@
     
     CLLocationCoordinate2D  points[cant];
     
- 
+    
     
     for(int i=0; i<[jsonFriends count];i++)
     {
@@ -102,6 +102,31 @@
 
 - (IBAction)centerMapOnUserButtonClicked:(id)sender {
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
+}
+
+-(IBAction)logoutClicked:(id)sender{
+    // Create the action sheet
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+                                         destructiveButtonTitle:NSLocalizedString(@"Logout", nil)
+                                              otherButtonTitles:nil];
+    [sheet showInView:self.view];
+    
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == actionSheet.destructiveButtonIndex) {
+        
+        if ([BackendProxy internetConnection]){
+            [BackendProxy logout];
+        }
+        [self performSegueWithIdentifier:@"logoutSegue" sender:self];
+        NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+        
+    }
 }
 
 

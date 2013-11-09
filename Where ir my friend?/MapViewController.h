@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface MapViewController : UIViewController <MKMapViewDelegate>{
+@interface MapViewController : UIViewController <MKMapViewDelegate, UIActionSheetDelegate>{
     
     MKMapView * mapView;
     BOOL isFirstLaunch;
@@ -18,5 +18,7 @@
 @property(nonatomic,retain) IBOutlet MKMapView *mapView;
 
 -(IBAction)centerMapOnUserButtonClicked:(id)sender;
+-(IBAction)logoutClicked:(id)sender;
 
 @end
+

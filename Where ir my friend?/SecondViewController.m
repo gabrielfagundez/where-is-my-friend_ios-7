@@ -25,16 +25,18 @@
 {
 	// Do any additional setup after loading the view, typically from a nib.
     
-    if ([BackendProxy internetConnection]){
+    jsonData = [BackendProxy GetAllFriends];
+    
+    /*if ([BackendProxy internetConnection]){
         jsonData = [BackendProxy GetAllFriends];
     }
     else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Failed" message:@"You must have internet in order to..." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
-    }
+    }*/
     
     [self.tableView reloadData];
-
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -77,7 +79,7 @@
     ident= cell.tag;
     // Display Alert Message
     [messageAlert show];
-  
+    
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -90,7 +92,7 @@
         if ([BackendProxy internetConnection]){
             //si hay conexion con el server
             
-            //envio la solicitud        
+            //envio la solicitud
             NSString * to=[NSString stringWithFormat:@"%d",ident ];
             
             //llamo a la funcion de backend
@@ -107,12 +109,12 @@
         
         else{
             //si no hay conexion con el server
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Failed" message:@"You must have internet in order to..." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert show];
+            //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Failed" message:@"You must have internet in order to..." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            //[alert show];
         }
-  
+        
     }
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -121,30 +123,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-//provisorio ara la liberacion, despues lo pongo en settings
--(IBAction)logoutClicked:(id)sender{
-    // Create the action sheet
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                       delegate:self
-                                              cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
-                                         destructiveButtonTitle:NSLocalizedString(@"Logout", nil)
-                                              otherButtonTitles:nil];
-    [sheet showInView:self.view];
-    
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    
-    if (buttonIndex == actionSheet.destructiveButtonIndex) {
-
-        if ([BackendProxy internetConnection]){
-            [BackendProxy logout];
-        }
-        [self performSegueWithIdentifier:@"logoutSegue" sender:self];
-        NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
-
-    }
-}
 
 @end

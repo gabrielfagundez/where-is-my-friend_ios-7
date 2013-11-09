@@ -47,9 +47,17 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="7"/>
-                    <navigationItem key="navigationItem" title="Map" id="fyl-iw-J52"/>
+                    <navigationItem key="navigationItem" title="Map" id="fyl-iw-J52">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="hUd-Eh-vHH">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="logoutClicked:" destination="2" id="gwL-M3-sZk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="xI8-kL-FVc" id="ecf-Vn-Eze"/>
+                        <segue destination="ezK-59-NJL" kind="modal" identifier="logoutSegue" modalTransitionStyle="crossDissolve" id="jHJ-I1-RBn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
@@ -252,17 +260,7 @@
                             <outlet property="delegate" destination="mBb-0l-zRz" id="8t1-vZ-BdI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Friends" id="Mbq-cZ-C4z">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" style="plain" id="FKz-9w-anJ">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="logoutClicked:" destination="mBb-0l-zRz" id="jOs-Mx-hUP"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="ezK-59-NJL" kind="modal" identifier="logoutSegue" modalTransitionStyle="crossDissolve" id="0MT-8d-fru"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Friends" id="Mbq-cZ-C4z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r00-Yg-tzW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
