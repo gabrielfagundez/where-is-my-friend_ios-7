@@ -28,7 +28,24 @@
         UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"tabbar"];
         self.window.rootViewController= viewController;
     }
-    return YES;
+    
+    // Populate AirshipConfig.plist with your app's info from https://go.urbanairship.com
+    // or set runtime properties here.
+    UAConfig *config = [UAConfig defaultConfig];
+    
+    // You can also programmatically override the plist values:
+    // config.developmentAppKey = @"YourKey";
+    // etc.
+    
+    // Call takeOff (which creates the UAirship singleton)
+    [UAirship takeOff:config];
+
+    // Request a custom set of notification types
+    [UAPush shared].notificationTypes = (UIRemoteNotificationTypeBadge |
+                                         UIRemoteNotificationTypeSound |
+                                         UIRemoteNotificationTypeAlert |
+                                         UIRemoteNotificationTypeNewsstandContentAvailability);
+
 
     
     return YES;
