@@ -27,7 +27,7 @@ NSString * server = @"serverdevelopmentpis.azurewebsites.net";
     return true;
 }
 
-+ (ServerResponse *)login :(NSString*)email :(NSString*)pswd :(NSString*)plat :(NSString*)device {
++ (ServerResponse *)login :(NSString*)email :(NSString*)pswd :(NSString*)plat :(NSString*)device :(NSString*)idiom{
 
     //build an info object and convert to json
     NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -35,6 +35,7 @@ NSString * server = @"serverdevelopmentpis.azurewebsites.net";
                           pswd, @"Password",
                           plat,@"Platform",
                           device,@"DeviceId",
+                          idiom,@"Language",
                           nil];
 
 
@@ -299,6 +300,34 @@ NSString * server = @"serverdevelopmentpis.azurewebsites.net";
     
 }
 
++ (void)resetBadgeCount{
+    //creo el JSON
+    NSString * mail=[[NSUserDefaults standardUserDefaults]stringForKey:@"mail"];
+    
+    NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys:
+                          mail,@"Mail",
+                          nil];
+    
+    NSString * url = @"http://";
+    NSString * url1 = [server copy];
+    url = [url stringByAppendingString:url1];
+    url = [url stringByAppendingString:@"/api/Users/ResetBadge/"];
+    
+    // POST
+    NSMutableURLRequest *request = [NSMutableURLRequest
+                                    requestWithURL:[NSURL URLWithString:url]];
+    
+    NSError *error;
+    NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info options:0 error:&error];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:postData2];
+    
+    NSHTTPURLResponse* urlResponse = nil;
+    error = [[NSError alloc] init];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+
+}
 
 
 @end

@@ -14,9 +14,10 @@
 }
 
 + (bool)internetConnection;
-+ (ServerResponse *)login :(NSString*)email :(NSString*)pswd :(NSString*)plat :(NSString*)device;
++ (ServerResponse *)login :(NSString*)email :(NSString*)pswd :(NSString*)plat :(NSString*)device :(NSString*)idiom;
 + (ServerResponse *)send :(NSString*)to;
 + (void)logout;
++ (void)resetBadgeCount;
 + (NSArray *)GetLastFriendsLocationsById;
 + (NSArray *)GetAllFriends;
 + (NSArray *)GetAll;

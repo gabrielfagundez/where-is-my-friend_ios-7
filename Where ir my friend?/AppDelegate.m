@@ -93,6 +93,10 @@
 - (void) clearNotifications {
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    if ([BackendProxy internetConnection]){
+        [BackendProxy resetBadgeCount];
+    }
+
 }
 
 

@@ -103,10 +103,13 @@
             //si hay conexion con el server
             
             NSString * plat= @"ios";
+            NSString * idiom=[[NSLocale preferredLanguages] objectAtIndex:0];
+            if ([idiom isEqualToString:@"es"])
+                idiom=@"esp";
             NSString * device= [[UAPush shared] deviceToken];
-            
+
             //llamo a la funcion de backend
-            ServerResponse * sr = [BackendProxy login :email :pswd :plat :device];
+            ServerResponse * sr = [BackendProxy login :email :pswd :plat :device :idiom];
             
             //comparo segun lo que me dio la funcion enterUser para ver como sigo
             if ([sr getCodigo] == 200){

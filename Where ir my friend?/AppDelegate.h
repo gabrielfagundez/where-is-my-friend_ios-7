@@ -10,6 +10,7 @@
 #import "UAirship.h"
 #import "UAConfig.h"
 #import "UAPush.h"
+#import "BackendProxy.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
