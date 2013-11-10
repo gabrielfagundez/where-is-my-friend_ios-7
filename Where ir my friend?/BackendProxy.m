@@ -153,7 +153,7 @@ NSString * server = @"developmentpis.azurewebsites.net";
                           nil];
     
     NSString * url = @"http://";
-    NSString * url1 = [server copy];
+    NSString * url1 = server;
     url = [url stringByAppendingString:url1];
     url = [url stringByAppendingString:@"/api/Users/LogoutWhere/"];
     
@@ -176,23 +176,26 @@ NSString * server = @"developmentpis.azurewebsites.net";
 + (NSArray *)GetLastFriendsLocationsById{
     
     NSString *id = [[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
-    
-    NSString * url = @"http://";
-    NSString * url1 = [server copy];
-    url = [url stringByAppendingString:url1];
-    url = [url stringByAppendingString:@"/api/Geolocation/GetLastFriendsLocationsById/"];
-    url = [url stringByAppendingString:id];
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
-                                                          URLWithString:url]];
-    
-    NSData *response = [NSURLConnection sendSynchronousRequest:request
-                                             returningResponse:nil error:nil];
-    NSError *jsonParsingError = nil;
-    NSArray * jsonFriends = [NSJSONSerialization JSONObjectWithData:response
-                                                  options:0 error:&jsonParsingError];
-    
-    return jsonFriends;
+    if (id){
+        NSString * url = @"http://";
+        NSString * url1 = [server copy];
+        url = [url stringByAppendingString:url1];
+        url = [url stringByAppendingString:@"/api/Geolocation/GetLastFriendsLocationsById/"];
+        url = [url stringByAppendingString:id];
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL
+                                                              URLWithString:url]];
+        
+        NSData *response = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:nil error:nil];
+        NSError *jsonParsingError = nil;
+        NSArray * jsonFriends = [NSJSONSerialization JSONObjectWithData:response
+                                                      options:0 error:&jsonParsingError];
+        
+        return jsonFriends;
+    }else{
+        return nil;
+    }
 }
 
 + (NSArray *)GetAllFriends{

@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface SecondViewController : UITableViewController <UIAlertViewDelegate>
+@interface FriendsViewController : UITableViewController <UIAlertViewDelegate>
 {
-    IBOutlet UIActivityIndicatorView *spinner;
+    UIActivityIndicatorView *spinner;
 }
 
 

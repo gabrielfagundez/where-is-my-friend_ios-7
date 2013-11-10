@@ -36,6 +36,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     //empeza a correr el spinner
+    spinner = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    spinner.color=[UIColor grayColor];
+    spinner.center = self.view.center;
+    [self.view addSubview: spinner];
+    
     [spinner setHidden:NO];
     [spinner startAnimating];
     
@@ -123,29 +128,39 @@
     NSLog(@"Aceptooo.");
     
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    [self performSelectorInBackground:@selector(aceptarEnBackground:) withObject:indexPath];
+}
+
+-(void)aceptarEnBackground:(NSIndexPath*)indexPath{
     
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     NSString * idSol=[NSString stringWithFormat:@"%d", cell.tag];
     
     NSLog(@"El id de la solicitud es:%@",idSol);
-    
+
     [BackendProxy Accept:idSol];
-   
+    
     //borro la sol del jsonData
     NSMutableArray * copia =[jsonData mutableCopy];
     
     [copia removeObjectAtIndex:indexPath.row];
     
     jsonData= copia;
-    
+    [self performSelectorOnMainThread:@selector(terminarAceptar:) withObject:indexPath waitUntilDone:NO];
+
+}
+
+-(void)terminarAceptar:(NSIndexPath*)indexPath{
     [self.tableView beginUpdates];
     [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]  withRowAnimation:UITableViewRowAnimationFade];
     
     [self.tableView endUpdates];
 
-    
 }
+
 - (IBAction)rechazar:(id)sender
 {
     NSLog(@"Rechazoooo.");

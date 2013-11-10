@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 MacDev. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "FriendsViewController.h"
 #import "BackendProxy.h"
 #import "ServerResponse.h"
 
-@interface SecondViewController ()
+@interface FriendsViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation FriendsViewController
 {
     NSArray * jsonData;
     int ident;
@@ -25,6 +25,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     //empeza a correr el spinner
+    spinner = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    spinner.color=[UIColor grayColor];
+    spinner.center = self.view.center;
+    [self.view addSubview: spinner];
+
     [spinner setHidden:NO];
     [spinner startAnimating];
     

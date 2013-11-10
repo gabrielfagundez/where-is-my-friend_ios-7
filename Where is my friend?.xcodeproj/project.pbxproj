@@ -89,7 +89,7 @@
 		EFC077CF17F776FA001B1EEF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC077CE17F776FA001B1EEF /* MapViewController.m */; };
 		EFC077D117F776FA001B1EEF /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = EFC077D017F776FA001B1EEF /* first.png */; };
 		EFC077D317F776FA001B1EEF /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFC077D217F776FA001B1EEF /* first@2x.png */; };
-		EFC077D617F776FA001B1EEF /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC077D517F776FA001B1EEF /* SecondViewController.m */; };
+		EFC077D617F776FA001B1EEF /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC077D517F776FA001B1EEF /* FriendsViewController.m */; };
 		EFC077D817F776FA001B1EEF /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = EFC077D717F776FA001B1EEF /* second.png */; };
 		EFC077DA17F776FA001B1EEF /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFC077D917F776FA001B1EEF /* second@2x.png */; };
 		EFC077E217F776FB001B1EEF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC077E117F776FB001B1EEF /* SenTestingKit.framework */; };
@@ -285,8 +285,8 @@
 		EFC077CE17F776FA001B1EEF /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		EFC077D017F776FA001B1EEF /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		EFC077D217F776FA001B1EEF /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		EFC077D417F776FA001B1EEF /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		EFC077D517F776FA001B1EEF /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		EFC077D417F776FA001B1EEF /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		EFC077D517F776FA001B1EEF /* FriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		EFC077D717F776FA001B1EEF /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		EFC077D917F776FA001B1EEF /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		EFC077E017F776FB001B1EEF /* Where is my friend?Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Where is my friend?Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -674,8 +674,8 @@
 				EFC077CE17F776FA001B1EEF /* MapViewController.m */,
 				EFC077D017F776FA001B1EEF /* first.png */,
 				EFC077D217F776FA001B1EEF /* first@2x.png */,
-				EFC077D417F776FA001B1EEF /* SecondViewController.h */,
-				EFC077D517F776FA001B1EEF /* SecondViewController.m */,
+				EFC077D417F776FA001B1EEF /* FriendsViewController.h */,
+				EFC077D517F776FA001B1EEF /* FriendsViewController.m */,
 				EFD4878D18230F8300E34C94 /* BackendProxy.h */,
 				EFD4878E18230F8300E34C94 /* BackendProxy.m */,
 				EFC077D717F776FA001B1EEF /* second.png */,
@@ -910,7 +910,7 @@
 				EF23222618240D930035F062 /* ServerResponse.m in Sources */,
 				9BA4B08D182E93A5002B2226 /* UAInboxUI.m in Sources */,
 				EFC077CF17F776FA001B1EEF /* MapViewController.m in Sources */,
-				EFC077D617F776FA001B1EEF /* SecondViewController.m in Sources */,
+				EFC077D617F776FA001B1EEF /* FriendsViewController.m in Sources */,
 				9BA4B0A2182E93A5002B2226 /* UAPushSettingsAddTagViewController.m in Sources */,
 				9BA4B085182E93A5002B2226 /* UABeveledLoadingIndicator.m in Sources */,
 				9BA4B084182E93A5002B2226 /* UABarButtonSegmentedControl.m in Sources */,

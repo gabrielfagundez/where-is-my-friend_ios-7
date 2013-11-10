@@ -29,10 +29,6 @@
                                            userInfo:nil
                                             repeats:YES];
     [self targetMethod:(NSTimer *) timer2];
-    isFirstLaunch=YES;
-    
-    
-    
 }
 
 -(void) viewDidLoad{
@@ -40,9 +36,9 @@
     //mapView.delegate = self;
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
     
-    UITabBarItem *tbi = (UITabBarItem*)[[[self.tabBarController tabBar] items] objectAtIndex:2];
-    
-    [tbi setBadgeValue:@"1"];
+//    UITabBarItem *tbi = (UITabBarItem*)[[[self.tabBarController tabBar] items] objectAtIndex:2];
+//    
+//    [tbi setBadgeValue:@"1"];
     
     locationManager = [[CLLocationManager alloc] init];
     [locationManager setDelegate:self];

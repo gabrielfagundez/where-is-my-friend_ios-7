@@ -10,7 +10,7 @@
 
 @interface RequestsViewController : UITableViewController
 {
-        IBOutlet UIActivityIndicatorView *spinner;
+    UIActivityIndicatorView *spinner;
 }
 
 
