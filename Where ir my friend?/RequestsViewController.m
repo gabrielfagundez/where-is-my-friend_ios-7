@@ -20,6 +20,10 @@
     int ident;
 }
 
+@synthesize spinner;
+
+
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -31,11 +35,33 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    //empeza a correr el spinner
+    [spinner setHidden:NO];
+    [spinner startAnimating];
+    
+    [self performSelectorInBackground:@selector(cargarDatosEnBackground) withObject:nil];
+
+    
+}
+
+-(void)cargarDatosEnBackground{
+    
     jsonData = [BackendProxy GetAll];
+
+    [self performSelectorOnMainThread:@selector(finishLoading) withObject:nil waitUntilDone:NO];
+    [jsonData retain];
+    
+    
+}
+
+-(void)finishLoading{
+    
+    //termino de correr el spinner
+    [spinner stopAnimating];
+    [spinner setHidden:YES];
     
     [self.tableView reloadData];
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -84,7 +110,7 @@
                 action:@selector(rechazar:)
       forControlEvents:UIControlEventTouchUpInside];
 
-
+    [jsonData retain];
     return cell;
 
 }
@@ -105,6 +131,19 @@
     NSLog(@"El id de la solicitud es:%@",idSol);
     
     [BackendProxy Accept:idSol];
+   
+    //borro la sol del jsonData
+    NSMutableArray * copia =[jsonData mutableCopy];
+    
+    [copia removeObjectAtIndex:indexPath.row];
+    
+    jsonData= copia;
+    
+    [self.tableView beginUpdates];
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]  withRowAnimation:UITableViewRowAnimationFade];
+    
+    [self.tableView endUpdates];
+
     
 }
 - (IBAction)rechazar:(id)sender
@@ -121,6 +160,18 @@
     NSLog(@"El id de la solicitud es:%@",idSol);
     
     [BackendProxy Reject:idSol];
+    
+    //borro la sol del jsonData
+    NSMutableArray * copia =[jsonData mutableCopy];
+    
+    [copia removeObjectAtIndex:indexPath.row];
+    
+    jsonData= copia;
+    
+    [self.tableView beginUpdates];
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]  withRowAnimation:UITableViewRowAnimationFade];
+    
+    [self.tableView endUpdates];
 
 }
 

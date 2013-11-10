@@ -106,7 +106,8 @@
             NSString * idiom=[[NSLocale preferredLanguages] objectAtIndex:0];
             if ([idiom isEqualToString:@"es"])
                 idiom=@"esp";
-            NSString * device= [[UAPush shared] deviceToken];
+            //NSString * device= [[UAPush shared] deviceToken];
+            NSString * device=@"123";
 
             //llamo a la funcion de backend
             ServerResponse * sr = [BackendProxy login :email :pswd :plat :device :idiom];

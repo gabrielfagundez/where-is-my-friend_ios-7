@@ -23,7 +23,7 @@
 @synthesize mapView,locationManager;
 
 -(void)viewWillAppear:(BOOL)animated{
-    timer = [NSTimer scheduledTimerWithTimeInterval:200
+    timer = [NSTimer scheduledTimerWithTimeInterval:10
                                              target:self
                                            selector:@selector(targetMethod:)
                                            userInfo:nil
@@ -54,7 +54,6 @@
 
 
 -(void) targetMethod: (NSTimer *) theTimer {
-    NSLog(@"tiempooooooooooooo");
     [mapView removeAnnotations:mapView.annotations];
     mapView.showsUserLocation = YES;
     
@@ -113,7 +112,7 @@
         
         // POST
         NSMutableURLRequest *request2 = [NSMutableURLRequest
-                                         requestWithURL:[NSURL URLWithString:@"http://serverdevelopmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
+                                         requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
         
         NSError *error;
         NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];

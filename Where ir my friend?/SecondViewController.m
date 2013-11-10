@@ -20,13 +20,16 @@
     int ident;
 }
 
+@synthesize spinner;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	// Do any additional setup after loading the view, typically from a nib.
+    //empeza a correr el spinner
+    [spinner setHidden:NO];
+    [spinner startAnimating];
     
-    jsonData = [BackendProxy GetAllFriends];
-    
+    [self performSelectorInBackground:@selector(cargarDatosEnBackground) withObject:nil];
+
     /*if ([BackendProxy internetConnection]){
         jsonData = [BackendProxy GetAllFriends];
     }
@@ -35,8 +38,22 @@
         [alert show];
     }*/
     
-    [self.tableView reloadData];
+}
+
+-(void)cargarDatosEnBackground{
     
+    jsonData = [BackendProxy GetAllFriends];
+    [self performSelectorOnMainThread:@selector(finishLoading) withObject:nil waitUntilDone:NO];
+    [jsonData retain];
+}
+
+-(void)finishLoading{
+    
+    //termino de correr el spinner
+    [spinner stopAnimating];
+    [spinner setHidden:YES];
+    
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -65,6 +82,8 @@
     cell.imageView.image = [UIImage imageNamed:@"face.jpg"];
     UISwitch *mySwitch = [[[UISwitch alloc] init] autorelease];
     cell.accessoryView = mySwitch;
+    
+    [jsonData retain];
     return cell;
 }
 

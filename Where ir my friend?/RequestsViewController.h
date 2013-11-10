@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface RequestsViewController : UITableViewController
+{
+        IBOutlet UIActivityIndicatorView *spinner;
+}
 
+
+@property(nonatomic,retain) UIActivityIndicatorView *spinner;
 
 @end
+
+
+

@@ -10,7 +10,11 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface SecondViewController : UITableViewController <UIAlertViewDelegate>
+{
+    IBOutlet UIActivityIndicatorView *spinner;
+}
 
-//UITableViewDelegate,UITableViewDataSource,
+
+@property(nonatomic,retain) UIActivityIndicatorView *spinner;
 
 @end
