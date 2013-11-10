@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B446F9718304A9E0006DA85 /* tabitem_mates@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B446F9618304A9E0006DA85 /* tabitem_mates@2x.png */; };
+		9B446F9918304B440006DA85 /* icon_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B446F9818304B440006DA85 /* icon_location@2x.png */; };
+		9B446F9B18304B7A0006DA85 /* icon_shareOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B446F9A18304B7A0006DA85 /* icon_shareOn@2x.png */; };
 		9BA4AFED182E91C7002B2226 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4AFEC182E91C7002B2226 /* AirshipConfig.plist */; };
 		9BA4B082182E93A5002B2226 /* libUAirship-3.0.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA4B01F182E93A5002B2226 /* libUAirship-3.0.1.a */; };
 		9BA4B084182E93A5002B2226 /* UABarButtonSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4B02C182E93A5002B2226 /* UABarButtonSegmentedControl.m */; };
@@ -122,6 +125,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B446F9618304A9E0006DA85 /* tabitem_mates@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabitem_mates@2x.png"; sourceTree = "<group>"; };
+		9B446F9818304B440006DA85 /* icon_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_location@2x.png"; sourceTree = "<group>"; };
+		9B446F9A18304B7A0006DA85 /* icon_shareOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_shareOn@2x.png"; sourceTree = "<group>"; };
 		9BA4AFEC182E91C7002B2226 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		9BA4AFF0182E93A4002B2226 /* NSJSONSerialization+UAAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+UAAdditions.h"; sourceTree = "<group>"; };
 		9BA4AFF1182E93A4002B2226 /* UAAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAAnalytics.h; sourceTree = "<group>"; };
@@ -699,6 +705,9 @@
 			children = (
 				FE876D051819AD070067A75F /* settings.png */,
 				9BA97FF11825A6B000588DF6 /* 19-gear.png */,
+				9B446F9618304A9E0006DA85 /* tabitem_mates@2x.png */,
+				9B446F9818304B440006DA85 /* icon_location@2x.png */,
+				9B446F9A18304B7A0006DA85 /* icon_shareOn@2x.png */,
 				FE8C2B3018033AF2001595B5 /* wheres titulo2.png */,
 				FED8241518006BEC0089C870 /* face.jpg */,
 				FEEBC7FA17FCB97A00D73176 /* requests.png */,
@@ -812,6 +821,7 @@
 				9BA4B0B7182E93A5002B2226 /* UAPushSettingsTagsViewController.xib in Resources */,
 				9BA97FF21825A6B000588DF6 /* 19-gear.png in Resources */,
 				9BA4B091182E93A5002B2226 /* down.png in Resources */,
+				9B446F9918304B440006DA85 /* icon_location@2x.png in Resources */,
 				EFC077C517F776FA001B1EEF /* Default.png in Resources */,
 				9BA4B092182E93A5002B2226 /* down@2x.png in Resources */,
 				9BA4B0B4182E93A5002B2226 /* UAPushSettingsAddTagViewController.xib in Resources */,
@@ -842,12 +852,14 @@
 				EFC077D117F776FA001B1EEF /* first.png in Resources */,
 				9BA4B0B1182E93A5002B2226 /* UAMapPresentationViewController.xib in Resources */,
 				EFC077D317F776FA001B1EEF /* first@2x.png in Resources */,
+				9B446F9718304A9E0006DA85 /* tabitem_mates@2x.png in Resources */,
 				9BA4B0B8182E93A5002B2226 /* UAPushSettingsTokenView.xib in Resources */,
 				9BA4B093182E93A5002B2226 /* overlayCloseBtn.png in Resources */,
 				EFC077D817F776FA001B1EEF /* second.png in Resources */,
 				EFC077DA17F776FA001B1EEF /* second@2x.png in Resources */,
 				9BA4B090182E93A5002B2226 /* check@2x.png in Resources */,
 				9BA4B0B0182E93A5002B2226 /* UALocationSettingsViewController.xib in Resources */,
+				9B446F9B18304B7A0006DA85 /* icon_shareOn@2x.png in Resources */,
 				9BA4B097182E93A5002B2226 /* UAInboxMessageListController.xib in Resources */,
 				9BA4B0AF182E93A5002B2226 /* top-detail@2x.png in Resources */,
 				EF364B0418244D020012E0D8 /* Localizable.strings in Resources */,

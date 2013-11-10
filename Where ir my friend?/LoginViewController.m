@@ -33,6 +33,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [tap setCancelsTouchesInView:NO];
+    [self.view addGestureRecognizer:tap];
+
     butlog.clipsToBounds = YES;
     butlog.layer.cornerRadius = 15.0f;
     [wrongView setHidden:YES];
@@ -50,6 +57,12 @@
     
     [btnWrong setTintColor:[UIColor colorWithRed:190.0/255.0f green:0.0/255.0f blue:0.0/255.0f alpha:1]];
     [wrongTxt setTextColor:[UIColor colorWithRed:190.0/255.0f green:0.0/255.0f blue:0.0/255.0f alpha:1]];
+}
+
+-(void)dismissKeyboard{
+    [em resignFirstResponder];
+    [pass resignFirstResponder];
+    
 }
 
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{

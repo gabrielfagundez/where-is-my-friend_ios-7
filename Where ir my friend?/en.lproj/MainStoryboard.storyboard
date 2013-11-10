@@ -49,7 +49,7 @@
                     <tabBarItem key="tabBarItem" title="" id="7"/>
                     <navigationItem key="navigationItem" title="Map" id="fyl-iw-J52">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="hUd-Eh-vHH">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="logoutClicked:" destination="2" id="gwL-M3-sZk"/>
                             </connections>
@@ -235,9 +235,13 @@
         <scene sceneID="uNv-w0-wes">
             <objects>
                 <navigationController definesPresentationContext="YES" id="KHc-OC-uqv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends" image="friends.png" id="dFp-fy-Mbq"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="tabitem_mates.png" id="dFp-fy-Mbq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ubg-3L-oJ4">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.68627450980000004" blue="0.94117647059999998" alpha="1" colorSpace="deviceRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="mBb-0l-zRz" kind="relationship" relationship="rootViewController" id="bWe-gU-9b5"/>
@@ -251,7 +255,7 @@
         <scene sceneID="kpo-EI-ABf">
             <objects>
                 <viewController id="mBb-0l-zRz" customClass="FriendsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2dK-Cn-pVm">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="2dK-Cn-pVm">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -285,9 +289,13 @@
         <scene sceneID="Gni-Nj-RBb">
             <objects>
                 <navigationController definesPresentationContext="YES" id="QJX-mC-juo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="map.png" id="1rY-GQ-4ZZ"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="icon_location.png" id="1rY-GQ-4ZZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2vQ-cB-xQo">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.68627450980000004" blue="0.94117647059999998" alpha="1" colorSpace="deviceRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="2" kind="relationship" relationship="rootViewController" id="4Yt-FN-wwm"/>
@@ -301,9 +309,13 @@
         <scene sceneID="3g4-g5-EM8">
             <objects>
                 <navigationController definesPresentationContext="YES" id="jV5-jG-0au" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Requests" image="requests.png" id="FrX-eX-TRT"/>
+                    <tabBarItem key="tabBarItem" title="Requests" image="icon_shareOn.png" id="FrX-eX-TRT"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wke-g4-3Kc">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.68627450980000004" blue="0.94117647059999998" alpha="1" colorSpace="deviceRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="6dG-Er-KBP" kind="relationship" relationship="rootViewController" id="rLD-oC-wg8"/>
@@ -317,16 +329,16 @@
         <scene sceneID="5JG-TI-UJ0">
             <objects>
                 <tableViewController id="6dG-Er-KBP" customClass="RequestsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rq4-Er-qWc">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="rq4-Er-qWc">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="XKN-gf-KFI">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -345,9 +357,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="friends.png" width="40" height="40"/>
-        <image name="map.png" width="48" height="48"/>
-        <image name="requests.png" width="48" height="48"/>
+        <image name="icon_location.png" width="11" height="16"/>
+        <image name="icon_shareOn.png" width="16" height="16"/>
+        <image name="tabitem_mates.png" width="20" height="20"/>
         <image name="wheres titulo2.png" width="299" height="58"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

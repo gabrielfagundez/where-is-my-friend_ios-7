@@ -28,7 +28,7 @@
                                            selector:@selector(targetMethod:)
                                            userInfo:nil
                                             repeats:YES];
-    [self targetMethod:(NSTimer *) timer2];
+    [self targetMethod:(NSTimer *) timer];
 }
 
 -(void) viewDidLoad{
@@ -88,57 +88,62 @@
     CLLocation *currentLocation = newLocation;
     
     if (currentLocation != nil) {
+        
+        
         NSLog(@"Response: %8F", currentLocation.coordinate.longitude);
         NSLog(@"Response: %8F", currentLocation.coordinate.latitude);
         //ACA MANDO AL SERVIDOR
-        
+        [self performSelectorInBackground:@selector(locationInBackground:) withObject:currentLocation];
         //creo el JSON
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        
 
-        NSString *email = [defaults stringForKey:@"mail"];;
-        NSString *longit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.longitude ];
-        NSString *latit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.latitude ];
-        
-        NSDictionary* info2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                               email,@"Mail",
-                               latit, @"Latitude",
-                               longit, @"Longitude",
-                               nil];
-        
-        // POST
-        NSMutableURLRequest *request2 = [NSMutableURLRequest
-                                         requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
-        
-        NSError *error;
-        NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
-        [request2 setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [request2 setHTTPMethod:@"POST"];
-        [request2 setHTTPBody:postData2];
-        //NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        
-        // imprimo lo que mando para verificar
-        NSLog(@"%@", [[NSString alloc] initWithData:postData2 encoding:NSUTF8StringEncoding]);
-        
-        NSHTTPURLResponse* urlResponse = nil;
-        error = [[NSError alloc] init];
-        NSData *responseData = [NSURLConnection sendSynchronousRequest:request2 returningResponse:&urlResponse error:&error];
-        NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-        
-        // imprimo el resultado del post para verificar
-        NSLog(@"Response: %@", result);
-        NSLog(@"Response: %ld", (long)urlResponse.statusCode);
-        
-        //comparo segun lo que me dio el status code para ver como sigo
-        if ((long)urlResponse.statusCode == 200){
-            // paso la info del json obtenido
-            
-        }else{
-            
-        }
         
     }
 
+}
+
+-(void)locationInBackground:(CLLocation*)currentLocation{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *email = [defaults stringForKey:@"mail"];;
+    NSString *longit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.longitude ];
+    NSString *latit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.latitude ];
+    
+    NSDictionary* info2 = [NSDictionary dictionaryWithObjectsAndKeys:
+                           email,@"Mail",
+                           latit, @"Latitude",
+                           longit, @"Longitude",
+                           nil];
+    
+    // POST
+    NSMutableURLRequest *request2 = [NSMutableURLRequest
+                                     requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
+    
+    NSError *error;
+    NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
+    [request2 setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request2 setHTTPMethod:@"POST"];
+    [request2 setHTTPBody:postData2];
+    //NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    // imprimo lo que mando para verificar
+    NSLog(@"%@", [[NSString alloc] initWithData:postData2 encoding:NSUTF8StringEncoding]);
+    
+    NSHTTPURLResponse* urlResponse = nil;
+    error = [[NSError alloc] init];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request2 returningResponse:&urlResponse error:&error];
+    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    
+    // imprimo el resultado del post para verificar
+    NSLog(@"Response: %@", result);
+    NSLog(@"Response: %ld", (long)urlResponse.statusCode);
+    
+    //comparo segun lo que me dio el status code para ver como sigo
+    if ((long)urlResponse.statusCode == 200){
+        // paso la info del json obtenido
+        
+    }else{
+        
+    }
 }
 
 - (IBAction)centerMapOnUserButtonClicked:(id)sender {

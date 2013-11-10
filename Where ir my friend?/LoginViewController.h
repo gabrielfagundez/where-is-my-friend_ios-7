@@ -12,7 +12,7 @@
 #import "UAConfig.h"
 #import "UAPush.h"
 
-@interface LoginViewController : UIViewController <UITextFieldDelegate,CLLocationManagerDelegate,UITableViewDataSource>
+@interface LoginViewController : UIViewController <UITextFieldDelegate,UITableViewDataSource>
 {
 
     IBOutlet UITextField * em;
