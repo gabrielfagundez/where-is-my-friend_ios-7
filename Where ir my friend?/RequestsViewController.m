@@ -8,6 +8,7 @@
 
 #import "RequestsViewController.h"
 #import "BackendProxy.h"
+#import "AppDelegate.h"
 
 @interface RequestsViewController ()
 
@@ -51,11 +52,22 @@
 
 -(void)cargarDatosEnBackground{
     
-    jsonData = [BackendProxy GetAll];
-
-    [self performSelectorOnMainThread:@selector(finishLoading) withObject:nil waitUntilDone:NO];
-    [jsonData retain];
+    AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     
+    
+    if ([BackendProxy internetConnection]){
+        
+        jsonData = [BackendProxy GetAll];
+        [jsonData retain];
+        ap.habiaConexion = YES;
+    }else{
+        if (ap.habiaConexion){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection App", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
+            ap.habiaConexion = NO;
+        }
+    }
+    [self performSelectorOnMainThread:@selector(finishLoading) withObject:nil waitUntilDone:NO];
     
 }
 
@@ -136,21 +148,27 @@
 
 -(void)aceptarEnBackground:(NSIndexPath*)indexPath{
     
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    NSString * idSol=[NSString stringWithFormat:@"%d", cell.tag];
-    
-    NSLog(@"El id de la solicitud es:%@",idSol);
-
-    [BackendProxy Accept:idSol];
-    
-    //borro la sol del jsonData
-    NSMutableArray * copia =[jsonData mutableCopy];
-    
-    [copia removeObjectAtIndex:indexPath.row];
-    
-    jsonData= copia;
-    [self performSelectorOnMainThread:@selector(terminarAceptar:) withObject:indexPath waitUntilDone:NO];
-
+    if ([BackendProxy internetConnection]){
+        
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        NSString * idSol=[NSString stringWithFormat:@"%d", cell.tag];
+        
+        NSLog(@"El id de la solicitud es:%@",idSol);
+        
+        [BackendProxy Accept:idSol];
+        
+        //borro la sol del jsonData
+        NSMutableArray * copia =[jsonData mutableCopy];
+        
+        [copia removeObjectAtIndex:indexPath.row];
+        
+        jsonData= copia;
+        [self performSelectorOnMainThread:@selector(terminarAceptar:) withObject:indexPath waitUntilDone:NO];
+        
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Action", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
+    }
 }
 
 -(void)terminarAceptar:(NSIndexPath*)indexPath{
@@ -163,37 +181,52 @@
 
 - (IBAction)rechazar:(id)sender
 {
-    NSLog(@"Rechazoooo.");
     
-    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-    
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    NSString * idSol=[NSString stringWithFormat:@"%d", cell.tag];
-    
-    
-    NSLog(@"El id de la solicitud es:%@",idSol);
-    
-    [BackendProxy Reject:idSol];
-    
-    //borro la sol del jsonData
-    NSMutableArray * copia =[jsonData mutableCopy];
-    
-    [copia removeObjectAtIndex:indexPath.row];
-    
-    jsonData= copia;
-    
-    [self.tableView beginUpdates];
-    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]  withRowAnimation:UITableViewRowAnimationFade];
-    
-    [self.tableView endUpdates];
-
+    if ([BackendProxy internetConnection]){
+        
+        
+        
+        NSLog(@"Rechazoooo.");
+        
+        CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+        
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        NSString * idSol=[NSString stringWithFormat:@"%d", cell.tag];
+        
+        
+        NSLog(@"El id de la solicitud es:%@",idSol);
+        
+        [BackendProxy Reject:idSol];
+        
+        //borro la sol del jsonData
+        NSMutableArray * copia =[jsonData mutableCopy];
+        
+        [copia removeObjectAtIndex:indexPath.row];
+        
+        jsonData= copia;
+        
+        [self.tableView beginUpdates];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]  withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self.tableView endUpdates];
+        
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Action", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
 
 /*

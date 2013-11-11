@@ -12,8 +12,11 @@
 #import "UAPush.h"
 #import "BackendProxy.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>{
+    BOOL habiaConexion;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+@property (assign, nonatomic) BOOL habiaConexion;
 
 @end

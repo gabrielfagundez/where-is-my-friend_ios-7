@@ -8,6 +8,7 @@
 
 #import "MapViewController.h"
 #import "BackendProxy.h"
+#import "AppDelegate.h"
 
 @interface MapViewController ()
 
@@ -43,37 +44,56 @@
     locationManager = [[CLLocationManager alloc] init];
     [locationManager setDelegate:self];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-    [locationManager setDistanceFilter:100];
+    
+    [locationManager setDistanceFilter:50];
     [locationManager startUpdatingLocation];
+    
+    AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    ap.habiaConexion=YES;
 
 }
 
 
 -(void) targetMethod: (NSTimer *) theTimer {
-    [mapView removeAnnotations:mapView.annotations];
     mapView.showsUserLocation = YES;
-    
-    jsonFriends = [BackendProxy GetLastFriendsLocationsById];
-    
-    NSDictionary * data;
-    
-    int cant= [jsonFriends count];
-    
-    CLLocationCoordinate2D  points[cant];
-    
-    for(int i=0; i<[jsonFriends count];i++)
-    {
-        data= [jsonFriends objectAtIndex:i];
-        points[i].latitude = [[data objectForKey:@"Latitude"] floatValue];
-        points[i].longitude = [[data objectForKey:@"Longitude"] floatValue];
+    AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+   
+    if ([BackendProxy internetConnection]){
         
-        MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
-        annotationPoint.coordinate = points[i];
-        annotationPoint.title = [data objectForKey:@"Mail"];
-        [mapView addAnnotation:annotationPoint];
-    }
-}
+        [mapView removeAnnotations:mapView.annotations];
+        jsonFriends = [BackendProxy GetLastFriendsLocationsById];
+        ap.habiaConexion=YES;
+        
+        NSDictionary * data;
+        
+        int cant= [jsonFriends count];
+        
+        CLLocationCoordinate2D  points[cant];
+        
+        for(int i=0; i<[jsonFriends count];i++)
+        {
+            data= [jsonFriends objectAtIndex:i];
+            points[i].latitude = [[data objectForKey:@"Latitude"] floatValue];
+            points[i].longitude = [[data objectForKey:@"Longitude"] floatValue];
+            
+            MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
+            annotationPoint.coordinate = points[i];
+            annotationPoint.title = [data objectForKey:@"Mail"];
+            [mapView addAnnotation:annotationPoint];
+        }
 
+        
+        
+    
+    }else{ if (ap.habiaConexion){
+            //si no hay conexion con el server
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection App", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
+            ap.habiaConexion=NO;
+            }
+        }
+    
+    }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -102,47 +122,43 @@
 }
 
 -(void)locationInBackground:(CLLocation*)currentLocation{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSString *email = [defaults stringForKey:@"mail"];;
-    NSString *longit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.longitude ];
-    NSString *latit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.latitude ];
+    if ([BackendProxy internetConnection]){
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+        NSString *email = [defaults stringForKey:@"mail"];;
+        NSString *longit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.longitude ];
+        NSString *latit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.latitude ];
+
+        NSDictionary* info2 = [NSDictionary dictionaryWithObjectsAndKeys:
+                               email,@"Mail",
+                               latit, @"Latitude",
+                               longit, @"Longitude",
+                               nil];
+
+        // POST
+        NSMutableURLRequest *request2 = [NSMutableURLRequest
+                                         requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
+
+        NSError *error;
+        NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
+        [request2 setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request2 setHTTPMethod:@"POST"];
+        [request2 setHTTPBody:postData2];
+        //NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+
+        // imprimo lo que mando para verificar
+        NSLog(@"%@", [[NSString alloc] initWithData:postData2 encoding:NSUTF8StringEncoding]);
+
+        NSHTTPURLResponse* urlResponse = nil;
+        error = [[NSError alloc] init];
+        NSData *responseData = [NSURLConnection sendSynchronousRequest:request2 returningResponse:&urlResponse error:&error];
+        NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+
+        // imprimo el resultado del post para verificar
+        NSLog(@"Response: %@", result);
+        NSLog(@"Response: %ld", (long)urlResponse.statusCode);
     
-    NSDictionary* info2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                           email,@"Mail",
-                           latit, @"Latitude",
-                           longit, @"Longitude",
-                           nil];
-    
-    // POST
-    NSMutableURLRequest *request2 = [NSMutableURLRequest
-                                     requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
-    
-    NSError *error;
-    NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
-    [request2 setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request2 setHTTPMethod:@"POST"];
-    [request2 setHTTPBody:postData2];
-    //NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    // imprimo lo que mando para verificar
-    NSLog(@"%@", [[NSString alloc] initWithData:postData2 encoding:NSUTF8StringEncoding]);
-    
-    NSHTTPURLResponse* urlResponse = nil;
-    error = [[NSError alloc] init];
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request2 returningResponse:&urlResponse error:&error];
-    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    
-    // imprimo el resultado del post para verificar
-    NSLog(@"Response: %@", result);
-    NSLog(@"Response: %ld", (long)urlResponse.statusCode);
-    
-    //comparo segun lo que me dio el status code para ver como sigo
-    if ((long)urlResponse.statusCode == 200){
-        // paso la info del json obtenido
-        
-    }else{
-        
     }
 }
 

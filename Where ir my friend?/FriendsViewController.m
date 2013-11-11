@@ -9,6 +9,7 @@
 #import "FriendsViewController.h"
 #import "BackendProxy.h"
 #import "ServerResponse.h"
+#import "AppDelegate.h"
 
 @interface FriendsViewController ()
 
@@ -35,21 +36,28 @@
     
     [self performSelectorInBackground:@selector(cargarDatosEnBackground) withObject:nil];
 
-    /*if ([BackendProxy internetConnection]){
-        jsonData = [BackendProxy GetAllFriends];
-    }
-    else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Failed" message:@"You must have internet in order to..." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alert show];
-    }*/
     
 }
 
 -(void)cargarDatosEnBackground{
     
-    jsonData = [BackendProxy GetAllFriends];
-    [self performSelectorOnMainThread:@selector(finishLoading) withObject:nil waitUntilDone:NO];
-    [jsonData retain];
+    AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    
+    if ([BackendProxy internetConnection]){
+        
+            jsonData = [BackendProxy GetAllFriends];
+            [jsonData retain];
+            ap.habiaConexion = YES;
+    }else{
+            if (ap.habiaConexion){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection App", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
+                ap.habiaConexion = NO;
+            }
+        }
+        
+    [self performSelectorOnMainThread:@selector(finishLoading) withObject:nil waitUntilDone:NO];   
 }
 
 -(void)finishLoading{
@@ -121,20 +129,12 @@
             
             //llamo a la funcion de backend
             ServerResponse * sr = [BackendProxy send :to];
-            
-            //comparo segun lo que me dio la funcion enterUser para ver como sigo
-            if ([sr getCodigo] != 200){
-                
-                //hubo error, capaz hay que tirar mensaje
-                
-                //si es 200 (esta todo bien) creo que no se hace nada
-            }
         }
         
         else{
             //si no hay conexion con el server
-            //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Failed" message:@"You must have internet in order to..." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            //[alert show];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Action", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
         }
         
     }
