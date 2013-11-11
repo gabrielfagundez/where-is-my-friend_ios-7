@@ -235,7 +235,7 @@
         <scene sceneID="uNv-w0-wes">
             <objects>
                 <navigationController definesPresentationContext="YES" id="KHc-OC-uqv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends" image="tabitem_mates.png" id="dFp-fy-Mbq"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="friendsx.png" id="dFp-fy-Mbq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ubg-3L-oJ4">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.68627450980000004" blue="0.94117647059999998" alpha="1" colorSpace="deviceRGB"/>
@@ -289,7 +289,7 @@
         <scene sceneID="Gni-Nj-RBb">
             <objects>
                 <navigationController definesPresentationContext="YES" id="QJX-mC-juo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="icon_location.png" id="1rY-GQ-4ZZ"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="mapx.png" id="1rY-GQ-4ZZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2vQ-cB-xQo">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.68627450980000004" blue="0.94117647059999998" alpha="1" colorSpace="deviceRGB"/>
@@ -309,7 +309,7 @@
         <scene sceneID="3g4-g5-EM8">
             <objects>
                 <navigationController definesPresentationContext="YES" id="jV5-jG-0au" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Requests" image="icon_shareOn.png" id="FrX-eX-TRT"/>
+                    <tabBarItem key="tabBarItem" title="Requests" image="requestsx.png" id="FrX-eX-TRT"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wke-g4-3Kc">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.68627450980000004" blue="0.94117647059999998" alpha="1" colorSpace="deviceRGB"/>
@@ -357,9 +357,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_location.png" width="11" height="16"/>
-        <image name="icon_shareOn.png" width="16" height="16"/>
-        <image name="tabitem_mates.png" width="20" height="20"/>
+        <image name="friendsx.png" width="38" height="26"/>
+        <image name="mapx.png" width="22" height="32"/>
+        <image name="requestsx.png" width="32" height="32"/>
         <image name="wheres titulo2.png" width="299" height="58"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
