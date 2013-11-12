@@ -188,11 +188,16 @@ NSString * server = @"serverdevelopmentpis.azurewebsites.net";
         
         NSData *response = [NSURLConnection sendSynchronousRequest:request
                                                  returningResponse:nil error:nil];
-        NSError *jsonParsingError = nil;
-        NSArray * jsonFriends = [NSJSONSerialization JSONObjectWithData:response
-                                                      options:0 error:&jsonParsingError];
         
-        return jsonFriends;
+        if (response){
+            NSError *jsonParsingError = nil;
+            NSArray * jsonFriends = [NSJSONSerialization JSONObjectWithData:response
+                                                                    options:0 error:&jsonParsingError];
+            
+            return jsonFriends;
+
+        }else
+            return nil;
     }else{
         return nil;
     }
@@ -213,11 +218,14 @@ NSString * server = @"serverdevelopmentpis.azurewebsites.net";
     
     NSData *response = [NSURLConnection sendSynchronousRequest:request
                                              returningResponse:nil error:nil];
-    NSError *jsonParsingError = nil;
-    NSArray * jsonData = [NSJSONSerialization JSONObjectWithData:response
-                                               options:0 error:&jsonParsingError];
-    
-    return jsonData;
+    if (response){
+        NSError *jsonParsingError = nil;
+        NSArray * jsonData = [NSJSONSerialization JSONObjectWithData:response
+                                                   options:0 error:&jsonParsingError];
+
+        return jsonData;
+    }else
+        return nil;
 }
 
 + (NSArray *)GetAll{
@@ -236,11 +244,15 @@ NSString * server = @"serverdevelopmentpis.azurewebsites.net";
     
     NSData *response = [NSURLConnection sendSynchronousRequest:request
                                              returningResponse:nil error:nil];
-    NSError *jsonParsingError = nil;
-    NSArray * jsonData = [NSJSONSerialization JSONObjectWithData:response
-                                               options:0 error:&jsonParsingError];
     
-    return jsonData;
+    if (response){
+        NSError *jsonParsingError = nil;
+        NSArray * jsonData = [NSJSONSerialization JSONObjectWithData:response
+                                                   options:0 error:&jsonParsingError];
+    
+        return jsonData;
+    }else
+        return nil;
 }
 
 + (void)Accept :(NSString *)idSol {
