@@ -59,32 +59,13 @@
     AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
    
     if ([BackendProxy internetConnection]){
-        
         [mapView removeAnnotations:mapView.annotations];
-        jsonFriends = [BackendProxy GetLastFriendsLocationsById];
         ap.habiaConexion=YES;
+       
+        [self performSelectorInBackground:@selector(actualizarMapaEnBack) withObject:nil];
         
-        NSDictionary * data;
-        
-        int cant= [jsonFriends count];
-        
-        CLLocationCoordinate2D  points[cant];
-        
-        for(int i=0; i<[jsonFriends count];i++)
-        {
-            data= [jsonFriends objectAtIndex:i];
-            points[i].latitude = [[data objectForKey:@"Latitude"] floatValue];
-            points[i].longitude = [[data objectForKey:@"Longitude"] floatValue];
-            
-            MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
-            annotationPoint.coordinate = points[i];
-            annotationPoint.title = [data objectForKey:@"Mail"];
-            [mapView addAnnotation:annotationPoint];
-        }
 
         
-        
-    
     }else{ if (ap.habiaConexion){
             //si no hay conexion con el server
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection App", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -93,7 +74,36 @@
             }
         }
     
+}
+
+-(void)actualizarMapaEnBack{
+    jsonFriends = [BackendProxy GetLastFriendsLocationsById];
+    
+    [self performSelectorOnMainThread:@selector(finishUpdateMap) withObject:nil waitUntilDone:YES];
+    
+}
+
+-(void)finishUpdateMap{
+    NSDictionary * data;
+    
+    int cant= [jsonFriends count];
+    
+    CLLocationCoordinate2D  points[cant];
+    
+    for(int i=0; i<[jsonFriends count];i++)
+    {
+        data= [jsonFriends objectAtIndex:i];
+        points[i].latitude = [[data objectForKey:@"Latitude"] floatValue];
+        points[i].longitude = [[data objectForKey:@"Longitude"] floatValue];
+        
+        MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
+        annotationPoint.coordinate = points[i];
+        annotationPoint.title = [data objectForKey:@"Name"];
+        [mapView addAnnotation:annotationPoint];
     }
+
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
