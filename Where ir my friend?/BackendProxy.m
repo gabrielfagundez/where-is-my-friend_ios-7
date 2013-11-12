@@ -105,7 +105,7 @@ NSString * server = @"serverdevelopmentpis.azurewebsites.net";
     
 }
 
-+ (ServerResponse *)send :(NSString*)to{
++ (void)send :(NSString*)to{
     
     //creo el JSON
     NSString * from=[[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
@@ -134,12 +134,6 @@ NSString * server = @"serverdevelopmentpis.azurewebsites.net";
     error = [[NSError alloc] init];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
     //NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    
-    //me creo el objeto serverResponse
-    ServerResponse * sr = [ServerResponse alloc];
-    sr = [sr initialize :(NSInteger)urlResponse.statusCode :NULL :NULL :NULL :NULL];
-    
-    return sr;
     
 }
 
@@ -342,6 +336,42 @@ NSString * server = @"serverdevelopmentpis.azurewebsites.net";
     error = [[NSError alloc] init];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
 
+}
+
++ (void)setLocation :(NSString *)longit :(NSString *)latit{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *email = [defaults stringForKey:@"mail"];;
+    
+    
+    NSDictionary* info2 = [NSDictionary dictionaryWithObjectsAndKeys:
+                           email,@"Mail",
+                           latit, @"Latitude",
+                           longit, @"Longitude",
+                           nil];
+    
+    // POST
+    NSMutableURLRequest *request2 = [NSMutableURLRequest
+                                     requestWithURL:[NSURL URLWithString:@"http://serverdevelopmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
+    
+    NSError *error;
+    NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
+    [request2 setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request2 setHTTPMethod:@"POST"];
+    [request2 setHTTPBody:postData2];
+    //NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    // imprimo lo que mando para verificar
+    NSLog(@"%@", [[NSString alloc] initWithData:postData2 encoding:NSUTF8StringEncoding]);
+    
+    NSHTTPURLResponse* urlResponse = nil;
+    error = [[NSError alloc] init];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request2 returningResponse:&urlResponse error:&error];
+    //NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    
+    // imprimo el resultado del post para verificar
+    //NSLog(@"Response: %@", result);
+    //NSLog(@"Response: %ld", (long)urlResponse.statusCode);
 }
 
 

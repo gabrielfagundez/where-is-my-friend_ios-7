@@ -131,7 +131,7 @@
             NSString * to=[NSString stringWithFormat:@"%d",ident ];
             
             //llamo a la funcion de backend
-            ServerResponse * sr = [BackendProxy send :to];
+            [BackendProxy send :to];
         }
         
         else{
