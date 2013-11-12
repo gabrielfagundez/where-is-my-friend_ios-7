@@ -138,7 +138,7 @@
 
         // POST
         NSMutableURLRequest *request2 = [NSMutableURLRequest
-                                         requestWithURL:[NSURL URLWithString:@"http://developmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
+                                         requestWithURL:[NSURL URLWithString:@"http://serverdevelopmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
 
         NSError *error;
         NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
