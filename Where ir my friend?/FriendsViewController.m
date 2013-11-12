@@ -144,6 +144,17 @@
     
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+    NSMutableArray * copia =[jsonData mutableCopy];
+    
+    [copia removeAllObjects];
+    
+    jsonData= copia;
+    
+    [self.tableView reloadData];
+
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

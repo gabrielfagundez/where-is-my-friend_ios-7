@@ -24,12 +24,6 @@
 @synthesize mapView,locationManager;
 
 -(void)viewWillAppear:(BOOL)animated{
-    timer = [NSTimer scheduledTimerWithTimeInterval:10
-                                             target:self
-                                           selector:@selector(targetMethod:)
-                                           userInfo:nil
-                                            repeats:YES];
-    [self targetMethod:(NSTimer *) timer];
 }
 
 -(void) viewDidLoad{
@@ -51,10 +45,18 @@
     AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     ap.habiaConexion=YES;
 
+    timer = [NSTimer scheduledTimerWithTimeInterval:10
+                                             target:self
+                                           selector:@selector(targetMethod:)
+                                           userInfo:nil
+                                            repeats:YES];
+    [self targetMethod:(NSTimer *) timer];
+    
 }
 
 
 -(void) targetMethod: (NSTimer *) theTimer {
+    NSLog(@"10 segundos!!!!");
     mapView.showsUserLocation = YES;
     AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
    
