@@ -15,7 +15,7 @@
 
 + (bool)internetConnection;
 + (ServerResponse *)login :(NSString*)email :(NSString*)pswd :(NSString*)plat :(NSString*)device :(NSString*)idiom;
-+ (ServerResponse *)send :(NSString*)to;
++ (void)send :(NSString*)to;
 + (void)logout;
 + (void)resetBadgeCount;
 + (NSArray *)GetLastFriendsLocationsById;
@@ -23,5 +23,6 @@
 + (NSArray *)GetAll;
 + (void)Accept :(NSString *)idSol;
 + (void)Reject :(NSString *)idSol;
++ (void)setLocation :(NSString *)longit :(NSString *)latit;
 
 @end
