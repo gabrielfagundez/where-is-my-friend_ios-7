@@ -77,8 +77,8 @@
 		9BA77FFA1830FD5F00CE4D08 /* mapx.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BA77FF71830FD5F00CE4D08 /* mapx.png */; };
 		9BA97FF21825A6B000588DF6 /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BA97FF11825A6B000588DF6 /* 19-gear.png */; };
 		EF23222618240D930035F062 /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = EF23222518240D930035F062 /* ServerResponse.m */; };
-		EF364B0418244D020012E0D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF364B0318244D020012E0D8 /* Localizable.strings */; };
 		EF43963217F7946A00AC7660 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43963117F7946A00AC7660 /* LoginViewController.m */; };
+		EF8993351833B32C00D3C9F8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF8993371833B32C00D3C9F8 /* Localizable.strings */; };
 		EFC077B317F776FA001B1EEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC077B217F776FA001B1EEF /* UIKit.framework */; };
 		EFC077B517F776FA001B1EEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC077B417F776FA001B1EEF /* Foundation.framework */; };
 		EFC077B717F776FA001B1EEF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC077B617F776FA001B1EEF /* CoreGraphics.framework */; };
@@ -270,9 +270,13 @@
 		9BA97FF11825A6B000588DF6 /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-gear.png"; sourceTree = "<group>"; };
 		EF23222418240D930035F062 /* ServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerResponse.h; sourceTree = "<group>"; };
 		EF23222518240D930035F062 /* ServerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerResponse.m; sourceTree = "<group>"; };
-		EF364B0318244D020012E0D8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		EF43963017F7946A00AC7660 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		EF43963117F7946A00AC7660 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		EF8993311833B06B00D3C9F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		EF8993321833B06B00D3C9F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EF8993331833B06B00D3C9F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EF8993361833B32C00D3C9F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EF8993381833B37600D3C9F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EFC077AF17F776FA001B1EEF /* Where is my friend?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Where is my friend?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC077B217F776FA001B1EEF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EFC077B417F776FA001B1EEF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -695,7 +699,7 @@
 				EFD48794182311E000E34C94 /* Reachability.m */,
 				EF23222418240D930035F062 /* ServerResponse.h */,
 				EF23222518240D930035F062 /* ServerResponse.m */,
-				EF364B0318244D020012E0D8 /* Localizable.strings */,
+				EF8993371833B32C00D3C9F8 /* Localizable.strings */,
 			);
 			path = "Where ir my friend?";
 			sourceTree = "<group>";
@@ -798,6 +802,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				es,
 			);
 			mainGroup = EFC077A617F776FA001B1EEF;
 			productRefGroup = EFC077B017F776FA001B1EEF /* Products */;
@@ -862,7 +867,7 @@
 				9BA77FF81830FD5F00CE4D08 /* friendsx.png in Resources */,
 				9BA4B097182E93A5002B2226 /* UAInboxMessageListController.xib in Resources */,
 				9BA4B0AF182E93A5002B2226 /* top-detail@2x.png in Resources */,
-				EF364B0418244D020012E0D8 /* Localizable.strings in Resources */,
+				EF8993351833B32C00D3C9F8 /* Localizable.strings in Resources */,
 				9BA4B0B9182E93A5002B2226 /* UAPushSettingsUserInfoView.xib in Resources */,
 				9BA4AFED182E91C7002B2226 /* AirshipConfig.plist in Resources */,
 				FEEBC7F917FCB96F00D73176 /* friends.png in Resources */,
@@ -956,10 +961,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		EF8993371833B32C00D3C9F8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF8993361833B32C00D3C9F8 /* en */,
+				EF8993381833B37600D3C9F8 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		EFC077BB17F776FA001B1EEF /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EFC077BC17F776FA001B1EEF /* en */,
+				EF8993321833B06B00D3C9F8 /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -968,6 +983,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EFC077CB17F776FA001B1EEF /* en */,
+				EF8993311833B06B00D3C9F8 /* es */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -976,6 +992,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EFC077EB17F776FB001B1EEF /* en */,
+				EF8993331833B06B00D3C9F8 /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

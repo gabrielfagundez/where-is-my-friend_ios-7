@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  Where is my friend?
+
+  Created by MacDev on 11/1/13.
+  Copyright (c) 2013 MacDev. All rights reserved.
+*/
+
+"No Internet Connection Login" = "Debes tener internet para iniciar sesión. Chequea la conexión a internet y vuelve a intentarlo.";
+"No Internet Connection Send" = "Debes tener internet para enviar una solicitud. Chequea la conexión a internet y vuelve a intentarlo.";
+"No Internet Connection App"= "Debes tener internet para utilizar esta aplicación. Chequea la conexión a internet y vuelve a intentarlo.";
+"No Internet Connection Action"= "Debes tener internet para realizar esta acción. Chequea la conexión a internet y vuelve a intentarlo.";
+"Connection Failed" = "La conexión falló";
+"Cancel" = "Cancelar";
+"Logout" = "Cerrar Sesión";
+
+
+
