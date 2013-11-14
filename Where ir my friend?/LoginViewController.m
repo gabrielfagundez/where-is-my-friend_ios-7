@@ -139,13 +139,13 @@
             }else{
                 pass.text=@"";
                 pswd=nil;
-                wrongTxt.text = @"Invalid Mail and/or Password";
+                wrongTxt.text=NSLocalizedString(@"Invalid Mail and/or Password", nil);
                 [wrongView setHidden:NO];
             }
         }
         else{
             //si no hay conexion con el server
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Login", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Login", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
             [alert show];
         }
     }
@@ -153,7 +153,7 @@
         //txtWrong.text=NSLocalizedString(@"Complete all the fields to login", nil);
         //[butlog setBackgroundColor:[UIColor colorWithRed:0.0/255.0f green:175.0/255.0f blue:240.0/255.0f alpha:0.5]];
         //[butlog setEnabled:NO];
-        wrongTxt.text = @"You must complete all the fields";
+        wrongTxt.text=NSLocalizedString(@"Complete all the fields to login", nil);
         [wrongView setHidden:NO];
     }
     

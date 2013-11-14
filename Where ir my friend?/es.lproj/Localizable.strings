@@ -13,6 +13,10 @@
 "Connection Failed" = "La conexión falló";
 "Cancel" = "Cancelar";
 "Logout" = "Cerrar Sesión";
-
-
-
+"Ok" = "Aceptar";
+"Complete all the fields to login" = "Debes completar todos los campos";
+"Invalid Mail and/or Password" = "Mail y/o contraseña invalidos";
+"Send" = "Enviar";
+"Send a notification to" = "¿Enviar una notificación a %@?";
+"Yes" = "Si";
+"No" = "No";

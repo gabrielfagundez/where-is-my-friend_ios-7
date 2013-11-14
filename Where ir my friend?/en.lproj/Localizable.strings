@@ -13,3 +13,10 @@
 "Connection Failed" = "Connection Failed";
 "Cancel" = "Cancel";
 "Logout" = "Logout";
+"Ok" = "Ok";
+"Complete all the fields to login" = "You must complete all the fields";
+"Invalid Mail and/or Password" = "Invalid Mail and/or Password";
+"Send" = "Send";
+"Send a notification to" = "Send a notification to %@?";
+"Yes" = "Yes";
+"No" = "No";

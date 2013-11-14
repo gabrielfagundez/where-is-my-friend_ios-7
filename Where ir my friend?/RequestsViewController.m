@@ -62,7 +62,7 @@
         ap.habiaConexion = YES;
     }else{
         if (ap.habiaConexion){
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection App", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection App", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
             [alert show];
             ap.habiaConexion = NO;
         }
@@ -113,7 +113,7 @@
     // agrego los botones
     UIButton *aceptar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     aceptar.frame = CGRectMake(200.0f, 5.0f, 75.0f, 30.0f);
-    [aceptar setTitle:@"Yes" forState:UIControlStateNormal];
+    [aceptar setTitle:NSLocalizedString(@"Yes", nil) forState:UIControlStateNormal];
     [cell addSubview:aceptar];
     [aceptar addTarget:self
                         action:@selector(aceptar:)
@@ -121,7 +121,7 @@
     
     UIButton *rechazar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     rechazar.frame = CGRectMake(250.0f, 5.0f, 75.0f, 30.0f);
-    [rechazar setTitle:@"No" forState:UIControlStateNormal];
+    [rechazar setTitle:NSLocalizedString(@"No", nil) forState:UIControlStateNormal];
     [cell addSubview:rechazar];
     [rechazar addTarget:self
                 action:@selector(rechazar:)

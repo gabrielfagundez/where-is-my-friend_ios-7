@@ -51,7 +51,7 @@
             ap.habiaConexion = YES;
     }else{
             if (ap.habiaConexion){
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection App", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection App", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
                 [alert show];
                 ap.habiaConexion = NO;
             }
@@ -105,9 +105,9 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSString *mensNoti = [NSString stringWithFormat: @"Send a notification to %@ ?", cell.textLabel.text];
+    NSString *mensNoti = [NSString stringWithFormat: NSLocalizedString(@"Send a notification to", nil), cell.textLabel.text];
     UIAlertView *messageAlert = [[UIAlertView alloc]
-                                 initWithTitle:@"Row Selected" message:mensNoti delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel",nil];
+                                 initWithTitle:NSLocalizedString(@"Send", nil) message:mensNoti delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:NSLocalizedString(@"Cancel", nil),nil];
     
     ident= cell.tag;
     // Display Alert Message
@@ -136,7 +136,7 @@
         
         else{
             //si no hay conexion con el server
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Action", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Action", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
             [alert show];
         }
         
