@@ -51,7 +51,7 @@
                                            userInfo:nil
                                             repeats:YES];
     [self targetMethod:(NSTimer *) timer];
-    
+    /*
     NSString *name = [[NSUserDefaults standardUserDefaults]stringForKey:@"name"];
     
     UIBarButtonItem *btnusr = [[UIBarButtonItem alloc]  initWithTitle:name
@@ -61,7 +61,7 @@
     [btnusr setEnabled:NO];
 
     
-    [self.navigationItem setLeftBarButtonItem:btnusr];
+    [self.navigationItem setLeftBarButtonItem:btnusr];*/
 }
 
 

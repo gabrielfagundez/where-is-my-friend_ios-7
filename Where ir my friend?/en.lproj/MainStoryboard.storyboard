@@ -47,18 +47,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="7"/>
                     <navigationItem key="navigationItem" title="Map" id="fyl-iw-J52">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="NRw-gL-r4v">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="hUd-Eh-vHH">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="logoutClicked:" destination="2" id="gwL-M3-sZk"/>
                             </connections>
                         </barButtonItem>
-                        <connections>
-                            <outlet property="leftBarButtonItem" destination="NRw-gL-r4v" id="IGK-7t-7BL"/>
-                        </connections>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="xI8-kL-FVc" id="ecf-Vn-Eze"/>
@@ -363,6 +357,7 @@
     </scenes>
     <resources>
         <image name="friendsx.png" width="38" height="26"/>
+        <image name="mapx.png" width="22" height="32"/>
         <image name="mapx.png" width="22" height="32"/>
         <image name="requestsx.png" width="32" height="32"/>
         <image name="wheres titulo2.png" width="299" height="58"/>
