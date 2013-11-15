@@ -37,10 +37,12 @@
     
     locationManager = [[CLLocationManager alloc] init];
     [locationManager setDelegate:self];
+    locationManager.pausesLocationUpdatesAutomatically= NO;
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     
     [locationManager setDistanceFilter:10];
     [locationManager startUpdatingLocation];
+    
     
     AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     ap.habiaConexion=YES;

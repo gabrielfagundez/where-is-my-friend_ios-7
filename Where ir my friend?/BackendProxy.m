@@ -9,7 +9,7 @@
 #import "BackendProxy.h"
 #import "Reachability.h"
 
-NSString * server = @"testingpis.azurewebsites.net";
+NSString * server = @"developmentpis.azurewebsites.net";
 
 @implementation BackendProxy
 
@@ -351,11 +351,14 @@ NSString * server = @"testingpis.azurewebsites.net";
 + (void)setLocation :(NSString *)longit :(NSString *)latit{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSString *email = [defaults stringForKey:@"mail"];;
+    NSString *email = [defaults stringForKey:@"mail"];
+    NSString *nom = [defaults stringForKey:@"name"];
+    
     
     
     NSDictionary* info2 = [NSDictionary dictionaryWithObjectsAndKeys:
                            email,@"Mail",
+                           nom,@"Name",
                            latit, @"Latitude",
                            longit, @"Longitude",
                            nil];
