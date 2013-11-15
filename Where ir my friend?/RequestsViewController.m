@@ -116,7 +116,7 @@
     [aceptar setImage:[UIImage imageNamed:@"tick.png"] forState:UIControlStateNormal];
     [cell addSubview:aceptar];
     [aceptar addTarget:self
-                        action:@selector(aceptar:)
+                action:@selector(aceptar:)
               forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *rechazar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -138,12 +138,16 @@
 - (IBAction)aceptar:(id)sender
 {
     NSLog(@"Aceptooo.");
+    UIButton *button= (UIButton*)sender;
+    
+    button.userInteractionEnabled=NO;
     
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
     
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
     
     [self performSelectorInBackground:@selector(aceptarEnBackground:) withObject:indexPath];
+    
 }
 
 -(void)aceptarEnBackground:(NSIndexPath*)indexPath{
