@@ -39,7 +39,7 @@
     [locationManager setDelegate:self];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     
-    [locationManager setDistanceFilter:50];
+    [locationManager setDistanceFilter:10];
     [locationManager startUpdatingLocation];
     
     AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];

@@ -92,10 +92,6 @@
     NSString * tagid=[data objectForKey:@"Id"];
     cell.tag= [tagid intValue];
     
-    cell.imageView.image = [UIImage imageNamed:@"face.jpg"];
-    UISwitch *mySwitch = [[[UISwitch alloc] init] autorelease];
-    cell.accessoryView = mySwitch;
-    
     [jsonData retain];
     return cell;
 }

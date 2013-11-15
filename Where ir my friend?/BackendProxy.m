@@ -9,7 +9,7 @@
 #import "BackendProxy.h"
 #import "Reachability.h"
 
-NSString * server = @"serverdevelopmentpis.azurewebsites.net";
+NSString * server = @"testingpis.azurewebsites.net";
 
 @implementation BackendProxy
 
@@ -259,8 +259,13 @@ NSString * server = @"serverdevelopmentpis.azurewebsites.net";
                            idSol, @"idSolicitud",
                            nil];
     
+    NSString * url = @"http://";
+    NSString * url1 = [server copy];
+    url = [url stringByAppendingString:url1];
+    url = [url stringByAppendingString:@"/api/Solicitudes/Accept/"];
+    
     NSMutableURLRequest *request2 = [NSMutableURLRequest
-                                     requestWithURL:[NSURL URLWithString:@"http://serverdevelopmentpis.azurewebsites.net/api/Solicitudes/Accept"]];
+                                     requestWithURL:[NSURL URLWithString:url]];
     
     NSError *error;
     NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
@@ -289,8 +294,13 @@ NSString * server = @"serverdevelopmentpis.azurewebsites.net";
                            idSol, @"idSolicitud",
                            nil];
     
+    NSString * url = @"http://";
+    NSString * url1 = [server copy];
+    url = [url stringByAppendingString:url1];
+    url = [url stringByAppendingString:@"/api/Solicitudes/Rejec/"];
+    
     NSMutableURLRequest *request2 = [NSMutableURLRequest
-                                     requestWithURL:[NSURL URLWithString:@"http://serverdevelopmentpis.azurewebsites.net/api/Solicitudes/Reject"]];
+                                     requestWithURL:[NSURL URLWithString:url]];
     
     NSError *error;
     NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
@@ -350,9 +360,14 @@ NSString * server = @"serverdevelopmentpis.azurewebsites.net";
                            longit, @"Longitude",
                            nil];
     
+    NSString * url = @"http://";
+    NSString * url1 = [server copy];
+    url = [url stringByAppendingString:url1];
+    url = [url stringByAppendingString:@"/api/Geolocation/SetLocation/"];
+    
     // POST
     NSMutableURLRequest *request2 = [NSMutableURLRequest
-                                     requestWithURL:[NSURL URLWithString:@"http://serverdevelopmentpis.azurewebsites.net/api/Geolocation/SetLocation/"]];
+                                     requestWithURL:[NSURL URLWithString:url]];
     
     NSError *error;
     NSData *postData2 = [NSJSONSerialization dataWithJSONObject:info2 options:0 error:&error];
