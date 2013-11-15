@@ -22,11 +22,11 @@
                                 </constraints>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11k-dE-MXw">
-                                <rect key="frame" x="234" y="291" width="66" height="65"/>
+                                <rect key="frame" x="256" y="320" width="33" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="I0v-VC-0k0"/>
-                                    <constraint firstAttribute="width" constant="66" id="bMP-o9-cfi"/>
+                                    <constraint firstAttribute="width" constant="33" id="8fc-lG-GzP"/>
+                                    <constraint firstAttribute="height" constant="33" id="cmd-A4-c7x"/>
                                 </constraints>
                                 <state key="normal" image="mapx.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -38,10 +38,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="11k-dE-MXw" secondAttribute="bottom" constant="99" id="Dgn-QA-1Zo"/>
                             <constraint firstAttribute="bottom" secondItem="xI8-kL-FVc" secondAttribute="bottom" type="default" id="Nid-YU-azX"/>
                             <constraint firstItem="xI8-kL-FVc" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="XW6-qk-Awb"/>
-                            <constraint firstAttribute="trailing" secondItem="11k-dE-MXw" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ucK-n0-e0u"/>
+                            <constraint firstAttribute="trailing" secondItem="11k-dE-MXw" secondAttribute="trailing" constant="31" id="nLb-mR-IaM"/>
+                            <constraint firstAttribute="bottom" secondItem="11k-dE-MXw" secondAttribute="bottom" constant="102" id="q3U-NS-wmZ"/>
                             <constraint firstItem="xI8-kL-FVc" firstAttribute="centerX" secondItem="16" secondAttribute="centerX" type="default" id="w5M-U0-hhU"/>
                         </constraints>
                     </view>

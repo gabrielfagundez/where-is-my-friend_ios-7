@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B87EDCB1836C54A00B8613F /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B87EDC91836C54A00B8613F /* tick.png */; };
+		9B87EDCC1836C54A00B8613F /* redcross.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B87EDCA1836C54A00B8613F /* redcross.png */; };
 		9BA4AFED182E91C7002B2226 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4AFEC182E91C7002B2226 /* AirshipConfig.plist */; };
 		9BA4B082182E93A5002B2226 /* libUAirship-3.0.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA4B01F182E93A5002B2226 /* libUAirship-3.0.1.a */; };
 		9BA4B084182E93A5002B2226 /* UABarButtonSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4B02C182E93A5002B2226 /* UABarButtonSegmentedControl.m */; };
@@ -125,6 +127,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B87EDC91836C54A00B8613F /* tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tick.png; sourceTree = "<group>"; };
+		9B87EDCA1836C54A00B8613F /* redcross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redcross.png; sourceTree = "<group>"; };
 		9BA4AFEC182E91C7002B2226 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		9BA4AFF0182E93A4002B2226 /* NSJSONSerialization+UAAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+UAAdditions.h"; sourceTree = "<group>"; };
 		9BA4AFF1182E93A4002B2226 /* UAAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAAnalytics.h; sourceTree = "<group>"; };
@@ -275,8 +279,8 @@
 		EF8993311833B06B00D3C9F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		EF8993321833B06B00D3C9F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EF8993331833B06B00D3C9F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		EF8993361833B32C00D3C9F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		EF8993381833B37600D3C9F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EF8993361833B32C00D3C9F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EF8993381833B37600D3C9F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EFC077AF17F776FA001B1EEF /* Where is my friend?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Where is my friend?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC077B217F776FA001B1EEF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EFC077B417F776FA001B1EEF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -358,6 +362,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B87EDCD1836C90600B8613F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9B87EDCE1836C91100B8613F /* Images */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		9B87EDCE1836C91100B8613F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				FE876D051819AD070067A75F /* settings.png */,
+				9B87EDC91836C54A00B8613F /* tick.png */,
+				9B87EDCA1836C54A00B8613F /* redcross.png */,
+				9BA77FF51830FD5F00CE4D08 /* friendsx.png */,
+				9BA77FF61830FD5F00CE4D08 /* requestsx.png */,
+				9BA77FF71830FD5F00CE4D08 /* mapx.png */,
+				9BA97FF11825A6B000588DF6 /* 19-gear.png */,
+				FE8C2B3018033AF2001595B5 /* wheres titulo2.png */,
+				FED8241518006BEC0089C870 /* face.jpg */,
+				FEEBC7FA17FCB97A00D73176 /* requests.png */,
+				FEEBC7F817FCB96F00D73176 /* friends.png */,
+				FEEBC7F617FCB96400D73176 /* map.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		9BA4AFEE182E93A4002B2226 /* Airship */ = {
 			isa = PBXGroup;
 			children = (
@@ -682,6 +713,7 @@
 				EFC077CA17F776FA001B1EEF /* MainStoryboard.storyboard */,
 				EFC077CD17F776FA001B1EEF /* MapViewController.h */,
 				EFC077CE17F776FA001B1EEF /* MapViewController.m */,
+				9B87EDCD1836C90600B8613F /* Resource */,
 				EFC077D017F776FA001B1EEF /* first.png */,
 				EFC077D217F776FA001B1EEF /* first@2x.png */,
 				EFC077D417F776FA001B1EEF /* FriendsViewController.h */,
@@ -707,16 +739,6 @@
 		EFC077B917F776FA001B1EEF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FE876D051819AD070067A75F /* settings.png */,
-				9BA77FF51830FD5F00CE4D08 /* friendsx.png */,
-				9BA77FF61830FD5F00CE4D08 /* requestsx.png */,
-				9BA77FF71830FD5F00CE4D08 /* mapx.png */,
-				9BA97FF11825A6B000588DF6 /* 19-gear.png */,
-				FE8C2B3018033AF2001595B5 /* wheres titulo2.png */,
-				FED8241518006BEC0089C870 /* face.jpg */,
-				FEEBC7FA17FCB97A00D73176 /* requests.png */,
-				FEEBC7F817FCB96F00D73176 /* friends.png */,
-				FEEBC7F617FCB96400D73176 /* map.png */,
 				9BA4AFEC182E91C7002B2226 /* AirshipConfig.plist */,
 				EFC077BA17F776FA001B1EEF /* Where is my friend?-Info.plist */,
 				EFC077BB17F776FA001B1EEF /* InfoPlist.strings */,
@@ -848,6 +870,7 @@
 				9BA4B0B2182E93A5002B2226 /* UAPushLocalization.bundle in Resources */,
 				9BA4B098182E93A5002B2226 /* UAInboxMessageViewController.xib in Resources */,
 				FEEBC7F717FCB96400D73176 /* map.png in Resources */,
+				9B87EDCB1836C54A00B8613F /* tick.png in Resources */,
 				FE876D061819AD070067A75F /* settings.png in Resources */,
 				9BA77FFA1830FD5F00CE4D08 /* mapx.png in Resources */,
 				9BA4B096182E93A5002B2226 /* UAInboxMessageListCell.xib in Resources */,
@@ -863,6 +886,7 @@
 				EFC077D817F776FA001B1EEF /* second.png in Resources */,
 				EFC077DA17F776FA001B1EEF /* second@2x.png in Resources */,
 				9BA4B090182E93A5002B2226 /* check@2x.png in Resources */,
+				9B87EDCC1836C54A00B8613F /* redcross.png in Resources */,
 				9BA4B0B0182E93A5002B2226 /* UALocationSettingsViewController.xib in Resources */,
 				9BA77FF81830FD5F00CE4D08 /* friendsx.png in Resources */,
 				9BA4B097182E93A5002B2226 /* UAInboxMessageListController.xib in Resources */,

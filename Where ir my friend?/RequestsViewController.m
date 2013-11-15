@@ -113,7 +113,7 @@
     // agrego los botones
     UIButton *aceptar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     aceptar.frame = CGRectMake(200.0f, 5.0f, 75.0f, 30.0f);
-    [aceptar setTitle:NSLocalizedString(@"Yes", nil) forState:UIControlStateNormal];
+    [aceptar setImage:[UIImage imageNamed:@"tick.png"] forState:UIControlStateNormal];
     [cell addSubview:aceptar];
     [aceptar addTarget:self
                         action:@selector(aceptar:)
@@ -121,7 +121,7 @@
     
     UIButton *rechazar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     rechazar.frame = CGRectMake(250.0f, 5.0f, 75.0f, 30.0f);
-    [rechazar setTitle:NSLocalizedString(@"No", nil) forState:UIControlStateNormal];
+    [rechazar setImage:[UIImage imageNamed:@"redcross.png"] forState:UIControlStateNormal];
     [cell addSubview:rechazar];
     [rechazar addTarget:self
                 action:@selector(rechazar:)
