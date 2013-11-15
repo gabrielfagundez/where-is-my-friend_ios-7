@@ -73,7 +73,6 @@
     AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
    
     if ([BackendProxy internetConnection]){
-        [mapView removeAnnotations:mapView.annotations];
         ap.habiaConexion=YES;
        
         [self performSelectorInBackground:@selector(actualizarMapaEnBack) withObject:nil];
@@ -101,6 +100,8 @@
     int cant= [jsonFriends count];
     
     CLLocationCoordinate2D  points[cant];
+    
+    [mapView removeAnnotations:mapView.annotations];
     
     for(int i=0; i<[jsonFriends count];i++)
     {

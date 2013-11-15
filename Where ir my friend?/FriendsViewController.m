@@ -127,7 +127,12 @@
             NSString * to=[NSString stringWithFormat:@"%d",ident ];
             
             //llamo a la funcion de backend
-            [BackendProxy send :to];
+            ServerResponse * sr = [BackendProxy send :to];
+            
+            if ([sr getCodigo] == 400){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Can not send", nil) message:NSLocalizedString(@"Can not send why", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+                [alert show];
+            }
         }
         
         else{
