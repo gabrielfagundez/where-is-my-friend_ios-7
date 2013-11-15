@@ -358,7 +358,6 @@
     <resources>
         <image name="friendsx.png" width="38" height="26"/>
         <image name="mapx.png" width="22" height="32"/>
-        <image name="mapx.png" width="22" height="32"/>
         <image name="requestsx.png" width="32" height="32"/>
         <image name="wheres titulo2.png" width="299" height="58"/>
     </resources>
