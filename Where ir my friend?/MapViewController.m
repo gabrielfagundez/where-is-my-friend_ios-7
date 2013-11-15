@@ -52,6 +52,16 @@
                                             repeats:YES];
     [self targetMethod:(NSTimer *) timer];
     
+    NSString *name = [[NSUserDefaults standardUserDefaults]stringForKey:@"name"];
+    
+    UIBarButtonItem *btnusr = [[UIBarButtonItem alloc]  initWithTitle:name
+                                                        style:UIBarButtonItemStyleBordered
+                                                               target:nil action:nil];
+    [btnusr setTintColor:[UIColor whiteColor]];
+    [btnusr setEnabled:NO];
+
+    
+    [self.navigationItem setLeftBarButtonItem:btnusr];
 }
 
 
