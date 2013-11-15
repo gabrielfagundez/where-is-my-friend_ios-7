@@ -297,7 +297,7 @@ NSString * server = @"developmentpis.azurewebsites.net";
     NSString * url = @"http://";
     NSString * url1 = [server copy];
     url = [url stringByAppendingString:url1];
-    url = [url stringByAppendingString:@"/api/Solicitudes/Rejec/"];
+    url = [url stringByAppendingString:@"/api/Solicitudes/Reject/"];
     
     NSMutableURLRequest *request2 = [NSMutableURLRequest
                                      requestWithURL:[NSURL URLWithString:url]];

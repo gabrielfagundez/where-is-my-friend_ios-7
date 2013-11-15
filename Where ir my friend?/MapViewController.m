@@ -78,8 +78,6 @@
        
         [self performSelectorInBackground:@selector(actualizarMapaEnBack) withObject:nil];
         
-
-        
     }else{ if (ap.habiaConexion){
             //si no hay conexion con el server
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection App", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];

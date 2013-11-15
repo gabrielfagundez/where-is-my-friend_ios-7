@@ -104,6 +104,8 @@
 {
     NSLog(@"Received notification: %@", userInfo);
     [self clearNotifications];
+    
+    [(UITabBarController*)self.window.rootViewController setSelectedIndex:2];
 }
 
 @end

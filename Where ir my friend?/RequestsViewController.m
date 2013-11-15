@@ -46,8 +46,6 @@
     [spinner startAnimating];
     
     [self performSelectorInBackground:@selector(cargarDatosEnBackground) withObject:nil];
-
-    
 }
 
 -(void)cargarDatosEnBackground{
@@ -101,7 +99,6 @@
     NSLog(@"la fila numero %ld", (long)indexPath.row);
     NSLog(@"elementos de jsonData %ld", (long)num);
 
-    
     data= [jsonData objectAtIndex:indexPath.row];
     cell.textLabel.text = [data objectForKey:@"SolicitudFromNombre"];
     
@@ -112,7 +109,7 @@
     
     // agrego los botones
     UIButton *aceptar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    aceptar.frame = CGRectMake(200.0f, 5.0f, 75.0f, 30.0f);
+    aceptar.frame = CGRectMake(210.0f, 10.0f, 40.0f, 40.0f);
     [aceptar setImage:[UIImage imageNamed:@"tick.png"] forState:UIControlStateNormal];
     [cell addSubview:aceptar];
     [aceptar addTarget:self
@@ -120,7 +117,7 @@
               forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *rechazar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    rechazar.frame = CGRectMake(250.0f, 5.0f, 75.0f, 30.0f);
+    rechazar.frame = CGRectMake(260.0f, 10.0f, 40.0f, 40.0f);
     [rechazar setImage:[UIImage imageNamed:@"redcross.png"] forState:UIControlStateNormal];
     [cell addSubview:rechazar];
     [rechazar addTarget:self
