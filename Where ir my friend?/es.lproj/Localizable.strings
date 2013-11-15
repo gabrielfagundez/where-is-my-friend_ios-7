@@ -16,7 +16,7 @@
 "Ok" = "Aceptar";
 "Complete all the fields to login" = "Debes completar todos los campos";
 "Invalid Mail and/or Password" = "Mail y/o contraseña invalidos";
-"Send" = "Enviar";
-"Send a notification to" = "¿Enviar una notificación a %@?";
+"Send" = "Enviar solicitud";
+"Send a notification to" = "¿Desea enviar una solicitud de localización a %@?";
 "Yes" = "Si";
 "No" = "No";

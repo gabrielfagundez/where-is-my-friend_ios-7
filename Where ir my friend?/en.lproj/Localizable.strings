@@ -16,7 +16,7 @@
 "Ok" = "Ok";
 "Complete all the fields to login" = "You must complete all the fields";
 "Invalid Mail and/or Password" = "Invalid Mail and/or Password";
-"Send" = "Send";
-"Send a notification to" = "Send a notification to %@?";
+"Send" = "Send request";
+"Send a notification to" = "Do you want to send a location request to %@?";
 "Yes" = "Yes";
 "No" = "No";
