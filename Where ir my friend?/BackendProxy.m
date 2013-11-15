@@ -105,7 +105,7 @@ NSString * server = @"developmentpis.azurewebsites.net";
     
 }
 
-+ (void)send :(NSString*)to{
++ (ServerResponse *)send :(NSString*)to{
     
     //creo el JSON
     NSString * from=[[NSUserDefaults standardUserDefaults]stringForKey:@"id"];
@@ -134,6 +134,11 @@ NSString * server = @"developmentpis.azurewebsites.net";
     error = [[NSError alloc] init];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
     //NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    
+    ServerResponse * sr = [ServerResponse alloc];
+    sr = [sr initialize :(NSInteger)urlResponse.statusCode :NULL :NULL :NULL :NULL];
+    
+    return sr;
     
 }
 

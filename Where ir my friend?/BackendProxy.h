@@ -15,7 +15,7 @@
 
 + (bool)internetConnection;
 + (ServerResponse *)login :(NSString*)email :(NSString*)pswd :(NSString*)plat :(NSString*)device :(NSString*)idiom;
-+ (void)send :(NSString*)to;
++ (ServerResponse *)send :(NSString*)to;
 + (void)logout;
 + (void)resetBadgeCount;
 + (NSArray *)GetLastFriendsLocationsById;
