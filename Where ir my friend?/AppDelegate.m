@@ -42,12 +42,16 @@
     
     // Call takeOff (which creates the UAirship singleton)
     [UAirship takeOff:config];
+    
+//    [[UAPush shared] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+//                                                         UIRemoteNotificationTypeSound |
+//                                                         UIRemoteNotificationTypeAlert)];
 
     // Request a custom set of notification types
     [UAPush shared].notificationTypes = (UIRemoteNotificationTypeBadge |
                                          UIRemoteNotificationTypeSound |
-                                         UIRemoteNotificationTypeAlert |
-                                         UIRemoteNotificationTypeNewsstandContentAvailability);
+                                         UIRemoteNotificationTypeAlert
+                                         );
 
 //    [UAPush shared].autobadgeEnabled = YES;
     
@@ -153,19 +157,54 @@
 
 }
 
-
-- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
-{
-//    if ([string rangeOfString:@"bla"].location == NSNotFound) {
-
-    NSLog(@"Received notification: %@", userInfo);
-//    [userInfo objectForKey:@"aps"] objectForKey:@""
-    [self clearNotifications];
+-(void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo
+fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
+    // Notify UAInbox to fetch any new messages if the notification
+    // contains a rich application page id.
+    if (application.applicationState != UIApplicationStateBackground) {
+        UA_LINFO(@"Received remote notification: %@", userInfo);
+        [UAInboxPushHandler handleNotification:userInfo];
+    }
     
-    //[UIApplication sharedApplication].applicationIconBadgeNumber = [[[userInfo objectForKey:@"aps"] objectForKey: @"badge"] intValue];
+    // Notify UAPush that a push came in with the completion handler
+    [[UAPush shared] handleNotification:userInfo
+                       applicationState:application.applicationState
+                 fetchCompletionHandler:completionHandler];
+    
+     [self clearNotifications];
+}
 
+- (void)receivedForegroundNotification:(NSDictionary *)notification
+                fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
+    UA_LDEBUG(@"Received a notification while the app was already in the foreground");
+    
+    // Do something with your customData JSON, then entire notification is also available
+    
+    // Be sure to call the completion handler with a UIBackgroundFetchResult
+    completionHandler(UIBackgroundFetchResultNoData);
+}
+
+- (void)launchedFromNotification:(NSDictionary *)notification
+          fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    
+    UA_LDEBUG(@"The application was launched or resumed from a notification");
+    
+    // Do something when launched via a notification
+    
+    // Be sure to call the completion handler with a UIBackgroundFetchResult
+    completionHandler(UIBackgroundFetchResultNoData);
+}
+
+- (void)receivedBackgroundNotification:(NSDictionary *)notification
+                fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    // Do something with the notification in the background
+    
+    // Be sure to call the completion handler with a UIBackgroundFetchResult
+    completionHandler(UIBackgroundFetchResultNoData);
 }
 
 
