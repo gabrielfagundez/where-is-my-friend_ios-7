@@ -11,12 +11,15 @@
 #import "UAConfig.h"
 #import "UAPush.h"
 #import "BackendProxy.h"
+#import <MapKit/MapKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>{
+@interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>{
     BOOL habiaConexion;
+    CLLocationManager *locationManager;
 }
 
 @property (strong, nonatomic) UIWindow *window;
 @property (assign, nonatomic) BOOL habiaConexion;
+@property(nonatomic,retain) CLLocationManager *locationManager;
 
 @end

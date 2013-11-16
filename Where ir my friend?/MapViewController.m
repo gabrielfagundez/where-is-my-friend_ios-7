@@ -35,16 +35,10 @@
 //    
 //    [tbi setBadgeValue:@"1"];
     
-    locationManager = [[CLLocationManager alloc] init];
-    [locationManager setDelegate:self];
-    locationManager.pausesLocationUpdatesAutomatically= NO;
-    [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-    
-    [locationManager setDistanceFilter:10];
-    [locationManager startUpdatingLocation];
-    
-    
     AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    [ap.locationManager startUpdatingLocation];
+    
     ap.habiaConexion=YES;
 
     timer = [NSTimer scheduledTimerWithTimeInterval:10
@@ -68,7 +62,7 @@
 
 
 -(void) targetMethod: (NSTimer *) theTimer {
-    NSLog(@"10 segundos!!!!");
+   // NSLog(@"10 segundos!!!!");
     mapView.showsUserLocation = YES;
     AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
    
@@ -140,8 +134,6 @@
         //ACA MANDO AL SERVIDOR
         [self performSelectorInBackground:@selector(locationInBackground:) withObject:currentLocation];
         //creo el JSON
-
-        
     }
 
 }

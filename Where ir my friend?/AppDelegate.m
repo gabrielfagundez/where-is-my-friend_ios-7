@@ -10,6 +10,9 @@
 
 @implementation AppDelegate
 
+
+@synthesize locationManager;
+
 - (void)dealloc
 {
     [_window release];
@@ -58,6 +61,13 @@
         }
     }
     
+    locationManager = [[CLLocationManager alloc] init];
+    [locationManager setDelegate:self];
+    locationManager.pausesLocationUpdatesAutomatically= NO;
+    [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    
+    [locationManager setDistanceFilter:10];
+    
 
     
     return YES;
@@ -73,11 +83,25 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *user = [defaults stringForKey:@"id"];
+    if (user){
+        [locationManager startUpdatingLocation];
+        NSLog(@"entre al background");
+    }
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *user = [defaults stringForKey:@"id"];
+    if (user){
+        [locationManager stopUpdatingLocation];
+        NSLog(@"sali del background");
+    }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -88,6 +112,34 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        
+        
+        NSLog(@"Response: %8F", currentLocation.coordinate.longitude);
+        NSLog(@"Response: %8F", currentLocation.coordinate.latitude);
+        //ACA MANDO AL SERVIDOR
+        [self performSelectorInBackground:@selector(locationInBackground:) withObject:currentLocation];
+        //creo el JSON
+    }
+    
+}
+
+-(void)locationInBackground:(CLLocation*)currentLocation{
+    
+    if ([BackendProxy internetConnection]){
+        
+        NSString *longit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.longitude ];
+        NSString *latit=[NSString stringWithFormat:@"%1.6f",currentLocation.coordinate.latitude ];
+        
+        [BackendProxy setLocation:longit :latit];
+    }
 }
 
 - (void) clearNotifications {
