@@ -119,8 +119,12 @@
             NSString * idiom=[[NSLocale preferredLanguages] objectAtIndex:0];
             if ([idiom isEqualToString:@"es"])
                 idiom=@"esp";
-            //NSString * device= [[UAPush shared] deviceToken];
-            NSString * device=@"123";
+            NSString * device;
+            if ([[UAPush shared] deviceToken])
+               device = [[UAPush shared] deviceToken];
+            else
+                device= @"no push";
+            //NSString * device=@"123";
 
             //llamo a la funcion de backend
             ServerResponse * sr = [BackendProxy login :email :pswd :plat :device :idiom];
@@ -134,7 +138,7 @@
 //                locationManager.distanceFilter = 50; // metros
                 
                 //[locationManager startUpdatingLocation];
-                [self performSelectorOnMainThread:@selector(finishedLoading) withObject:nil waitUntilDone:NO];
+                [self performSelectorOnMainThread:@selector(finishedLoading) withObject:nil waitUntilDone:YES];
                 
             }else{
                 pass.text=@"";

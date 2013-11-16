@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B0F4466183811B200BB8A3C /* ios-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B0F4465183811B200BB8A3C /* ios-icon.png */; };
+		9B0F4468183811EA00BB8A3C /* ios-splash-wmf.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B0F4467183811EA00BB8A3C /* ios-splash-wmf.png */; };
 		9B87EDCB1836C54A00B8613F /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B87EDC91836C54A00B8613F /* tick.png */; };
 		9B87EDCC1836C54A00B8613F /* redcross.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B87EDCA1836C54A00B8613F /* redcross.png */; };
 		9BA4AFED182E91C7002B2226 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4AFEC182E91C7002B2226 /* AirshipConfig.plist */; };
@@ -127,6 +129,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B0F4465183811B200BB8A3C /* ios-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon.png"; sourceTree = "<group>"; };
+		9B0F4467183811EA00BB8A3C /* ios-splash-wmf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-splash-wmf.png"; sourceTree = "<group>"; };
 		9B87EDC91836C54A00B8613F /* tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tick.png; sourceTree = "<group>"; };
 		9B87EDCA1836C54A00B8613F /* redcross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redcross.png; sourceTree = "<group>"; };
 		9BA4AFEC182E91C7002B2226 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
@@ -374,6 +378,8 @@
 			isa = PBXGroup;
 			children = (
 				FE876D051819AD070067A75F /* settings.png */,
+				9B0F4467183811EA00BB8A3C /* ios-splash-wmf.png */,
+				9B0F4465183811B200BB8A3C /* ios-icon.png */,
 				9B87EDC91836C54A00B8613F /* tick.png */,
 				9B87EDCA1836C54A00B8613F /* redcross.png */,
 				9BA77FF51830FD5F00CE4D08 /* friendsx.png */,
@@ -849,6 +855,7 @@
 				9BA97FF21825A6B000588DF6 /* 19-gear.png in Resources */,
 				9BA4B091182E93A5002B2226 /* down.png in Resources */,
 				EFC077C517F776FA001B1EEF /* Default.png in Resources */,
+				9B0F4468183811EA00BB8A3C /* ios-splash-wmf.png in Resources */,
 				9BA4B092182E93A5002B2226 /* down@2x.png in Resources */,
 				9BA4B0B4182E93A5002B2226 /* UAPushSettingsAddTagViewController.xib in Resources */,
 				9BA4B0B3182E93A5002B2226 /* UAPushMoreSettingsView.xib in Resources */,
@@ -858,6 +865,7 @@
 				9BA4B094182E93A5002B2226 /* overlayCloseBtn@2x.png in Resources */,
 				9BA4B0B5182E93A5002B2226 /* UAPushSettingsAliasView.xib in Resources */,
 				EFC077C917F776FA001B1EEF /* Default-568h@2x.png in Resources */,
+				9B0F4466183811B200BB8A3C /* ios-icon.png in Resources */,
 				9BA4B0B6182E93A5002B2226 /* UAPushSettingsSoundsViewController.xib in Resources */,
 				9BA4B09B182E93A5002B2226 /* up.png in Resources */,
 				9BA4B095182E93A5002B2226 /* UAInboxLocalization.bundle in Resources */,

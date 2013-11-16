@@ -40,7 +40,8 @@
     [ap.locationManager startUpdatingLocation];
     
     ap.habiaConexion=YES;
-
+    ap.window.rootViewController=self.tabBarController;
+    
     timer = [NSTimer scheduledTimerWithTimeInterval:10
                                              target:self
                                            selector:@selector(targetMethod:)
@@ -58,6 +59,8 @@
 
     
     [self.navigationItem setLeftBarButtonItem:btnusr];*/
+    
+    
 }
 
 
@@ -70,8 +73,6 @@
         ap.habiaConexion=YES;
        
         [self performSelectorInBackground:@selector(actualizarMapaEnBack) withObject:nil];
-        
-
         
     }else{ if (ap.habiaConexion){
             //si no hay conexion con el server
