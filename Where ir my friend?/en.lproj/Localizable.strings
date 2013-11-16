@@ -20,5 +20,5 @@
 "Send a notification to" = "Do you want to send a location request to %@?";
 "Yes" = "Yes";
 "No" = "No";
-"Can not send" = "no papaaa";
-"Can not send why" = "no podes flacoo";
+"Can not send" = "Send Failed";
+"Can not send why" = "It isn't possible to send a location request until %@ replies the previous one";

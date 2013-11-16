@@ -12,6 +12,7 @@
 @interface FriendsViewController : UITableViewController <UIAlertViewDelegate>
 {
     UIActivityIndicatorView *spinner;
+     NSString * name;
 }
 
 

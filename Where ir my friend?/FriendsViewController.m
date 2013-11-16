@@ -101,6 +101,8 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    name = cell.textLabel.text;
+    
     NSString *mensNoti = [NSString stringWithFormat: NSLocalizedString(@"Send a notification to", nil), cell.textLabel.text];
     UIAlertView *messageAlert = [[UIAlertView alloc]
                                  initWithTitle:NSLocalizedString(@"Send", nil) message:mensNoti delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:NSLocalizedString(@"Cancel", nil),nil];
@@ -130,8 +132,12 @@
             ServerResponse * sr = [BackendProxy send :to];
             
             if ([sr getCodigo] == 400){
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Can not send", nil) message:NSLocalizedString(@"Can not send why", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+                
+                NSString *mensNoti = [NSString stringWithFormat: NSLocalizedString(@"Can not send why", nil), name];
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Can not send", nil) message:mensNoti delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
                 [alert show];
+
             }
         }
         

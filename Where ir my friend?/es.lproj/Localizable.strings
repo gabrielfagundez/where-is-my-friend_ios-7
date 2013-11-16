@@ -20,5 +20,5 @@
 "Send a notification to" = "¿Desea enviar una solicitud de localización a %@?";
 "Yes" = "Si";
 "No" = "No";
-"Can not send" = "no papaaa";
-"Can not send why" = "no podes flacoo";
+"Can not send" = "Envio fallido";
+"Can not send why" = "No es posible enviar una solicitud de localización hasta que %@ responda la anterior";
