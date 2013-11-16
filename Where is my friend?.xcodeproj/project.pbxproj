@@ -823,6 +823,15 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = MacDev;
+				TargetAttributes = {
+					EFC077AE17F776FA001B1EEF = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = EFC077AA17F776FA001B1EEF /* Build configuration list for PBXProject "Where is my friend?" */;
 			compatibilityVersion = "Xcode 3.2";

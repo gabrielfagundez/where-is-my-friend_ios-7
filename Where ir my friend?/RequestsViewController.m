@@ -240,7 +240,9 @@
     [copia removeAllObjects];
     
     jsonData= copia;
-    
+
+    [spinner removeFromSuperview];
+
     [self.tableView reloadData];
     
 }
