@@ -166,6 +166,8 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     if (application.applicationState != UIApplicationStateBackground) {
         UA_LINFO(@"Received remote notification: %@", userInfo);
         [UAInboxPushHandler handleNotification:userInfo];
+    }else{
+       [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshRequests" object:nil];
     }
     
     // Notify UAPush that a push came in with the completion handler
