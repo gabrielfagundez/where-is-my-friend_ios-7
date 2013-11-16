@@ -46,7 +46,8 @@
                                          UIRemoteNotificationTypeAlert |
                                          UIRemoteNotificationTypeNewsstandContentAvailability);
 
-
+    
+    //[UAPush shared].autobadgeEnabled=YES;
     if (launchOptions)
     {
         NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
@@ -91,7 +92,7 @@
 }
 
 - (void) clearNotifications {
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
+    [[UAPush shared] resetBadge];
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     if ([BackendProxy internetConnection]){
         [BackendProxy resetBadgeCount];
@@ -102,10 +103,16 @@
 
 - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
 {
+//    if ([string rangeOfString:@"bla"].location == NSNotFound) {
+
     NSLog(@"Received notification: %@", userInfo);
+//    [userInfo objectForKey:@"aps"] objectForKey:@""
     [self clearNotifications];
     
-    [(UITabBarController*)self.window.rootViewController setSelectedIndex:2];
+    
+    //[UIApplication sharedApplication].applicationIconBadgeNumber = [[[userInfo objectForKey:@"aps"] objectForKey: @"badge"] intValue];
+
+    
 }
 
 @end

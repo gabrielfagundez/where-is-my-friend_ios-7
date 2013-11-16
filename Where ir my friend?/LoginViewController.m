@@ -119,7 +119,11 @@
             NSString * idiom=[[NSLocale preferredLanguages] objectAtIndex:0];
             if ([idiom isEqualToString:@"es"])
                 idiom=@"esp";
-            NSString * device= [[UAPush shared] deviceToken];
+            NSString * device;
+            if ([[UAPush shared] deviceToken])
+               device = [[UAPush shared] deviceToken];
+            else
+                device= @"no push";
             //NSString * device=@"123";
 
             //llamo a la funcion de backend
@@ -134,7 +138,7 @@
 //                locationManager.distanceFilter = 50; // metros
                 
                 //[locationManager startUpdatingLocation];
-                [self performSelectorOnMainThread:@selector(finishedLoading) withObject:nil waitUntilDone:NO];
+                [self performSelectorOnMainThread:@selector(finishedLoading) withObject:nil waitUntilDone:YES];
                 
             }else{
                 pass.text=@"";

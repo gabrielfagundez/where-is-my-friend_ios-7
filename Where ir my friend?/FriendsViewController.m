@@ -57,7 +57,7 @@
             }
         }
         
-    [self performSelectorOnMainThread:@selector(finishLoading) withObject:nil waitUntilDone:NO];   
+    [self performSelectorOnMainThread:@selector(finishLoading) withObject:nil waitUntilDone:YES];
 }
 
 -(void)finishLoading{

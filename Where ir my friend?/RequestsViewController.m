@@ -48,6 +48,10 @@
     [self performSelectorInBackground:@selector(cargarDatosEnBackground) withObject:nil];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    
+}
+
 -(void)cargarDatosEnBackground{
     
     AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
@@ -65,7 +69,7 @@
             ap.habiaConexion = NO;
         }
     }
-    [self performSelectorOnMainThread:@selector(finishLoading) withObject:nil waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(finishLoading) withObject:nil waitUntilDone:YES];
     
 }
 
@@ -108,7 +112,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     // agrego los botones
-    UIButton *aceptar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *aceptar = [UIButton buttonWithType:UIButtonTypeCustom];
     aceptar.frame = CGRectMake(210.0f, 10.0f, 40.0f, 40.0f);
     [aceptar setImage:[UIImage imageNamed:@"tick.png"] forState:UIControlStateNormal];
     [cell addSubview:aceptar];
@@ -116,7 +120,7 @@
                 action:@selector(aceptar:)
               forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *rechazar = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *rechazar = [UIButton buttonWithType:UIButtonTypeCustom];
     rechazar.frame = CGRectMake(260.0f, 10.0f, 40.0f, 40.0f);
     [rechazar setImage:[UIImage imageNamed:@"redcross.png"] forState:UIControlStateNormal];
     [cell addSubview:rechazar];
@@ -164,7 +168,7 @@
         [copia removeObjectAtIndex:indexPath.row];
         
         jsonData= copia;
-        [self performSelectorOnMainThread:@selector(terminarAceptar:) withObject:indexPath waitUntilDone:NO];
+        [self performSelectorOnMainThread:@selector(terminarAceptar:) withObject:indexPath waitUntilDone:YES];
         
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Action", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];

@@ -46,7 +46,8 @@
     
     AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     ap.habiaConexion=YES;
-
+    ap.window.rootViewController=self.tabBarController;
+    
     timer = [NSTimer scheduledTimerWithTimeInterval:10
                                              target:self
                                            selector:@selector(targetMethod:)
@@ -64,6 +65,8 @@
 
     
     [self.navigationItem setLeftBarButtonItem:btnusr];*/
+    
+    
 }
 
 
