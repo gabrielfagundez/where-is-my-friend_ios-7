@@ -78,7 +78,6 @@
     //termino de correr el spinner
     [spinner stopAnimating];
     [spinner setHidden:YES];
-    
     [self.tableView reloadData];
 }
 
@@ -240,16 +239,17 @@
     [copia removeAllObjects];
     
     jsonData= copia;
-
     [spinner removeFromSuperview];
-
     [self.tableView reloadData];
     
 }
 
 - (void) receiveNotification:(NSNotification *) notification{
     if ([[notification name] isEqualToString:@"refreshRequests"]){
-        
+        [spinner setHidden:NO];
+        [spinner startAnimating];
+
+        [self performSelectorInBackground:@selector(cargarDatosEnBackground) withObject:nil];
     }
 }
 

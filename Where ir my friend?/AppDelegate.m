@@ -19,11 +19,7 @@
     [super dealloc];
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:10.0/256.0 green:145.0/10.0 blue:35.0/256.0 alpha:1.0]];
-    
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *user = [defaults stringForKey:@"id"];
     if (user){
@@ -31,6 +27,14 @@
         UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"tabbar"];
         self.window.rootViewController= viewController;
     }
+
+    return YES;
+}
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    // Override point for customization after application launch.
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:10.0/256.0 green:145.0/10.0 blue:35.0/256.0 alpha:1.0]];
+    
     
     // Populate AirshipConfig.plist with your app's info from https://go.urbanairship.com
     // or set runtime properties here.
@@ -108,6 +112,8 @@
 ////        [locationManager stopUpdatingLocation];
 ////        NSLog(@"sali del background");
 ////    }
+    
+    [self clearNotifications];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -154,7 +160,6 @@
     if ([BackendProxy internetConnection]){
         [BackendProxy resetBadgeCount];
     }
-
 }
 
 -(void)application:(UIApplication *)application
@@ -165,17 +170,22 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     // contains a rich application page id.
     if (application.applicationState != UIApplicationStateBackground) {
         UA_LINFO(@"Received remote notification: %@", userInfo);
-        [UAInboxPushHandler handleNotification:userInfo];
+         [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshRequests" object:nil];
+//        [(UITabBarController*)self.window.rootViewController setSelectedIndex:2];        
+//        [[[[(UITabBarController*)self.window.rootViewController tabBar] items] objectAtIndex:2] setBadgeNumber:3];
+
+        
+        //[UAInboxPushHandler handleNotification:userInfo];
     }else{
-       [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshRequests" object:nil];
+        // Notify UAPush that a push came in with the completion handler
+        [[UAPush shared] handleNotification:userInfo
+                           applicationState:application.applicationState
+                     fetchCompletionHandler:completionHandler];
+
     }
     
-    // Notify UAPush that a push came in with the completion handler
-    [[UAPush shared] handleNotification:userInfo
-                       applicationState:application.applicationState
-                 fetchCompletionHandler:completionHandler];
-    
-     [self clearNotifications];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshRequests" object:nil];
+    [self clearNotifications];
 }
 
 - (void)receivedForegroundNotification:(NSDictionary *)notification

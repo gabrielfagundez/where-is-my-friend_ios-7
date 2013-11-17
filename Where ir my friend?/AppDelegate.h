@@ -14,6 +14,8 @@
 #import <MapKit/MapKit.h>
 #import "UAInboxPushHandler.h"
 #import "UAInboxUI.h"
+#import "RequestsViewController.h"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>{
     BOOL habiaConexion;
     CLLocationManager *locationManager;
