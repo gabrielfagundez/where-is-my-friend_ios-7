@@ -46,11 +46,9 @@
     [spinner startAnimating];
     
     [self performSelectorInBackground:@selector(cargarDatosEnBackground) withObject:nil];
-    
-    AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    ap.badgeRequest=nil;
+
     [[[[[self tabBarController] viewControllers]
-       objectAtIndex: 2] tabBarItem] setBadgeValue:ap.badgeRequest];
+       objectAtIndex: 2] tabBarItem] setBadgeValue:nil];
 
 }
 
