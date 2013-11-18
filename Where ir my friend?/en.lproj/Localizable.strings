@@ -14,11 +14,11 @@
 "Cancel" = "Cancel";
 "Logout" = "Logout";
 "Ok" = "Ok";
-"Complete all the fields to login" = "You must complete all the fields";
+"Complete all the fields to login" = "Please, complete all the fields";
 "Invalid Mail and/or Password" = "Invalid Mail and/or Password";
 "Send" = "Send request";
 "Send a notification to" = "Do you want to send a location request to %@?";
 "Yes" = "Yes";
 "No" = "No";
 "Can not send" = "Send Failed";
-"Can not send why" = "It isn't possible to send a location request until %@ replies the previous one";
+"Can not send why" = "Impossible to make a location request to %@. Please, wait until your last request is replied.";

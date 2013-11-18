@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9B0F4466183811B200BB8A3C /* ios-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B0F4465183811B200BB8A3C /* ios-icon.png */; };
 		9B0F4468183811EA00BB8A3C /* ios-splash-wmf.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B0F4467183811EA00BB8A3C /* ios-splash-wmf.png */; };
+		9B0F44701838540D00BB8A3C /* Navigation_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B0F446F1838540D00BB8A3C /* Navigation_icon.png */; };
 		9B87EDCB1836C54A00B8613F /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B87EDC91836C54A00B8613F /* tick.png */; };
 		9B87EDCC1836C54A00B8613F /* redcross.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B87EDCA1836C54A00B8613F /* redcross.png */; };
 		9BA4AFED182E91C7002B2226 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4AFEC182E91C7002B2226 /* AirshipConfig.plist */; };
@@ -76,6 +77,8 @@
 		9BA4B0C6182E940C002B2226 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA4B0C5182E940C002B2226 /* CoreTelephony.framework */; };
 		9BA4B0C8182E941A002B2226 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA4B0C7182E941A002B2226 /* MessageUI.framework */; };
 		9BA4B0CA182E9421002B2226 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA4B0C9182E9421002B2226 /* AudioToolbox.framework */; };
+		9BA5AEFE1839547100B0013E /* bluecross.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BA5AEFC1839547100B0013E /* bluecross.png */; };
+		9BA5AEFF1839547100B0013E /* blue_tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BA5AEFD1839547100B0013E /* blue_tick.png */; };
 		9BA77FF81830FD5F00CE4D08 /* friendsx.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BA77FF51830FD5F00CE4D08 /* friendsx.png */; };
 		9BA77FF91830FD5F00CE4D08 /* requestsx.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BA77FF61830FD5F00CE4D08 /* requestsx.png */; };
 		9BA77FFA1830FD5F00CE4D08 /* mapx.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BA77FF71830FD5F00CE4D08 /* mapx.png */; };
@@ -131,6 +134,7 @@
 /* Begin PBXFileReference section */
 		9B0F4465183811B200BB8A3C /* ios-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-icon.png"; sourceTree = "<group>"; };
 		9B0F4467183811EA00BB8A3C /* ios-splash-wmf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-splash-wmf.png"; sourceTree = "<group>"; };
+		9B0F446F1838540D00BB8A3C /* Navigation_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Navigation_icon.png; sourceTree = "<group>"; };
 		9B87EDC91836C54A00B8613F /* tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tick.png; sourceTree = "<group>"; };
 		9B87EDCA1836C54A00B8613F /* redcross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redcross.png; sourceTree = "<group>"; };
 		9BA4AFEC182E91C7002B2226 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
@@ -272,6 +276,8 @@
 		9BA4B0C5182E940C002B2226 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9BA4B0C7182E941A002B2226 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9BA4B0C9182E9421002B2226 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9BA5AEFC1839547100B0013E /* bluecross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluecross.png; sourceTree = "<group>"; };
+		9BA5AEFD1839547100B0013E /* blue_tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_tick.png; sourceTree = "<group>"; };
 		9BA77FF51830FD5F00CE4D08 /* friendsx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friendsx.png; sourceTree = "<group>"; };
 		9BA77FF61830FD5F00CE4D08 /* requestsx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = requestsx.png; sourceTree = "<group>"; };
 		9BA77FF71830FD5F00CE4D08 /* mapx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapx.png; sourceTree = "<group>"; };
@@ -377,7 +383,10 @@
 		9B87EDCE1836C91100B8613F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9BA5AEFC1839547100B0013E /* bluecross.png */,
+				9BA5AEFD1839547100B0013E /* blue_tick.png */,
 				FE876D051819AD070067A75F /* settings.png */,
+				9B0F446F1838540D00BB8A3C /* Navigation_icon.png */,
 				9B0F4467183811EA00BB8A3C /* ios-splash-wmf.png */,
 				9B0F4465183811B200BB8A3C /* ios-icon.png */,
 				9B87EDC91836C54A00B8613F /* tick.png */,
@@ -876,6 +885,7 @@
 				EFC077C917F776FA001B1EEF /* Default-568h@2x.png in Resources */,
 				9B0F4466183811B200BB8A3C /* ios-icon.png in Resources */,
 				9BA4B0B6182E93A5002B2226 /* UAPushSettingsSoundsViewController.xib in Resources */,
+				9BA5AEFF1839547100B0013E /* blue_tick.png in Resources */,
 				9BA4B09B182E93A5002B2226 /* up.png in Resources */,
 				9BA4B095182E93A5002B2226 /* UAInboxLocalization.bundle in Resources */,
 				9BA4B0AD182E93A5002B2226 /* middle-detail@2x.png in Resources */,
@@ -892,6 +902,7 @@
 				9BA77FFA1830FD5F00CE4D08 /* mapx.png in Resources */,
 				9BA4B096182E93A5002B2226 /* UAInboxMessageListCell.xib in Resources */,
 				EFC077CC17F776FA001B1EEF /* MainStoryboard.storyboard in Resources */,
+				9B0F44701838540D00BB8A3C /* Navigation_icon.png in Resources */,
 				FED8241618006BEC0089C870 /* face.jpg in Resources */,
 				9BA4B08F182E93A5002B2226 /* check.png in Resources */,
 				EFC077D117F776FA001B1EEF /* first.png in Resources */,
@@ -902,6 +913,7 @@
 				9BA4B093182E93A5002B2226 /* overlayCloseBtn.png in Resources */,
 				EFC077D817F776FA001B1EEF /* second.png in Resources */,
 				EFC077DA17F776FA001B1EEF /* second@2x.png in Resources */,
+				9BA5AEFE1839547100B0013E /* bluecross.png in Resources */,
 				9BA4B090182E93A5002B2226 /* check@2x.png in Resources */,
 				9B87EDCC1836C54A00B8613F /* redcross.png in Resources */,
 				9BA4B0B0182E93A5002B2226 /* UALocationSettingsViewController.xib in Resources */,

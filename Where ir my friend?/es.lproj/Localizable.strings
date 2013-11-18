@@ -14,11 +14,11 @@
 "Cancel" = "Cancelar";
 "Logout" = "Cerrar Sesión";
 "Ok" = "Aceptar";
-"Complete all the fields to login" = "Debes completar todos los campos";
+"Complete all the fields to login" = "Por favor, complete todos los campos";
 "Invalid Mail and/or Password" = "Mail y/o contraseña invalidos";
 "Send" = "Enviar solicitud";
 "Send a notification to" = "¿Desea enviar una solicitud de localización a %@?";
 "Yes" = "Si";
 "No" = "No";
 "Can not send" = "Envio fallido";
-"Can not send why" = "No es posible enviar una solicitud de localización hasta que %@ responda la anterior";
+"Can not send why" = "No es posible enviarle una solicitud de localización a %@. Por favor, espere a que responda la solicitud anterior.";

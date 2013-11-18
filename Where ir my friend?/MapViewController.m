@@ -24,6 +24,11 @@
 @synthesize mapView,locationManager;
 
 -(void)viewWillAppear:(BOOL)animated{
+    AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    ap.badgeAccept=nil;
+    [[[[[self tabBarController] viewControllers]
+       objectAtIndex: 0] tabBarItem] setBadgeValue:ap.badgeAccept];
+
 }
 
 -(void) viewDidLoad{
@@ -59,7 +64,8 @@
 
     
     [self.navigationItem setLeftBarButtonItem:btnusr];*/
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:@"updateABadge" object:nil];
+
     
 }
 
@@ -177,6 +183,17 @@
         [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
         
     }
+}
+
+- (void) receiveNotification:(NSNotification *) notification{
+    if ([[notification name] isEqualToString:@"updateABadge"]){
+        AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+        
+        [[[[[self tabBarController] viewControllers]
+           objectAtIndex: 0] tabBarItem] setBadgeValue:ap.badgeAccept];
+        
+    }
+    
 }
 
 

@@ -18,11 +18,17 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>{
     BOOL habiaConexion;
+    NSString *badgeAccept;
+    NSString *badgeRequest;
     CLLocationManager *locationManager;
 }
 
 @property (strong, nonatomic) UIWindow *window;
 @property (assign, nonatomic) BOOL habiaConexion;
+@property (strong, nonatomic) NSString * badgeAccept;
+
+@property (strong, nonatomic) NSString * badgeRequest;
+
 @property(nonatomic,retain) CLLocationManager *locationManager;
 
 @end

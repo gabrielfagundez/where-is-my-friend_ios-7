@@ -46,10 +46,18 @@
     [spinner startAnimating];
     
     [self performSelectorInBackground:@selector(cargarDatosEnBackground) withObject:nil];
+    
+    AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    ap.badgeRequest=nil;
+    [[[[[self tabBarController] viewControllers]
+       objectAtIndex: 2] tabBarItem] setBadgeValue:ap.badgeRequest];
+
 }
 
 -(void)viewDidLoad{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:@"refreshRequests" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:@"updateSBadge" object:nil];
+
 }
 
 -(void)cargarDatosEnBackground{
@@ -113,7 +121,7 @@
     // agrego los botones
     UIButton *aceptar = [UIButton buttonWithType:UIButtonTypeCustom];
     aceptar.frame = CGRectMake(210.0f, 10.0f, 40.0f, 40.0f);
-    [aceptar setImage:[UIImage imageNamed:@"tick.png"] forState:UIControlStateNormal];
+    [aceptar setImage:[UIImage imageNamed:@"blue_tick.png"] forState:UIControlStateNormal];
     [cell addSubview:aceptar];
     [aceptar addTarget:self
                 action:@selector(aceptar:)
@@ -121,7 +129,7 @@
     
     UIButton *rechazar = [UIButton buttonWithType:UIButtonTypeCustom];
     rechazar.frame = CGRectMake(260.0f, 10.0f, 40.0f, 40.0f);
-    [rechazar setImage:[UIImage imageNamed:@"redcross.png"] forState:UIControlStateNormal];
+    [rechazar setImage:[UIImage imageNamed:@"bluecross.png"] forState:UIControlStateNormal];
     [cell addSubview:rechazar];
     [rechazar addTarget:self
                 action:@selector(rechazar:)
@@ -137,72 +145,17 @@
 }
 - (IBAction)aceptar:(id)sender
 {
-    NSLog(@"Aceptooo.");
-    UIButton *button= (UIButton*)sender;
-    
-    button.userInteractionEnabled=NO;
-    
-    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
-    
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-    
-    [self performSelectorInBackground:@selector(aceptarEnBackground:) withObject:indexPath];
-    
-}
-
--(void)aceptarEnBackground:(NSIndexPath*)indexPath{
-    
     if ([BackendProxy internetConnection]){
         
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-        NSString * idSol=[NSString stringWithFormat:@"%d", cell.tag];
-        
-        NSLog(@"El id de la solicitud es:%@",idSol);
-        
-        [BackendProxy Accept:idSol];
-        
-        //borro la sol del jsonData
-        NSMutableArray * copia =[jsonData mutableCopy];
-        
-        [copia removeObjectAtIndex:indexPath.row];
-        
-        jsonData= copia;
-        [self performSelectorOnMainThread:@selector(terminarAceptar:) withObject:indexPath waitUntilDone:YES];
-        
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Action", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert show];
-    }
-}
-
--(void)terminarAceptar:(NSIndexPath*)indexPath{
-    [self.tableView beginUpdates];
-    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]  withRowAnimation:UITableViewRowAnimationFade];
-    
-    [self.tableView endUpdates];
-
-}
-
-- (IBAction)rechazar:(id)sender
-{
-    
-    if ([BackendProxy internetConnection]){
-        
-        
-        
-        NSLog(@"Rechazoooo.");
-        
+        NSLog(@"Aceptoooo.");
+        UIButton *button= (UIButton*)sender;
+        button.userInteractionEnabled=NO;
         CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
         NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
         
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
         NSString * idSol=[NSString stringWithFormat:@"%d", cell.tag];
-        
-        
-        NSLog(@"El id de la solicitud es:%@",idSol);
-        
-        [BackendProxy Reject:idSol];
-        
+
         //borro la sol del jsonData
         NSMutableArray * copia =[jsonData mutableCopy];
         
@@ -215,10 +168,60 @@
         
         [self.tableView endUpdates];
         
+        [self performSelectorInBackground:@selector(aceptarEnBackground:) withObject:idSol];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Action", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
     }
+    
+}
+
+-(void)aceptarEnBackground:(NSString*)idSol{
+    
+        NSLog(@"El id de la solicitud es:%@",idSol);
+        
+        [BackendProxy Accept:idSol];
+}
+
+- (IBAction)rechazar:(id)sender
+{
+    if ([BackendProxy internetConnection]){
+
+        NSLog(@"Rechazoooo.");
+        UIButton *button= (UIButton*)sender;
+        button.userInteractionEnabled=NO;
+        CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+        
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        NSString * idSol=[NSString stringWithFormat:@"%d", cell.tag];
+        
+
+        //borro la sol del jsonData
+        NSMutableArray * copia =[jsonData mutableCopy];
+        
+        [copia removeObjectAtIndex:indexPath.row];
+        
+        jsonData= copia;
+        
+        [self.tableView beginUpdates];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]  withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self.tableView endUpdates];
+
+        [self performSelectorInBackground:@selector(rechazarEnBackground:) withObject:idSol];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Action", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }
+
+}
+
+-(void)rechazarEnBackground:(NSString*)idSol{
+    
+    NSLog(@"El id de la solicitud es:%@",idSol);
+    
+    [BackendProxy Accept:idSol];
 }
 
 - (void)didReceiveMemoryWarning
@@ -250,7 +253,17 @@
         [spinner startAnimating];
 
         [self performSelectorInBackground:@selector(cargarDatosEnBackground) withObject:nil];
+        [[[[[self tabBarController] viewControllers]
+           objectAtIndex: 2] tabBarItem] setBadgeValue:nil];
+
     }
+    if ([[notification name] isEqualToString:@"updateSBadge"]){
+        AppDelegate * ap = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+        
+        [[[[[self tabBarController] viewControllers]
+           objectAtIndex: 2] tabBarItem] setBadgeValue:ap.badgeRequest];
+    }
+
 }
 
 @end

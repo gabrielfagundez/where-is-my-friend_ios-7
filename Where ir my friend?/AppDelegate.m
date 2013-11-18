@@ -11,7 +11,7 @@
 @implementation AppDelegate
 
 
-@synthesize locationManager;
+@synthesize locationManager,badgeRequest,badgeAccept;
 
 - (void)dealloc
 {
@@ -79,7 +79,6 @@
     [locationManager setDistanceFilter:10];
     
 
-    
     return YES;
 }
 							
@@ -171,11 +170,23 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     if (application.applicationState != UIApplicationStateBackground) {
         UA_LINFO(@"Received remote notification: %@", userInfo);
          [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshRequests" object:nil];
+         NSString* type = [userInfo objectForKey:@"type"];
+        if ([type isEqualToString:@"s"]){
+            NSArray *a = [(UITabBarController*)self.window.rootViewController viewControllers];
+            self.badgeRequest=[[userInfo objectForKey:@"particularBadge"] stringValue];
+            [[[[(UITabBarController*)self.window.rootViewController viewControllers]
+               objectAtIndex: 2] tabBarItem] setBadgeValue:self.badgeRequest];
+        }else{
+            self.badgeAccept=[[userInfo objectForKey:@"particularBadge"] stringValue];
+            [[[[(UITabBarController*)self.window.rootViewController viewControllers]
+               objectAtIndex: 0] tabBarItem] setBadgeValue:self.badgeAccept];
+        }
+        
 //        [(UITabBarController*)self.window.rootViewController setSelectedIndex:2];        
 //        [[[[(UITabBarController*)self.window.rootViewController tabBar] items] objectAtIndex:2] setBadgeNumber:3];
 
-        
-        //[UAInboxPushHandler handleNotification:userInfo];
+
+    //[UAInboxPushHandler handleNotification:userInfo];
     }else{
         // Notify UAPush that a push came in with the completion handler
         [[UAPush shared] handleNotification:userInfo
