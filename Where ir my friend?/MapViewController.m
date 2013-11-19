@@ -177,10 +177,16 @@
         
         if ([BackendProxy internetConnection]){
             [BackendProxy logout];
+            
+            [self performSegueWithIdentifier:@"logoutSegue" sender:self];
+            NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+            [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+        }else{
+            //si no hay conexion con el server
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Connection Failed", nil) message:NSLocalizedString(@"No Internet Connection Action", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
+            [alert show];
+
         }
-        [self performSegueWithIdentifier:@"logoutSegue" sender:self];
-        NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
         
     }
 }

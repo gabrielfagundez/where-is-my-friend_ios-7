@@ -233,7 +233,6 @@
         <!--Navigation Controller - Amigos-->
         <scene sceneID="uNv-w0-wes">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mnf-xq-0kk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="KHc-OC-uqv" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Amigos" image="friendsx.png" id="dFp-fy-Mbq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ubg-3L-oJ4">
@@ -247,6 +246,7 @@
                         <segue destination="mBb-0l-zRz" kind="relationship" relationship="rootViewController" id="bWe-gU-9b5"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mnf-xq-0kk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="733" y="176"/>
         </scene>
@@ -287,7 +287,6 @@
         <!--Navigation Controller - Mapa-->
         <scene sceneID="Gni-Nj-RBb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3lM-Kl-Cha" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="QJX-mC-juo" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Mapa" image="mapx.png" id="1rY-GQ-4ZZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2vQ-cB-xQo">
@@ -301,13 +300,13 @@
                         <segue destination="2" kind="relationship" relationship="rootViewController" id="4Yt-FN-wwm"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3lM-Kl-Cha" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="733" y="-535"/>
         </scene>
         <!--Navigation Controller - Solicitudes-->
         <scene sceneID="3g4-g5-EM8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5QR-WM-ylB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="jV5-jG-0au" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Solicitudes" image="requestsx.png" id="FrX-eX-TRT"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wke-g4-3Kc">
@@ -321,6 +320,7 @@
                         <segue destination="6dG-Er-KBP" kind="relationship" relationship="rootViewController" id="rLD-oC-wg8"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5QR-WM-ylB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="733" y="891"/>
         </scene>

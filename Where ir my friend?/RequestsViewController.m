@@ -219,7 +219,7 @@
     
     NSLog(@"El id de la solicitud es:%@",idSol);
     
-    [BackendProxy Accept:idSol];
+    [BackendProxy Reject:idSol];
 }
 
 - (void)didReceiveMemoryWarning
