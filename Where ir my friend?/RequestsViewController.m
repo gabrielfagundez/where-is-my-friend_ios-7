@@ -144,7 +144,6 @@
 - (IBAction)aceptar:(id)sender
 {
     if ([BackendProxy internetConnection]){
-        
         NSLog(@"Aceptoooo.");
         UIButton *button= (UIButton*)sender;
         button.userInteractionEnabled=NO;
@@ -184,7 +183,6 @@
 - (IBAction)rechazar:(id)sender
 {
     if ([BackendProxy internetConnection]){
-
         NSLog(@"Rechazoooo.");
         UIButton *button= (UIButton*)sender;
         button.userInteractionEnabled=NO;

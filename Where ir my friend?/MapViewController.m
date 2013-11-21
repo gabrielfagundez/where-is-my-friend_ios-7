@@ -21,6 +21,7 @@
     NSTimer * timer,*timer2;
     
 }
+
 @synthesize mapView,locationManager;
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -28,7 +29,6 @@
     ap.badgeAccept=nil;
     [[[[[self tabBarController] viewControllers]
        objectAtIndex: 0] tabBarItem] setBadgeValue:ap.badgeAccept];
-
 }
 
 -(void) viewDidLoad{
@@ -65,10 +65,14 @@
     
     [self.navigationItem setLeftBarButtonItem:btnusr];*/
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:@"updateABadge" object:nil];
-
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *user = [defaults stringForKey:@"id"];
+    if (user){
+        UIViewController *viewController = self.tabBarController;
+        ap.window.rootViewController= viewController;
+    }
 }
-
 
 -(void) targetMethod: (NSTimer *) theTimer {
    // NSLog(@"10 segundos!!!!");
